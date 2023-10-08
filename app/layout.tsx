@@ -1,6 +1,6 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-slate-50 bg-gradient-to-br from-indigo-100 from-10% via-indigo-50 via-30% ${inter.className}`}
+        className={`container mx-auto bg-slate-50 bg-gradient-to-br from-indigo-100 from-10% via-indigo-50 via-30% px-2 md:px-4 ${inter.className}`}
       >
         {children}
       </body>
