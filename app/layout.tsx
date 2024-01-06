@@ -1,7 +1,8 @@
+import { JOB_TITLE } from "@/config";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Particles from "./components/particles";
 import "./globals.css";
-import { JOB_TITLE } from "@/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`container mx-auto bg-slate-50 bg-gradient-to-br from-indigo-100 from-10% via-indigo-50 via-30% px-2 text-black md:px-4 ${inter.className}`}
+        className={`container mx-auto bg-white text-black dark:bg-slate-800 dark:text-white md:px-4 ${inter.className}`}
       >
+        <Particles />
         {children}
       </body>
     </html>
