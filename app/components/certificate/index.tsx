@@ -215,6 +215,6 @@ const certificates = [
   {
     label: "Belajar Machine Learning untuk Pemula",
     src: BelajarMachineLearningUntukPemula,
-    url: "https://https://www.dicoding.com/certificates/07Z6WV05MZQR",
+    url: "https://www.dicoding.com/certificates/07Z6WV05MZQR",
   },
 ];
