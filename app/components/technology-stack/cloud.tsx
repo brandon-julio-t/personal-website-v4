@@ -1,3 +1,5 @@
+import { faAws } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListItem from "./list-item";
 
 export default function Cloud() {
@@ -5,6 +7,13 @@ export default function Cloud() {
     <section className="text-center">
       <h3 className="text-4xl">Cloud</h3>
       <ul className="my-1">
+        <ListItem>
+          <FontAwesomeIcon
+            icon={faAws}
+            className="h-4 fill-current text-red-600"
+          />
+          <span>Amazon Web Services</span>
+        </ListItem>
         <ListItem>
           <svg className="h-5" viewBox="0 0 128 128">
             <g fill="#6762A6">

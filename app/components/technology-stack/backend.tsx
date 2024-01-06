@@ -1,4 +1,3 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListItem from "./list-item";
@@ -30,7 +29,7 @@ export default function Backend() {
         </ListItem>
         <ListItem>
           <FontAwesomeIcon
-            icon={faLaravel as IconProp}
+            icon={faLaravel}
             className="h-4 fill-current text-red-600"
           />
           <span>Laravel</span>
