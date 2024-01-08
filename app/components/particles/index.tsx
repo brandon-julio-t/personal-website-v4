@@ -22,7 +22,7 @@ const Particles = () => {
   return (
     <canvas
       ref={particleCanvas}
-      className="fixed -z-50 h-screen w-screen opacity-70 blur-[1px]"
+      className="fixed inset-0 -z-50 h-screen w-screen opacity-70 blur-[1px]"
     />
   );
 };
