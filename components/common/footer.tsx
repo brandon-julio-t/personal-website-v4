@@ -5,10 +5,10 @@ import ExternalLink from "./external-link";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-16">
+    <footer className="relative w-full py-16">
       <Separator />
 
-      <section className="mt-4 flex flex-wrap justify-center gap-4">
+      <section className="mb-10 mt-16 flex flex-wrap justify-center gap-4">
         {credits.map((credit, idx) => (
           <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
             <ExternalLink href={credit.href}>
@@ -18,6 +18,10 @@ const Footer = () => {
             </ExternalLink>
           </BlurFade>
         ))}
+      </section>
+
+      <section>
+        <TypographyMuted className="text-center">&copy; 2024</TypographyMuted>
       </section>
     </footer>
   );
