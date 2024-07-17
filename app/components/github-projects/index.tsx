@@ -1,5 +1,10 @@
 import Card from "@/components/common/card";
 import CardsContainer from "./cards-container";
+import {
+  TypographyH2,
+  TypographyH3,
+  TypographyP,
+} from "@/components/ui/typography";
 
 const GithubProjects: React.FunctionComponent = async () => {
   const { data, error } = await getData();
@@ -11,15 +16,17 @@ const GithubProjects: React.FunctionComponent = async () => {
 
   return (
     <section className="mb-8">
-      <h2 className="text-center text-5xl">GitHub Projects</h2>
+      <TypographyH2 className="text-center">GitHub Projects</TypographyH2>
 
       {error ? (
         <Card className="mx-auto my-8 max-w-screen-md">
-          <h3 className="mb-2 text-center text-3xl">Error</h3>
-          <p className="mb-4 text-center font-bold">
+          <TypographyH3 className="mb-2 text-center text-3xl">
+            Error
+          </TypographyH3>
+          <TypographyP className="mb-4 text-center font-bold">
             Please contact the developer with the following detail
-          </p>
-          <p className="text-center">{error}</p>
+          </TypographyP>
+          <TypographyP className="text-center">{error}</TypographyP>
         </Card>
       ) : (
         <>

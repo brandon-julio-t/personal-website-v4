@@ -1,23 +1,18 @@
-import { motion } from "framer-motion";
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyP } from "@/components/ui/typography";
 
 const ListItem: React.FunctionComponent<
   React.HTMLAttributes<HTMLLIElement>
 > = ({ children, ...rest }) => {
   return (
     <li {...rest}>
-      <motion.div
-        variants={{
-          hidden: { y: 20, opacity: 0 },
-          visible: {
-            y: 0,
-            opacity: 1,
-          },
-        }}
-        whileHover={{ scale: 1.25 }}
+      <BlurFade
+        delay={0.25}
+        inView
         className="flex items-center justify-center space-x-1 text-lg"
       >
         {children}
-      </motion.div>
+      </BlurFade>
     </li>
   );
 };
