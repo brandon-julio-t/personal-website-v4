@@ -1,4 +1,4 @@
-import ILanguage from './language';
+import ILanguage from "./language";
 
 export default interface IRepository {
   createdAt: string;

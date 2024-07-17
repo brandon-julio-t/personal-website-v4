@@ -1,8 +1,8 @@
-import Vector from './vector';
-import RGB from './rgb';
-import Coordinate from './coordinate';
-import { toRgbString } from './utilities';
-import ParticleSystem from './particle-system';
+import Vector from "./vector";
+import RGB from "./rgb";
+import Coordinate from "./coordinate";
+import { toRgbString } from "./utilities";
+import ParticleSystem from "./particle-system";
 
 export default class Particle {
   public constructor(
@@ -12,7 +12,7 @@ export default class Particle {
     private readonly color: RGB,
     private readonly ctx:
       | CanvasRenderingContext2D
-      | OffscreenCanvasRenderingContext2D
+      | OffscreenCanvasRenderingContext2D,
   ) {}
 
   public move(): void {
@@ -70,11 +70,11 @@ export default class Particle {
     const gradient = this.ctx.createLinearGradient(x1, y1, x2, y2);
     gradient.addColorStop(
       0,
-      toRgbString(this.color, distance / ParticleSystem.MIN_LINK_DISTANCE)
+      toRgbString(this.color, distance / ParticleSystem.MIN_LINK_DISTANCE),
     );
     gradient.addColorStop(
       1,
-      toRgbString(another.color, distance / ParticleSystem.MIN_LINK_DISTANCE)
+      toRgbString(another.color, distance / ParticleSystem.MIN_LINK_DISTANCE),
     );
 
     const centerDelta = this.size / 2;
@@ -103,7 +103,7 @@ export default class Particle {
     this.ctx.strokeStyle = toRgbString(
       this.color,
       this.position.euclideanDistanceTo(another) /
-        ParticleSystem.MIN_LINK_DISTANCE
+        ParticleSystem.MIN_LINK_DISTANCE,
     );
     this.ctx.beginPath();
     this.ctx.moveTo(fromX - centerDelta, fromY - centerDelta);
