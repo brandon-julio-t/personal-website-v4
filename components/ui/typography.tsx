@@ -119,6 +119,9 @@ export function TypographySmall({
 
 export function TypographyMuted({
   children,
+  className,
 }: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="text-sm text-muted-foreground">{children}</p>;
+  return (
+    <p className={cn("text-sm text-muted-foreground", className)}>{children}</p>
+  );
 }
