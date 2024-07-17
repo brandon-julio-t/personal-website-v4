@@ -1,4 +1,8 @@
 // prettier.config.js
 module.exports = {
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: [
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-imports",
+    "@trivago/prettier-plugin-sort-imports",
+  ],
 };

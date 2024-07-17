@@ -1,10 +1,10 @@
 "use client";
 
-import { JOB_TITLE } from "@/config";
-
 import BlurFade from "@/components/magicui/blur-fade";
 import { BackgroundBeams } from "@/components/ui.aceternity/background-beams";
 import { TypographyH1, TypographyH2 } from "@/components/ui/typography";
+import { JOB_TITLE } from "@/config";
+
 // import { useTheme } from "next-themes";
 
 export default function Hero() {

@@ -1,7 +1,7 @@
-import { faLaravel } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListItem from "./list-item";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import { faLaravel } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Backend() {
   return (

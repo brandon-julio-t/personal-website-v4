@@ -1,12 +1,5 @@
 "use client";
 
-import ExternalLink from "@/components/common/external-link";
-import { useAnimation } from "framer-motion";
-import Image from "next/image";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-
-import BlurFade from "@/components/magicui/blur-fade";
 import APIsAndMicroservices from "./images/APIs and Microservices.png";
 import AWSAcademyGraduateAWSAcademyCloudFoundations from "./images/AWS Academy Graduate - AWS Academy Cloud Foundations.png";
 import AWSCertifiedCloudPractitionerFoundational from "./images/AWS Certified Cloud Practitioner Foundational.png";
@@ -31,7 +24,13 @@ import RestAPI from "./images/Rest API.png";
 import SQLBasic from "./images/SQL (Basic).png";
 import TokopediaSTARTSummit from "./images/Tokopedia START Summit.png";
 import TypingSpeed from "./images/Typing Speed.jpg";
+import ExternalLink from "@/components/common/external-link";
+import BlurFade from "@/components/magicui/blur-fade";
 import { TypographyH2 } from "@/components/ui/typography";
+import { useAnimation } from "framer-motion";
+import Image from "next/image";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function Certificate() {
   return (

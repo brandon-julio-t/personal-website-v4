@@ -1,5 +1,5 @@
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import ListItem from "./list-item";
+import { TypographyH3, TypographyP } from "@/components/ui/typography";
 
 export default function Frontend() {
   return (

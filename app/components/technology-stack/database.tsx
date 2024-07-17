@@ -1,9 +1,9 @@
+import ListItem from "./list-item";
 import {
   TypographyH3,
   TypographyH4,
   TypographyP,
 } from "@/components/ui/typography";
-import ListItem from "./list-item";
 
 export default function Database() {
   return (

@@ -1,12 +1,12 @@
 "use client";
 
-import { TypographyH2 } from "@/components/ui/typography";
 import Backend from "./backend";
 import Cloud from "./cloud";
 import Database from "./database";
 import Frontend from "./frontend";
 import Others from "./others";
 import TechnologyStackProgramming from "./programming";
+import { TypographyH2 } from "@/components/ui/typography";
 
 export default function TechnologyStack() {
   return (

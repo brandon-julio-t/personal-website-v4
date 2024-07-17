@@ -1,5 +1,5 @@
-import Card from "@/components/common/card";
 import CardsContainer from "./cards-container";
+import Card from "@/components/common/card";
 import {
   TypographyH2,
   TypographyH3,

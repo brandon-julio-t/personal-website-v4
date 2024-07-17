@@ -1,3 +1,9 @@
+import BlurFade from "../magicui/blur-fade";
+import { Dock, DockIcon } from "../magicui/dock";
+import { DarkModeToggle } from "../ui/dark-mode-toggle";
+import { Separator } from "../ui/separator";
+import ExternalLink from "./external-link";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
   faFacebook,
   faFreeCodeCamp,
@@ -8,13 +14,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import ExternalLink from "./external-link";
-import { Dock, DockIcon } from "../magicui/dock";
-import { DarkModeToggle } from "../ui/dark-mode-toggle";
-import { Separator } from "../ui/separator";
-import BlurFade from "../magicui/blur-fade";
 
 const contacts = [
   {

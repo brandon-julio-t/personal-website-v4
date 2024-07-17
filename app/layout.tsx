@@ -1,12 +1,12 @@
-import { JOB_TITLE } from "@/config";
-import type { Metadata } from "next";
 import "./globals.css";
-
-import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
-import { Inter as FontSans } from "next/font/google";
 import Footer from "@/components/common/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import { AuroraBackground } from "@/components/ui.aceternity/aurora-background";
+import { TracingBeam } from "@/components/ui.aceternity/tracing-beam";
+import { JOB_TITLE } from "@/config";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { Inter as FontSans } from "next/font/google";
 
 const fontSans = FontSans({
   subsets: ["latin"],

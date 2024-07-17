@@ -1,5 +1,6 @@
 "use client";
 
+import RepositoryCard from "./repository-card";
 import Skeleton from "@/components/common/skeleton";
 import BlurFade from "@/components/magicui/blur-fade";
 import { TypographyH3 } from "@/components/ui/typography";
@@ -7,7 +8,6 @@ import IRepository from "@/interfaces/repository";
 import { useAnimation } from "framer-motion";
 import { FunctionComponent, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import RepositoryCard from "./repository-card";
 
 const CardsContainer: FunctionComponent<{
   title: string;

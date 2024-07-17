@@ -1,7 +1,7 @@
+import Coordinate from "./coordinate";
 import Particle from "./particle";
 import { hexToRgb, randomHexColor, randomIntegerBetween } from "./utilities";
 import Vector from "./vector";
-import Coordinate from "./coordinate";
 
 export default class ParticleSystem {
   public static readonly MIN_LINK_DISTANCE: number = 175;

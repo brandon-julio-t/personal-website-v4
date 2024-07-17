@@ -1,8 +1,8 @@
-import Vector from "./vector";
-import RGB from "./rgb";
 import Coordinate from "./coordinate";
-import { toRgbString } from "./utilities";
 import ParticleSystem from "./particle-system";
+import RGB from "./rgb";
+import { toRgbString } from "./utilities";
+import Vector from "./vector";
 
 export default class Particle {
   public constructor(

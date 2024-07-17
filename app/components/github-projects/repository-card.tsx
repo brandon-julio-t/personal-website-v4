@@ -1,3 +1,4 @@
+import LanguagePill from "./language-pill";
 import ExternalLink from "@/components/common/external-link";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { TypographyH4, TypographyP } from "@/components/ui/typography";
@@ -7,7 +8,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import LanguagePill from "./language-pill";
 
 const RepositoryCard: React.FunctionComponent<
   React.ComponentProps<"div"> & { repository: IRepository }
