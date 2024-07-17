@@ -20,9 +20,9 @@ const Footer = () => {
         ))}
       </section>
 
-      <section>
+      <BlurFade delay={0.25} inView>
         <TypographyMuted className="text-center">&copy; 2024</TypographyMuted>
-      </section>
+      </BlurFade>
     </footer>
   );
 };
