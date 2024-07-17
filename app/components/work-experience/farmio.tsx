@@ -1,22 +1,33 @@
 import Card from "@/components/common/card";
+import { MagicCard } from "@/components/magicui/magic-card";
+import {
+  TypographyH3,
+  TypographyH4,
+  TypographyP,
+  TypographySmall,
+} from "@/components/ui/typography";
 
 export default function Farmio() {
   return (
     <section className="mx-auto my-8 flex max-w-screen-md flex-col justify-center space-y-8">
-      <h3 className="text-center text-4xl">
+      <TypographyH3 className="text-center">
         Farmio
         <br />
-        <small className="text-base italic">2023 - present</small>
-      </h3>
+        <TypographySmall className="text-base italic">
+          2023 - present
+        </TypographySmall>
+      </TypographyH3>
 
-      <Card>
-        <h4 className="text-2xl font-medium">Software Engineer</h4>
-        <p>
+      <MagicCard className="p-4">
+        <TypographyH4 className="text-2xl font-medium">
+          Software Engineer
+        </TypographyH4>
+        <TypographyP>
           As a software engineer, I am responsible for many software related
           tasks such as software development, database design, software
           maintenance, and software architecture design.
-        </p>
-      </Card>
+        </TypographyP>
+      </MagicCard>
     </section>
   );
 }

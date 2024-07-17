@@ -1,18 +1,19 @@
 import { faAws } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListItem from "./list-item";
+import { TypographyH3, TypographyP } from "@/components/ui/typography";
 
 export default function Cloud() {
   return (
     <section className="text-center">
-      <h3 className="text-4xl">Cloud</h3>
+      <TypographyH3>Cloud</TypographyH3>
       <ul className="my-1">
         <ListItem>
           <FontAwesomeIcon
             icon={faAws}
             className="h-4 fill-current text-red-600"
           />
-          <span>Amazon Web Services</span>
+          <TypographyP>Amazon Web Services</TypographyP>
         </ListItem>
         <ListItem>
           <svg className="h-5" viewBox="0 0 128 128">
@@ -20,7 +21,7 @@ export default function Cloud() {
               <path d="M114 13.9c0-6.6-5.3-11.9-11.9-11.9h-76.2c-6.6 0-11.9 5.3-11.9 11.9v100.3c0 6.6 5.3 11.9 11.9 11.9h76.3c6.6 0 11.9-5.3 11.9-11.9v-100.3zm-4 .1v99.3c0 4.7-3.5 8.7-8.2 8.7h-75.3c-4.7 0-8.5-4-8.5-8.7v-99.3c0-4.7 3.9-8 8.5-8h75.2c4.7 0 8.4 3.6 8.4 8.3l-.1-.3zM37 108.7l14.1-14.1-14.1-14.1zM51 47.8v-29.4l-13.9.1s.1 45.9.2 45.7c42.8-16.7 39.7-4.8 39.7-4.8v49.4l-.1.2h13.1v-49.5c0-27.1-39-11.7-39-11.7zM70 36h14.8c8-10 10.7-17 10.7-17h-15.3s-4.9 11-10.2 17z" />
             </g>
           </svg>
-          <span>Heroku</span>
+          <TypographyP>Heroku</TypographyP>
         </ListItem>
         <ListItem>
           <svg
@@ -34,7 +35,7 @@ export default function Cloud() {
               fill="#25C7B7"
             />
           </svg>
-          <span>Netlify</span>
+          <TypographyP>Netlify</TypographyP>
         </ListItem>
         <ListItem>
           <svg viewBox="0 0 128 128" className="h-5">
@@ -43,7 +44,7 @@ export default function Cloud() {
               d="M27.35 80.52l10.68-68.44c.37-2.33 3.5-2.89 4.6-.8l11.48 21.48-26.76 47.76zm75.94 16.63L93.1 34.11c-.31-1.96-2.76-2.76-4.17-1.35L24.71 97.15l35.54 19.95a7.447 7.447 0 007.18 0l35.86-19.95zm-28.85-55L66.21 26.5c-.92-1.78-3.44-1.78-4.36 0L25.7 90.95l48.74-48.8z"
             ></path>
           </svg>
-          <span>Firebase</span>
+          <TypographyP>Firebase</TypographyP>
         </ListItem>
       </ul>
     </section>

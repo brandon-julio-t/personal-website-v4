@@ -1,5 +1,6 @@
-import Card from "@/components/common/card";
 import ExternalLink from "@/components/common/external-link";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import IRepository from "@/interfaces/repository";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -38,8 +39,10 @@ const RepositoryCard: React.FunctionComponent<
 
   return (
     <div {...rest}>
-      <Card>
-        <h3 className="text-lg font-bold">{toTitleCase(repository.name)}</h3>
+      <MagicCard className="p-4">
+        <TypographyH4 className="text-lg font-bold">
+          {toTitleCase(repository.name)}
+        </TypographyH4>
         <small>{createdAt}</small>
 
         <div className="my-2 flex flex-wrap space-x-1">
@@ -68,8 +71,10 @@ const RepositoryCard: React.FunctionComponent<
           </ExternalLink>
         )}
 
-        <p className="my-2 text-base italic">{repository.description}</p>
-      </Card>
+        <TypographyP className="my-2 italic">
+          {repository.description}
+        </TypographyP>
+      </MagicCard>
     </div>
   );
 };

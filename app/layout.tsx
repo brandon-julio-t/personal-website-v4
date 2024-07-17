@@ -1,10 +1,15 @@
 import { JOB_TITLE } from "@/config";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Particles from "./components/particles";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
+import { Inter as FontSans } from "next/font/google";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: `Brandon Julio Thenaro | ${JOB_TITLE}`,
@@ -19,10 +24,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`container mx-auto bg-white text-black dark:bg-slate-800 dark:text-white md:px-4 ${inter.className}`}
+        className={cn(
+          "min-h-screen bg-background font-sans text-foreground antialiased",
+          fontSans.variable,
+        )}
       >
-        <Particles />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

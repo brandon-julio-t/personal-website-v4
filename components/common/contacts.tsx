@@ -11,106 +11,73 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import ExternalLink from "./external-link";
+import { Dock, DockIcon } from "../magicui/dock";
+import { DarkModeToggle } from "../ui/dark-mode-toggle";
+import { Separator } from "../ui/separator";
+import BlurFade from "../magicui/blur-fade";
+
+const contacts = [
+  {
+    href: "https://www.facebook.com/profile.php?id=100008724798107",
+    icon: faFacebook,
+    title: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/brandon.julio.t",
+    icon: faInstagram,
+    title: "Instagram",
+  },
+  {
+    href: "https://twitter.com/brandon_julio_t",
+    icon: faTwitter,
+    title: "Twitter",
+  },
+  {
+    href: "https://github.com/brandon-julio-t",
+    icon: faGithub,
+    title: "Github",
+  },
+  {
+    href: "https://www.linkedin.com/in/brandonjuliothenaro",
+    icon: faLinkedin,
+    title: "Linkedin",
+  },
+  { href: "https://s.id/cv-bjt", icon: faFileAlt, title: "FileAlt" },
+  {
+    href: "https://www.freecodecamp.org/brandon-julio-thenaro",
+    icon: faFreeCodeCamp,
+    title: "FreeCodeCamp",
+  },
+];
 
 export default function Contacts() {
   return (
-    <section className="mx-auto my-8 grid max-w-screen-sm grid-cols-4 gap-8 md:grid-cols-8">
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://www.facebook.com/profile.php?id=100008724798107"
-        aria-label="Facebook"
-        title="Facebook"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faFacebook as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://www.instagram.com/brandon.julio.t"
-        aria-label="Instagram"
-        title="Instagram"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faInstagram as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://twitter.com/brandon_julio_t"
-        aria-label="Twitter"
-        title="Twitter"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faTwitter as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://github.com/brandon-julio-t"
-        aria-label="GitHub"
-        title="GitHub"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faGithub as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <a
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="mailto:brandon.julio.t@icloud.com"
-        aria-label="Email"
-        title="Email"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faEnvelope as IconProp}
-          size="2x"
-        />
-      </a>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://www.linkedin.com/in/brandonjuliothenaro"
-        aria-label="LinkedIn"
-        title="LinkedIn"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faLinkedin as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://s.id/cv-bjt"
-        aria-label="Curriculum Vitae"
-        title="Curriculum Vitae"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faFileAlt as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-      <ExternalLink
-        className="origin-center transform-gpu transition duration-75 ease-in-out hover:scale-150"
-        href="https://www.freecodecamp.org/brandon-julio-thenaro"
-        aria-label="freeCodeCamp"
-        title="freeCodeCamp"
-      >
-        <FontAwesomeIcon
-          className="h-6"
-          icon={faFreeCodeCamp as IconProp}
-          size="2x"
-        />
-      </ExternalLink>
-    </section>
+    <BlurFade
+      delay={0.25}
+      inView
+      // className="mx-auto my-8 grid max-w-screen-sm grid-cols-4 gap-8 md:grid-cols-8"
+    >
+      <Dock direction="middle">
+        {contacts.map((contact, idx) => (
+          <DockIcon key={idx}>
+            <ExternalLink
+              href="https://www.facebook.com/profile.php?id=100008724798107"
+              aria-label={contact.title}
+              title={contact.title}
+            >
+              <FontAwesomeIcon
+                className="h-6 text-foreground"
+                icon={contact.icon as IconProp}
+                size="2x"
+              />
+            </ExternalLink>
+          </DockIcon>
+        ))}
+
+        <Separator orientation="vertical" className="h-full py-2" />
+
+        <DarkModeToggle />
+      </Dock>
+    </BlurFade>
   );
 }
