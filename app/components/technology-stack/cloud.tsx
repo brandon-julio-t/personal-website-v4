@@ -9,6 +9,10 @@ export default function Cloud() {
       <TypographyH3>Cloud</TypographyH3>
       <ul className="my-1">
         <ListItem>
+          <div className="size-5 text-foreground">▲</div>
+          <TypographyP>Vercel</TypographyP>
+        </ListItem>
+        <ListItem>
           <FontAwesomeIcon
             icon={faAws}
             className="h-4 fill-current text-red-600"
