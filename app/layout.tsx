@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google";
+import Footer from "@/components/common/footer";
+import { AuroraBackground } from "@/components/ui.aceternity/aurora-background";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,7 +37,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuroraBackground>
+            {children}
+
+            <Footer />
+          </AuroraBackground>
         </ThemeProvider>
       </body>
     </html>

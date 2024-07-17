@@ -52,16 +52,12 @@ const contacts = [
 
 export default function Contacts() {
   return (
-    <BlurFade
-      delay={0.25}
-      inView
-      // className="mx-auto my-8 grid max-w-screen-sm grid-cols-4 gap-8 md:grid-cols-8"
-    >
+    <BlurFade delay={0.25} inView>
       <Dock direction="middle">
         {contacts.map((contact, idx) => (
           <DockIcon key={idx}>
             <ExternalLink
-              href="https://www.facebook.com/profile.php?id=100008724798107"
+              href={contact.href}
               aria-label={contact.title}
               title={contact.title}
             >
