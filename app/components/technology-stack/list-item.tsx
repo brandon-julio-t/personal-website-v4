@@ -1,11 +1,11 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import { TypographyP } from "@/components/ui/typography";
+import { motion } from "framer-motion";
 
 const ListItem: React.FunctionComponent<
   React.HTMLAttributes<HTMLLIElement>
-> = ({ children, ...rest }) => {
+> = ({ children }) => {
   return (
-    <li {...rest}>
+    <motion.li whileHover={{ scale: 1.25 }}>
       <BlurFade
         delay={0.25}
         inView
@@ -13,7 +13,7 @@ const ListItem: React.FunctionComponent<
       >
         {children}
       </BlurFade>
-    </li>
+    </motion.li>
   );
 };
 
