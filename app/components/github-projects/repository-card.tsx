@@ -1,7 +1,11 @@
 import LanguagePill from "./language-pill";
 import ExternalLink from "@/components/common/external-link";
 import { MagicCard } from "@/components/magicui/magic-card";
-import { TypographyH4, TypographyP } from "@/components/ui/typography";
+import {
+  TypographyH4,
+  TypographyP,
+  TypographySmall,
+} from "@/components/ui/typography";
 import IRepository from "@/interfaces/repository";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -40,40 +44,50 @@ const RepositoryCard: React.FunctionComponent<
   return (
     <div {...rest}>
       <MagicCard className="p-4">
-        <TypographyH4 className="text-lg font-bold">
-          {toTitleCase(repository.name)}
-        </TypographyH4>
-        <small>{createdAt}</small>
+        <div className="flex flex-col gap-2 size-full">
+          <header>
+            <TypographyH4>{toTitleCase(repository.name)}</TypographyH4>
+            <TypographySmall>{createdAt}</TypographySmall>
+          </header>
 
-        <div className="my-2 flex flex-wrap space-x-1">
-          {repository.languages.nodes.map((language, idx) => (
-            <LanguagePill key={idx} language={language} />
-          ))}
+          <div className="flex flex-wrap gap-1">
+            {repository.languages.nodes.map((language, idx) => (
+              <LanguagePill key={idx} language={language} />
+            ))}
+          </div>
+
+          {repository.description && (
+            <TypographyP className="italic">
+              {repository.description}
+            </TypographyP>
+          )}
+
+          <div className="flex flex-col gap-1 mt-auto">
+            <ExternalLink
+              href={repository.url}
+              className="flex items-center hover:underline"
+            >
+              <FontAwesomeIcon
+                className="mr-1 h-5"
+                icon={faGithub as IconProp}
+              />{" "}
+              View on GitHub
+            </ExternalLink>
+
+            {repository.homepageUrl && (
+              <ExternalLink
+                href={repository.homepageUrl}
+                className="flex items-center hover:underline"
+              >
+                <FontAwesomeIcon
+                  className="mr-1 h-5"
+                  icon={faGlobe as IconProp}
+                />{" "}
+                View Live
+              </ExternalLink>
+            )}
+          </div>
         </div>
-
-        <ExternalLink
-          href={repository.url}
-          className="flex items-center hover:underline"
-        >
-          <FontAwesomeIcon className="mr-1 h-5" icon={faGithub as IconProp} />{" "}
-          View on GitHub
-        </ExternalLink>
-
-        <div className="my-2" />
-
-        {repository.homepageUrl && (
-          <ExternalLink
-            href={repository.homepageUrl}
-            className="flex items-center hover:underline"
-          >
-            <FontAwesomeIcon className="mr-1 h-5" icon={faGlobe as IconProp} />{" "}
-            View Live
-          </ExternalLink>
-        )}
-
-        <TypographyP className="my-2 italic">
-          {repository.description}
-        </TypographyP>
       </MagicCard>
     </div>
   );
