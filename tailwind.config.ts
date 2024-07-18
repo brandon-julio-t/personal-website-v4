@@ -94,6 +94,13 @@ const config = {
             "background-position": "0% 0%",
           },
         },
+
+        // https://magicui.design/docs/components/border-beam
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,6 +108,9 @@ const config = {
 
         // https://ui.aceternity.com/components/aurora-background
         aurora: "aurora 60s linear infinite",
+
+        // https://magicui.design/docs/components/border-beam
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       },
     },
   },
