@@ -37,7 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuroraBackground>
+          <AuroraBackground className="bg-background dark:bg-background">
             {children}
 
             <Footer />
