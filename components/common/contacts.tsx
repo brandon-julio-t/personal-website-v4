@@ -42,11 +42,11 @@ const contacts = [
     title: "Linkedin",
   },
   { href: "https://s.id/cv-bjt", icon: faFileAlt, title: "FileAlt" },
-  {
-    href: "https://www.freecodecamp.org/brandon-julio-thenaro",
-    icon: faFreeCodeCamp,
-    title: "FreeCodeCamp",
-  },
+  // {
+  //   href: "https://www.freecodecamp.org/brandon-julio-thenaro",
+  //   icon: faFreeCodeCamp,
+  //   title: "FreeCodeCamp",
+  // },
 ];
 
 export default function Contacts() {
