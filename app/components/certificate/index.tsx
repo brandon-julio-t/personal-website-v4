@@ -26,6 +26,7 @@ import TokopediaSTARTSummit from "./images/Tokopedia START Summit.png";
 import TypingSpeed from "./images/Typing Speed.jpg";
 import ExternalLink from "@/components/common/external-link";
 import BlurFade from "@/components/magicui/blur-fade";
+import { BorderBeam } from "@/components/magicui/border-beam";
 import { TypographyH2 } from "@/components/ui/typography";
 import { useAnimation } from "framer-motion";
 import Image from "next/image";
@@ -41,12 +42,16 @@ export default function Certificate() {
         {certificates.sort(certificatesSortFn).map((certificate, idx) => (
           <BlurFade key={idx} delay={0.25} inView>
             <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <Image
-                className="m-auto"
-                placeholder="blur"
-                src={certificate.src}
-                alt={certificate.label}
-              />
+              <div className="relative rounded overflow-hidden">
+                <Image
+                  className="m-auto"
+                  placeholder="blur"
+                  src={certificate.src}
+                  alt={certificate.label}
+                />
+
+                <BorderBeam />
+              </div>
             </ExternalLink>
           </BlurFade>
         ))}
