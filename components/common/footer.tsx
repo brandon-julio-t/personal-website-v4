@@ -7,7 +7,7 @@ import ExternalLink from "./external-link";
 import { useTheme } from "next-themes";
 
 const Footer = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <div className="w-full gap-4 flex flex-col items-center justify-center overflow-hidden rounded-md pt-8">
@@ -43,7 +43,7 @@ const Footer = () => {
           maxSize={1}
           particleDensity={1200}
           className="w-full h-full"
-          particleColor={theme === "dark" ? "#FFFFFF" : "#000000"}
+          particleColor={resolvedTheme === "dark" ? "#FFFFFF" : "#000000"}
         />
 
         {/* Radial Gradient to prevent sharp edges */}
