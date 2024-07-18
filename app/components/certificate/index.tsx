@@ -28,10 +28,7 @@ import ExternalLink from "@/components/common/external-link";
 import BlurFade from "@/components/magicui/blur-fade";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { TypographyH2 } from "@/components/ui/typography";
-import { useAnimation } from "framer-motion";
 import Image from "next/image";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 
 export default function Certificate() {
   return (
