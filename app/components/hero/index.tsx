@@ -5,16 +5,9 @@ import { BackgroundBeams } from "@/components/ui.aceternity/background-beams";
 import { TypographyH1, TypographyH2 } from "@/components/ui/typography";
 import { JOB_TITLE } from "@/config";
 
-// import { useTheme } from "next-themes";
-
 export default function Hero() {
-  // const { theme, setTheme } = useTheme();
-
   return (
-    <header
-      className="relative flex min-h-screen flex-col items-center justify-center space-y-4 text-center"
-      // onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-    >
+    <header className="relative flex min-h-screen flex-col items-center justify-center space-y-4 text-center">
       <BlurFade delay={0.25} inView>
         <TypographyH1>
           <span className="bg-gradient-to-r from-indigo-500 to-purple-500 box-decoration-clone bg-clip-text text-transparent">
