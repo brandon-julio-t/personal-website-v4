@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuroraBackground } from "@/components/ui.aceternity/aurora-background";
 import { JOB_TITLE } from "@/config";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
@@ -42,6 +44,9 @@ export default function RootLayout({
             <Footer />
           </AuroraBackground>
         </ThemeProvider>
+
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
