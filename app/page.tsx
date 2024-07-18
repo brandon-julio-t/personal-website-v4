@@ -10,13 +10,19 @@ export default function Home() {
   return (
     <section className="flex size-full flex-col gap-8 px-4">
       <Hero />
+
       <Contacts />
+
       <TracingBeam>
-        <WorkExperience />
-        <GithubProjects />
-        <TechnologyStack />
+        <div className="flex size-full flex-col gap-8 px-4">
+          <WorkExperience />
+          <GithubProjects />
+          <TechnologyStack />
+        </div>
       </TracingBeam>
+
       <Certificate />
+
       <Contacts />
     </section>
   );
