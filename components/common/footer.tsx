@@ -29,7 +29,7 @@ const Footer = () => {
         </BlurFade>
       </div>
 
-      <div className="relative h-40">
+      <div className="relative h-40 w-full">
         {/* Gradients */}
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
