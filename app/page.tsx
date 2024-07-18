@@ -8,7 +8,7 @@ import { TracingBeam } from "@/components/ui.aceternity/tracing-beam";
 
 export default function Home() {
   return (
-    <section className="flex size-full flex-col gap-8 overflow-auto px-4">
+    <section className="flex size-full flex-col gap-8 px-4">
       <Hero />
       <Contacts />
       <TracingBeam>
