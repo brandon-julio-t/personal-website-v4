@@ -7,24 +7,28 @@ import { JOB_TITLE } from "@/config";
 
 export default function Hero() {
   return (
-    <header className="relative flex min-h-screen flex-col items-center justify-center space-y-4 text-center">
-      <BlurFade delay={0.25} inView>
-        <TypographyH1>
-          <span className="bg-gradient-to-r from-indigo-500 to-purple-500 box-decoration-clone bg-clip-text text-transparent">
-            Brandon Julio Thenaro
-          </span>
-        </TypographyH1>
-      </BlurFade>
+    <>
+      <header className="flex min-h-screen flex-col items-center justify-center space-y-4 text-center">
+        <BlurFade delay={0.25} inView>
+          <TypographyH1>
+            <span className="bg-gradient-to-r from-indigo-500 to-purple-500 box-decoration-clone bg-clip-text text-transparent">
+              Brandon Julio Thenaro
+            </span>
+          </TypographyH1>
+        </BlurFade>
 
-      <BlurFade delay={0.25 * 1.5} inView>
-        <TypographyH2>
-          <span className="bg-gradient-to-r from-purple-500 to-indigo-500 box-decoration-clone bg-clip-text text-transparent">
-            Lifelong learner | {JOB_TITLE}
-          </span>
-        </TypographyH2>
-      </BlurFade>
+        <BlurFade delay={0.25 * 1.5} inView>
+          <TypographyH2>
+            <span className="bg-gradient-to-r from-purple-500 to-indigo-500 box-decoration-clone bg-clip-text text-transparent">
+              Lifelong learner | {JOB_TITLE}
+            </span>
+          </TypographyH2>
+        </BlurFade>
+      </header>
 
-      <BackgroundBeams />
-    </header>
+      <div className="absolute inset-0 h-screen w-screen">
+        <BackgroundBeams />
+      </div>
+    </>
   );
 }
