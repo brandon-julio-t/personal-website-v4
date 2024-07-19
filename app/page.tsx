@@ -13,7 +13,10 @@ export default function Home() {
 
       <Contacts />
 
-      <TracingBeam>
+      <TracingBeam
+        className="max-w-none"
+        tracingBeamContainerClassName="left-0 md:left-0"
+      >
         <div className="flex size-full flex-col gap-8 px-4">
           <WorkExperience />
           <GithubProjects />

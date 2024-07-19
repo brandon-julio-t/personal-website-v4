@@ -1,21 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useVelocity,
-  useSpring,
-} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 export const TracingBeam = ({
   children,
   className,
+  tracingBeamContainerClassName,
 }: {
   children: React.ReactNode;
   className?: string;
+  tracingBeamContainerClassName?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -52,7 +48,12 @@ export const TracingBeam = ({
       ref={ref}
       className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
     >
-      <div className="absolute -left-4 top-3 md:-left-20">
+      <div
+        className={cn(
+          "absolute -left-4 top-3 md:-left-20",
+          tracingBeamContainerClassName,
+        )}
+      >
         <motion.div
           transition={{
             duration: 0.2,
