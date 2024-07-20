@@ -3,7 +3,6 @@
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import BlurFade from "@/components/magicui/blur-fade";
-import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { BackgroundBeams } from "@/components/ui.aceternity/background-beams";
 import { TypographyH1, TypographyH2 } from "@/components/ui/typography";
 import { JOB_TITLE } from "@/config";
@@ -22,9 +21,7 @@ export default function Hero() {
 
         <BlurFade delay={0.25 * 1.5} inView>
           <TypographyH2>
-            <AnimatedShinyText>
-              <GradualSpacing text={JOB_TITLE} />
-            </AnimatedShinyText>
+            <AnimatedShinyText>{JOB_TITLE}</AnimatedShinyText>
           </TypographyH2>
         </BlurFade>
       </header>
