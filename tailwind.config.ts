@@ -101,6 +101,23 @@ const config = {
             "offset-distance": "100%",
           },
         },
+
+        // https://magicui.design/docs/components/animated-gradient-text
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
+        },
+
+        // https://magicui.design/docs/components/animated-shiny-text
+        shimmer: {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -111,6 +128,12 @@ const config = {
 
         // https://magicui.design/docs/components/border-beam
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+
+        // https://magicui.design/docs/components/animated-gradient-text
+        gradient: "gradient 8s linear infinite",
+
+        // https://magicui.design/docs/components/animated-shiny-text
+        shimmer: "shimmer 8s infinite",
       },
     },
   },
