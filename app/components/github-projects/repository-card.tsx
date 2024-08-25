@@ -44,7 +44,7 @@ const RepositoryCard: React.FunctionComponent<
   return (
     <div {...rest}>
       <MagicCard className="p-4">
-        <div className="flex flex-col gap-2 size-full">
+        <div className="flex size-full flex-col gap-2">
           <header>
             <TypographyH4>{toTitleCase(repository.name)}</TypographyH4>
             <TypographySmall>{createdAt}</TypographySmall>
@@ -62,7 +62,7 @@ const RepositoryCard: React.FunctionComponent<
             </TypographyP>
           )}
 
-          <div className="flex flex-col gap-1 mt-auto">
+          <div className="mt-auto flex flex-col gap-1">
             <ExternalLink
               href={repository.url}
               className="flex items-center hover:underline"

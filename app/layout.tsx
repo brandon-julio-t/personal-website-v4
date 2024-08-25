@@ -1,7 +1,6 @@
 import "./globals.css";
 import Footer from "@/components/common/footer";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AuroraBackground } from "@/components/ui.aceternity/aurora-background";
 import { JOB_TITLE } from "@/config";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
@@ -38,11 +37,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuroraBackground className="bg-background dark:bg-background">
-            {children}
+          {children}
 
-            <Footer />
-          </AuroraBackground>
+          <Footer />
         </ThemeProvider>
 
         <SpeedInsights />

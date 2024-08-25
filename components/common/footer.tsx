@@ -10,7 +10,7 @@ const Footer = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <div className="w-full gap-4 flex flex-col items-center justify-center overflow-hidden rounded-md pt-8">
+    <div className="flex w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-md pt-8">
       <div className="flex flex-col gap-4">
         <section className="flex flex-wrap justify-center gap-8">
           {credits.map((credit, idx) => (
@@ -31,10 +31,10 @@ const Footer = () => {
 
       <div className="relative h-40 w-full">
         {/* Gradients */}
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+        <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
+        <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+        <div className="absolute inset-x-60 top-0 h-[5px] w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
+        <div className="absolute inset-x-60 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
 
         {/* Core component */}
         <SparklesCore
@@ -42,12 +42,12 @@ const Footer = () => {
           minSize={0.4}
           maxSize={1}
           particleDensity={1200}
-          className="w-full h-full"
+          className="h-full w-full"
           particleColor={resolvedTheme === "dark" ? "#FFFFFF" : "#000000"}
         />
 
         {/* Radial Gradient to prevent sharp edges */}
-        <div className="absolute inset-0 w-full h-full bg-background [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        <div className="absolute inset-0 h-full w-full bg-background [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
     </div>
   );

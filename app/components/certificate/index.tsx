@@ -1,5 +1,10 @@
 "use client";
 
+import ExternalLink from "@/components/common/external-link";
+import BlurFade from "@/components/magicui/blur-fade";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import { TypographyH2 } from "@/components/ui/typography";
+import Image from "next/image";
 import APIsAndMicroservices from "./images/APIs and Microservices.png";
 import AWSAcademyGraduateAWSAcademyCloudFoundations from "./images/AWS Academy Graduate - AWS Academy Cloud Foundations.png";
 import AWSCertifiedCloudPractitionerFoundational from "./images/AWS Certified Cloud Practitioner Foundational.png";
@@ -10,6 +15,7 @@ import BelajarJaringanKomputerUntukPemula from "./images/Belajar Jaringan Komput
 import BelajarMachineLearningUntukPemula from "./images/Belajar Machine Learning untuk Pemula.jpg";
 import CSS from "./images/CSS.png";
 import DataVisualization from "./images/Data Visualization.png";
+import EthereumDeveloperBootcamp from "./images/Ethereum Developer Bootcamp.png";
 import FrontEndLibraries from "./images/Front End Libraries.png";
 import IndomaretCommonKnowledgeQuiz from "./images/Indomaret Common Knowledge Quiz.png";
 import InformationSecurity from "./images/Information Security.png";
@@ -24,22 +30,25 @@ import RestAPI from "./images/Rest API.png";
 import SQLBasic from "./images/SQL (Basic).png";
 import TokopediaSTARTSummit from "./images/Tokopedia START Summit.png";
 import TypingSpeed from "./images/Typing Speed.jpg";
-import ExternalLink from "@/components/common/external-link";
-import BlurFade from "@/components/magicui/blur-fade";
-import { BorderBeam } from "@/components/magicui/border-beam";
-import { TypographyH2 } from "@/components/ui/typography";
-import Image from "next/image";
 
 export default function Certificate() {
+  const highlights = certificates
+    .filter((x) => x.highlight)
+    .sort((a, b) => a.url.localeCompare(b.url));
+
+  const regulars = certificates
+    .filter((x) => !x.highlight)
+    .sort((a, b) => b.url.localeCompare(a.url));
+
   return (
-    <section>
+    <section className="flex flex-col gap-4">
       <TypographyH2 className="mb-4 text-center">Certificates</TypographyH2>
 
-      <div className="columns-1 gap-4 space-y-4 sm:columns-2 md:columns-3">
-        {certificates.sort(certificatesSortFn).map((certificate, idx) => (
+      <div className="columns-1 space-y-4 sm:columns-2">
+        {highlights.map((certificate, idx) => (
           <BlurFade key={idx} delay={0.25} inView>
             <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <div className="relative rounded overflow-hidden">
+              <div className="relative overflow-hidden rounded">
                 <Image
                   className="m-auto"
                   placeholder="blur"
@@ -53,15 +62,25 @@ export default function Certificate() {
           </BlurFade>
         ))}
       </div>
+
+      <div className="columns-1 space-y-4 sm:columns-2 md:columns-3">
+        {regulars.map((certificate, idx) => (
+          <BlurFade key={idx} delay={0.25} inView>
+            <ExternalLink href={certificate.url} aria-label={certificate.label}>
+              <div className="relative overflow-hidden rounded">
+                <Image
+                  className="m-auto"
+                  placeholder="blur"
+                  src={certificate.src}
+                  alt={certificate.label}
+                />
+              </div>
+            </ExternalLink>
+          </BlurFade>
+        ))}
+      </div>
     </section>
   );
-}
-
-function certificatesSortFn(
-  a: (typeof certificates)[0],
-  b: (typeof certificates)[0],
-) {
-  return b.url.localeCompare(a.url);
 }
 
 const certificates = [
@@ -69,6 +88,7 @@ const certificates = [
     label: "Certificate APIs and Microservices",
     src: APIsAndMicroservices,
     url: "https://www.freecodecamp.org/certification/brandon-julio-thenaro/back-end-development-and-apis",
+    highlight: true,
   },
   {
     label: "Certificate Front End Libraries",
@@ -101,6 +121,7 @@ const certificates = [
     label: "Certificate Responsive Web Design",
     src: ResponsiveWebDesign,
     url: "https://www.freecodecamp.org/certification/brandon-julio-thenaro/responsive-web-design",
+    highlight: true,
   },
   {
     label: "Certificate Rest API",
@@ -142,6 +163,7 @@ const certificates = [
     label: "Belajar Dasar-Dasar DevOps",
     src: BelajarDasarDasarDevOps,
     url: "https://www.dicoding.com/certificates/GRX5LLJO3P0M",
+    highlight: true,
   },
   {
     label: "Belajar Jaringan Komputer untuk Pemula",
@@ -168,6 +190,7 @@ const certificates = [
     label: "Belajar Implementasi CI/CD",
     src: BelajarImplementasiCICD,
     url: "https://www.dicoding.com/certificates/6RPNDLD29Z2M",
+    highlight: true,
   },
   {
     label: "AWS Academy Graduate - AWS Academy Cloud Foundations",
@@ -183,10 +206,17 @@ const certificates = [
     label: "AWS Certified Cloud Practitioner",
     src: AWSCertifiedCloudPractitioner,
     url: "https://aw.certmetrics.com/amazon/public/verification.aspx",
+    highlight: true,
   },
   {
     label: "Belajar Machine Learning untuk Pemula",
     src: BelajarMachineLearningUntukPemula,
     url: "https://www.dicoding.com/certificates/07Z6WV05MZQR",
+  },
+  {
+    label: "",
+    src: EthereumDeveloperBootcamp,
+    highlight: true,
+    url: "",
   },
 ];
