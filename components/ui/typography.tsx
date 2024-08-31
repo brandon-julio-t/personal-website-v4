@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { PropsWithChildren, ComponentProps } from "react";
+import { ComponentProps, PropsWithChildren } from "react";
 
 export function TypographyH1({
   children,
