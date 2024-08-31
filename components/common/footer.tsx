@@ -1,10 +1,10 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import BlurFade from "../magicui/blur-fade";
 import { SparklesCore } from "../ui.aceternity/sparkles";
 import { TypographyMuted } from "../ui/typography";
 import ExternalLink from "./external-link";
-import { useTheme } from "next-themes";
 
 const Footer = () => {
   const { resolvedTheme } = useTheme();
@@ -81,6 +81,10 @@ const credits = [
   {
     href: "https://fortawesome.com",
     name: "Fortawesome",
+  },
+  {
+    href: "https://www.tradingview.com",
+    name: "TradingView",
   },
 ];
 
