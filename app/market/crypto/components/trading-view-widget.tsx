@@ -1,42 +1,49 @@
-import { ComponentProps, ComponentType } from "react";
+import { useTheme } from "next-themes";
+import { ComponentType, ReactNode, useEffect, useState } from "react";
 
-const TradingViewWidget: ComponentType<
-  ComponentProps<"div"> & {
-    symbol: string;
-    dateRange?: string;
-    colorTheme?: string;
-  }
-> = ({ symbol, dateRange, colorTheme, className, ...props }) => {
-  return (
-    <iframe
-      className="overflow-hidden rounded"
-      src={`https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?${new URLSearchParams(
-        {
-          locale: "en",
-          symbol,
-          width: "100%",
-          height: "100%",
-          dateRange: dateRange || "12M",
-          colorTheme: colorTheme || "dark",
-          isTransparent: "false",
-          autosize: "true",
-          largeChartUrl: "",
-          utm_source: "www.tradingview.com",
-          utm_medium: "widget_new",
-          utm_campaign: "mini-symbol-overview",
-          "page-uri": "www.tradingview.com/widget-wizard/en/light/mini-chart/",
-        },
-      ).toString()}`}
-      title="mini symbol-overview TradingView widget"
-      lang="en"
-      style={{
-        boxSizing: "border-box",
-        display: "block",
-        height: "250px",
-        width: "100%",
-      }}
-    />
+const TradingViewWidget: ComponentType<{
+  symbol: string;
+  dateRange?: string;
+}> = ({ symbol, dateRange }) => {
+  const { resolvedTheme } = useTheme();
+  const [child, setChild] = useState<ReactNode | null>(null);
+
+  useEffect(
+    function initOnClientToFixHydrationError() {
+      if (resolvedTheme) {
+        setChild(
+          <iframe
+            className="overflow-hidden rounded"
+            key={resolvedTheme}
+            src={`https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?${new URLSearchParams(
+              {
+                locale: "en",
+                symbol,
+                width: "100%",
+                height: "100%",
+                dateRange: dateRange || "12M",
+                colorTheme: resolvedTheme || "light",
+                isTransparent: "false",
+                autosize: "true",
+                largeChartUrl: "",
+              },
+            )}`}
+            title="mini symbol-overview TradingView widget"
+            lang="en"
+            style={{
+              boxSizing: "border-box",
+              display: "block",
+              height: "250px",
+              width: "100%",
+            }}
+          />,
+        );
+      }
+    },
+    [dateRange, resolvedTheme, symbol],
   );
+
+  return child;
 };
 
 export default TradingViewWidget;

@@ -1,38 +1,49 @@
 import { cn } from "@/lib/utils";
-import { ComponentProps, ComponentType } from "react";
+import { useTheme } from "next-themes";
+import {
+  ComponentProps,
+  ComponentType,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 
 const TradingViewEconomicCalendar: ComponentType<
   ComponentProps<"iframe"> & {
     colorTheme?: string;
   }
 > = ({ colorTheme, className, ...props }) => {
-  const baseUrl = "https://www.tradingview-widget.com/embed-widget/events/";
+  const { resolvedTheme } = useTheme();
+  const [child, setChild] = useState<ReactNode | null>(null);
 
-  const params = new URLSearchParams({
-    locale: "en",
-    width: "100%",
-    height: "100%",
-    colorTheme: colorTheme || "dark",
-    isTransparent: "false",
-    importanceFilter: "0,1",
-    countryFilter: "us",
-    utm_source: "www.tradingview.com",
-    utm_medium: "widget_new",
-    utm_campaign: "events",
-    "page-uri": "www.tradingview.com/widget-wizard/en/light/economic-calendar/",
-  });
-
-  const src = `${baseUrl}?${params.toString()}`;
-
-  return (
-    <iframe
-      {...props}
-      src={src}
-      title="events TradingView widget"
-      lang="en"
-      className={cn("h-full w-full overflow-hidden rounded", className)}
-    />
+  useEffect(
+    function initOnClientToFixHydrationError() {
+      if (resolvedTheme) {
+        setChild(
+          <iframe
+            {...props}
+            src={`https://www.tradingview-widget.com/embed-widget/events/?${new URLSearchParams(
+              {
+                locale: "en",
+                width: "100%",
+                height: "100%",
+                colorTheme: resolvedTheme || "dark",
+                isTransparent: "false",
+                importanceFilter: "0,1",
+                countryFilter: "us",
+              },
+            )}`}
+            title="events TradingView widget"
+            lang="en"
+            className={cn("h-full w-full overflow-hidden rounded", className)}
+          />,
+        );
+      }
+    },
+    [className, props, resolvedTheme],
   );
+
+  return child;
 };
 
 export default TradingViewEconomicCalendar;
