@@ -1,5 +1,3 @@
-"use client";
-
 import { ComponentType } from "react";
 import FngGaugeChart from "./fng-gauge-chart";
 
@@ -8,9 +6,10 @@ import { TypographyH4 } from "@/components/ui/typography";
 import { HouseIcon } from "lucide-react";
 import Link from "next/link";
 import { CryptoFngData, USFngData } from "../types";
-import TradingViewCryptoHeatmap from "./trading-view-crypto-heatmap";
-import TradingViewEconomicCalendar from "./trading-view-economic-calendar";
-import TradingViewMiniSymbol from "./trading-view-mini-symbol";
+import GoogleTrendIndonesiaMarketSentiment from "./google-trend/indonesia-market-sentiment";
+import TradingViewCryptoHeatmap from "./trading-view/crypto-heatmap";
+import TradingViewEconomicCalendar from "./trading-view/economic-calendar";
+import TradingViewMiniSymbol from "./trading-view/mini-symbol";
 
 const MarketCryptoPageView: ComponentType<{
   usFngData: USFngData;
@@ -54,6 +53,10 @@ const MarketCryptoPageView: ComponentType<{
         <TradingViewMiniSymbol symbol="CRYPTOCAP:TOTAL3" />
         <TradingViewMiniSymbol symbol="BITSTAMP:ETHUSD" />
         <TradingViewMiniSymbol symbol="BINANCE:SOLUSD" />
+      </section>
+
+      <section>
+        <GoogleTrendIndonesiaMarketSentiment />
       </section>
 
       <section>

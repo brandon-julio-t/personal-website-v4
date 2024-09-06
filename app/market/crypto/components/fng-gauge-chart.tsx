@@ -1,3 +1,5 @@
+"use client";
+
 import { ComponentType } from "react";
 
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
