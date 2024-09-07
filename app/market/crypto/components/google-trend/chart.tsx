@@ -1,6 +1,6 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
   Card,
@@ -24,10 +24,10 @@ export const description = "A multiple line chart";
 
 const chartColors = [
   "hsl(var(--chart-1))",
-  "hsl(var(--chart-3))",
-  "hsl(var(--chart-5))",
   "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
   "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
 ];
 
 const LineChartForGoogleTrend = ({
@@ -76,7 +76,7 @@ const LineChartForGoogleTrend = ({
 
         {hasData && (
           <ChartContainer config={chartConfig}>
-            <LineChart
+            <AreaChart
               accessibilityLayer
               data={chartData}
               margin={{
@@ -93,19 +93,21 @@ const LineChartForGoogleTrend = ({
                 tickFormatter={() => ""}
               />
               <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+
               <ChartLegend content={<ChartLegendContent />} />
 
               {dataPoints.map((dataPoint, index) => (
-                <Line
+                <Area
                   key={dataPoint}
                   dataKey={dataPoint}
-                  type="monotone"
+                  type="natural"
+                  fill={`var(--color-${normalizedDataPoints[index]})`}
+                  fillOpacity={0.4}
                   stroke={`var(--color-${normalizedDataPoints[index]})`}
-                  strokeWidth={2}
-                  dot={false}
+                  stackId="a"
                 />
               ))}
-            </LineChart>
+            </AreaChart>
           </ChartContainer>
         )}
       </CardContent>
