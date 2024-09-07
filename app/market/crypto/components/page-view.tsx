@@ -17,9 +17,6 @@ const MarketCryptoPageView: ComponentType<{
 }> = ({ usFngData, cryptoFngData }) => {
   return (
     <main className="container flex flex-col gap-4 py-4">
-      <section>
-        <BanterBubblesTreemap />
-      </section>
       <header className="flex flex-row items-center justify-between">
         <Link href="/">
           <TypographyH4 className="flex flex-row place-items-center gap-2">
@@ -60,6 +57,10 @@ const MarketCryptoPageView: ComponentType<{
         <TradingViewMiniSymbol symbol="CRYPTOCAP:TOTAL3" />
         <TradingViewMiniSymbol symbol="BITSTAMP:ETHUSD" />
         <TradingViewMiniSymbol symbol="BINANCE:SOLUSD" />
+      </section>
+
+      <section>
+        <BanterBubblesTreemap />
       </section>
 
       <section>
