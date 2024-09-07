@@ -25,7 +25,7 @@ const getBanterBubblesData = async () => {
     // 1. Sort by rank
     .sort((a, b) => a.rank - b.rank)
     // 2. Filter out any that have a performance of 0 (stablecoin or the asset is sleeping today)
-    .filter((item) => Number(item.performance.d).toFixed(0) !== "0")
+    .filter((item) => Math.abs(Number(item.performance.d)).toFixed(0) !== "0")
     // 3. Get the top 100
     .slice(0, 100);
 
@@ -34,6 +34,7 @@ const getBanterBubblesData = async () => {
       name: item.symbol.toLocaleUpperCase(),
       size: 1,
       performance: Number(Number(item.performance.d).toFixed(2)),
+      image: item.image,
     } satisfies BanterBubblesTreemapChartProps["chartData"][number];
   });
 

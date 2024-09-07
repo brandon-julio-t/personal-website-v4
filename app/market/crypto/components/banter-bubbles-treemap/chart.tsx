@@ -7,10 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
-import { TypographyLarge } from "@/components/ui/typography";
-import { ComponentType, memo, useMemo } from "react";
-import { Treemap } from "recharts";
+import {
+  TypographyLarge,
+  TypographyMuted,
+  TypographySmall,
+} from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { ComponentType } from "react";
 
 export const description = "A multiple line chart";
 
@@ -32,31 +36,6 @@ const BanterBubblesTreemapChart: ComponentType<
 > = ({ chartData, title }) => {
   const hasData = chartData.length > 0;
 
-  const { dataPoints, normalizedDataPoints } = useMemo(() => {
-    const dataPoints = hasData
-      ? Object.keys(chartData[0]).filter((key) => key !== "date")
-      : [];
-    const normalizedDataPoints = dataPoints.map((key) =>
-      key.toLowerCase().replaceAll(" ", "-"),
-    );
-
-    return { dataPoints, normalizedDataPoints };
-  }, [chartData, hasData]);
-
-  const chartConfig = useMemo(() => {
-    const config: ChartConfig = {};
-
-    dataPoints.map((key, index) => {
-      const normalizedKey = normalizedDataPoints[index];
-      config[normalizedKey] = {
-        label: key,
-        color: chartColors[index % chartColors.length],
-      };
-    });
-
-    return config;
-  }, [dataPoints, normalizedDataPoints]);
-
   return (
     <Card>
       <CardHeader>
@@ -68,14 +47,35 @@ const BanterBubblesTreemapChart: ComponentType<
         )}
 
         {hasData && (
-          <ChartContainer config={chartConfig}>
-            <Treemap
-              data={chartData}
-              dataKey="size"
-              content={<CustomizedContent colors={chartColors} />}
-              isAnimationActive={false}
-            />
-          </ChartContainer>
+          <section className="flex flex-row flex-wrap gap-1">
+            {chartData.map((item) => (
+              <Card
+                key={item.name}
+                className={cn(
+                  "flex-1",
+                  Number(item.performance) > 0 && "bg-success text-white",
+                  Number(item.performance) < 0 && "bg-destructive text-white",
+                  Number(item.performance) === 0 && "bg-muted text-black",
+                )}
+              >
+                <div className="flex flex-col place-items-center gap-2 p-2">
+                  <Image
+                    src={item.image.toString()}
+                    alt={item.name.toString()}
+                    width={32}
+                    height={32}
+                    className="rounded-full bg-white/75"
+                  />
+                  <TypographySmall className="text-center text-inherit">
+                    {item.name}
+                  </TypographySmall>
+                  <TypographyMuted className="text-center text-inherit">
+                    {item.performance}%
+                  </TypographyMuted>
+                </div>
+              </Card>
+            ))}
+          </section>
         )}
       </CardContent>
       <CardFooter>
@@ -102,84 +102,5 @@ const BanterBubblesTreemapChart: ComponentType<
     </Card>
   );
 };
-
-const CustomizedContent: ComponentType<
-  Partial<{
-    root: {
-      children: Array<{
-        name: string;
-        size: number;
-      }>;
-    };
-    depth: number;
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-    index: number;
-    colors: string[];
-    rank: number;
-    name: string;
-    performance: number;
-  }>
-> = memo(function CustomizedContentMemo({
-  depth = 0,
-  x = 0,
-  y = 0,
-  width = 0,
-  height = 0,
-  index = 0,
-  performance = 0,
-  name = "",
-}) {
-  const performanceColor = useMemo(() => {
-    if (performance > 0) {
-      return "hsl(var(--success))";
-    } else if (performance < 0) {
-      return "hsl(var(--destructive))";
-    } else {
-      return "hsl(var(--chart-1))";
-    }
-  }, [performance]);
-
-  return (
-    <g>
-      <rect
-        x={x}
-        y={y}
-        width={width}
-        height={height}
-        style={{
-          fill: performanceColor,
-          stroke: "#fff",
-          strokeWidth: 2 / (depth + 1e-10),
-          strokeOpacity: 1 / (depth + 1e-10),
-        }}
-      />
-      {depth === 1 && (
-        <>
-          <text
-            x={x + width / 2}
-            y={y + height / 2 - 3}
-            textAnchor="middle"
-            fill="#fff"
-            fontSize={14}
-          >
-            {name}
-          </text>
-          <text
-            x={x + width / 2}
-            y={y + height / 2 + 13}
-            textAnchor="middle"
-            fill="#fff"
-            fontSize={14}
-          >
-            {performance}%
-          </text>
-        </>
-      )}
-    </g>
-  );
-});
 
 export default BanterBubblesTreemapChart;
