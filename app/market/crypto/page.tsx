@@ -1,6 +1,8 @@
 import MarketCryptoPageView from "./components/page-view";
 import { CryptoFngData, USFngData } from "./types";
 
+export const revalidate = 3600; // invalidate every hour
+
 const MarketCryptoPage = async () => {
   const [usFngData, cryptoFngData] = await Promise.all([
     fetch("https://production.dataviz.cnn.io/index/fearandgreed/current", {
