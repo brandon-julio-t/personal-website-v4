@@ -86,6 +86,18 @@ const credits = [
     href: "https://www.tradingview.com",
     name: "TradingView",
   },
+  {
+    href: "https://trends.google.com/trends",
+    name: "Google Trends",
+  },
+  {
+    href: "https://serpapi.com",
+    name: "SerpApi",
+  },
+  {
+    href: "https://banterbubbles.com",
+    name: "Banter Bubbles",
+  },
 ];
 
 export default Footer;
