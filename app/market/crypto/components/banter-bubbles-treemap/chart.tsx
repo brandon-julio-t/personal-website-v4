@@ -66,12 +66,15 @@ const BanterBubblesTreemapChart: ComponentType<
                     height={32}
                     className="rounded-full bg-white/75"
                   />
-                  <TypographySmall className="text-center text-inherit">
-                    {item.name}
-                  </TypographySmall>
-                  <TypographyMuted className="text-center text-inherit">
-                    {item.performance}%
-                  </TypographyMuted>
+
+                  <div className="flex flex-col gap-1">
+                    <TypographySmall className="text-center text-inherit">
+                      {item.name}
+                    </TypographySmall>
+                    <TypographyMuted className="text-center text-inherit">
+                      {item.performance}%
+                    </TypographyMuted>
+                  </div>
                 </div>
               </Card>
             ))}
