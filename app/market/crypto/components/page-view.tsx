@@ -6,7 +6,7 @@ import { TypographyH4 } from "@/components/ui/typography";
 import { HouseIcon } from "lucide-react";
 import Link from "next/link";
 import { CryptoFngData, USFngData } from "../types";
-import GoogleTrendIndonesiaMarketSentiment from "./google-trend/indonesia-market-sentiment";
+import GoogleTrendCryptoMarketSentiment from "./google-trend/crypto-market-sentiment";
 import TradingViewCryptoHeatmap from "./trading-view/crypto-heatmap";
 import TradingViewEconomicCalendar from "./trading-view/economic-calendar";
 import TradingViewMiniSymbol from "./trading-view/mini-symbol";
@@ -56,7 +56,7 @@ const MarketCryptoPageView: ComponentType<{
       </section>
 
       <section>
-        <GoogleTrendIndonesiaMarketSentiment />
+        <GoogleTrendCryptoMarketSentiment />
       </section>
 
       <section>

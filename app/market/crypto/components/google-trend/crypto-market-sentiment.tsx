@@ -1,5 +1,5 @@
 import { getSerpApiGoogleTrendIndonesiaMarketSentiment } from "@/lib/server/serpapi";
-import LineChartForGoogleTrend from "../chart";
+import LineChartForGoogleTrend from "./chart";
 import { aggregateSerpApiGoogleTrendsResponseIntoChartData } from "./logics";
 
 const GoogleTrendIndonesiaMarketSentiment = async () => {
