@@ -46,9 +46,13 @@ const MarketCryptoPageView: ComponentType<{
         <TradingViewEconomicCalendar className="col-span-12 h-[680px] md:col-span-9" />
       </section>
 
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <TradingViewMiniSymbol symbol="FRED:UNRATE" dateRange="ALL" />
         <TradingViewMiniSymbol symbol="SPREADEX:SPX" />
         <TradingViewMiniSymbol symbol="CAPITALCOM:DXY" />
+      </section>
+
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <TradingViewMiniSymbol symbol="BITSTAMP:BTCUSD" />
         <TradingViewMiniSymbol symbol="CRYPTOCAP:TOTAL3" />
         <TradingViewMiniSymbol symbol="BITSTAMP:ETHUSD" />
