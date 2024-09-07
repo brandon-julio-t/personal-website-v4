@@ -73,6 +73,7 @@ const BanterBubblesTreemapChart: ComponentType<
               data={chartData}
               dataKey="size"
               content={<CustomizedContent colors={chartColors} />}
+              isAnimationActive={false}
             />
           </ChartContainer>
         )}
