@@ -5,7 +5,8 @@ export function aggregateSerpApiGoogleTrendsResponseIntoChartData({
 }: {
   serpApiGoogleTrendsResponse: SerpApiGoogleTrendsResponse;
 }) {
-  const data = serpApiGoogleTrendsResponse.interest_over_time.timeline_data;
+  const data =
+    serpApiGoogleTrendsResponse?.interest_over_time?.timeline_data ?? [];
 
   const queries = Array.from(
     new Set(data.flatMap((datum) => datum.values.map((value) => value.query))),
