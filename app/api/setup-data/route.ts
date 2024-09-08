@@ -25,7 +25,6 @@ export async function GET(request: NextRequest) {
         api_key: SERPAPI_KEY,
         engine: "google_trends",
         q: "bitcoin,crypto",
-        date: "today 5-y",
       })}`,
     );
     const data = await response.json();
