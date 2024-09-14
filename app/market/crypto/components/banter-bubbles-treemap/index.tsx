@@ -22,12 +22,16 @@ const getBanterBubblesData = async () => {
     .then((data) => data as BanterBubblesDataResponse);
 
   const filteredData = data
-    // 1. Sort by rank
+    // Sort by rank
     .sort((a, b) => a.rank - b.rank)
-    // 2. Filter out any that have a performance of 0 (stablecoin or the asset is sleeping today)
+    // Filter out any that have a performance of 0 (the asset is sleeping today)
     .filter((item) => Math.abs(Number(item.performance.d)).toFixed(0) !== "0")
-    // 3. Get the top 100
-    .slice(0, 100);
+    // Filter out stablecoins
+    .filter((item) => !item.categories?.includes("stablecoins"))
+    // Get the top 100
+    .slice(0, 100)
+    // Best performing assets first
+    .sort((a, b) => b.performance.d - a.performance.d);
 
   const chartData = filteredData.map((item) => {
     return {
