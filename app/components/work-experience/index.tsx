@@ -21,7 +21,7 @@ export default function WorkExperience() {
             <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
               <WorkExperienceCard
                 isActive={idx === 0}
-                className="mx-auto max-w-screen-md bg-neutral-100 p-4 dark:bg-neutral-900"
+                className="mx-auto max-w-(--breakpoint-md) bg-neutral-100 p-4 dark:bg-neutral-900"
               >
                 <section className="flex flex-col gap-4">
                   <div className="flex flex-wrap items-center justify-between gap-4">

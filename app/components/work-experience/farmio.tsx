@@ -9,7 +9,7 @@ import {
 
 export default function Farmio() {
   return (
-    <section className="mx-auto my-8 flex max-w-screen-md flex-col justify-center space-y-8">
+    <section className="mx-auto my-8 flex max-w-(--breakpoint-md) flex-col justify-center space-y-8">
       <TypographyH3 className="text-center">
         Farmio
         <br />

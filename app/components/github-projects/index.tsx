@@ -19,7 +19,7 @@ const GithubProjects: React.FunctionComponent = async () => {
       <TypographyH2 className="text-center">GitHub Projects</TypographyH2>
 
       {error ? (
-        <Card className="mx-auto my-8 max-w-screen-md">
+        <Card className="mx-auto my-8 max-w-(--breakpoint-md)">
           <TypographyH3 className="mb-2 text-center text-3xl">
             Error
           </TypographyH3>

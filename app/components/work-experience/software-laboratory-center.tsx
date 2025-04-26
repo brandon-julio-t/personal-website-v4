@@ -2,7 +2,7 @@ import Card from "@/components/common/card";
 
 export default function SoftwareLaboratoryCenter() {
   return (
-    <section className="mx-auto my-8 flex max-w-screen-md flex-col justify-center space-y-8">
+    <section className="mx-auto my-8 flex max-w-(--breakpoint-md) flex-col justify-center space-y-8">
       <h3 className="text-center text-4xl">
         Software Laboratory Center
         <br />

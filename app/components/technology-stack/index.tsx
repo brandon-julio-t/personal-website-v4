@@ -11,7 +11,7 @@ import { TypographyH2 } from "@/components/ui/typography";
 
 export default function TechnologyStack() {
   return (
-    <section className="mx-auto max-w-screen-lg">
+    <section className="mx-auto max-w-(--breakpoint-lg)">
       <TypographyH2 className="text-center">Technology Stack</TypographyH2>
 
       <div className="my-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
