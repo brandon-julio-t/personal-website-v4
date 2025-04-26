@@ -25,9 +25,9 @@ const MarketCryptoPageView: ComponentType = () => {
         <DarkModeToggle />
       </header>
 
-      <section className="flex flex-col gap-4 md:flex-row">
-        <CryptoFearAndGreed className="w-full md:flex-row" />
-        <UsStockFearAndGreed className="w-full md:flex-row" />
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        <CryptoFearAndGreed />
+        <UsStockFearAndGreed />
       </section>
 
       <section>

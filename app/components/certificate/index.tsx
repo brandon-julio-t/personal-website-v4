@@ -1,6 +1,5 @@
 "use client";
 
-import ExternalLink from "@/components/common/external-link";
 import BlurFade from "@/components/magicui/blur-fade";
 import { TypographyH3 } from "@/components/ui/typography";
 import Image from "next/image";
@@ -49,16 +48,16 @@ export default function Certificate() {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {highlights.map((certificate, idx) => (
           <BlurFade key={idx} inView>
-            <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <div className="relative overflow-hidden">
-                <Image
-                  className="m-auto"
-                  placeholder="blur"
-                  src={certificate.src}
-                  alt={certificate.label}
-                />
-              </div>
-            </ExternalLink>
+            <div
+              className="relative overflow-hidden"
+              onClick={() => window.open(certificate.src.src, "_blank")}
+            >
+              <Image
+                placeholder="blur"
+                src={certificate.src}
+                alt={certificate.label}
+              />
+            </div>
           </BlurFade>
         ))}
       </div>
@@ -66,16 +65,17 @@ export default function Certificate() {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {regulars.map((certificate, idx) => (
           <BlurFade key={idx} inView>
-            <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <div className="relative overflow-hidden">
-                <Image
-                  className="m-auto"
-                  placeholder="blur"
-                  src={certificate.src}
-                  alt={certificate.label}
-                />
-              </div>
-            </ExternalLink>
+            <div
+              className="relative overflow-hidden"
+              onClick={() => window.open(certificate.src.src, "_blank")}
+            >
+              <Image
+                className="m-auto"
+                placeholder="blur"
+                src={certificate.src}
+                alt={certificate.label}
+              />
+            </div>
           </BlurFade>
         ))}
       </div>
@@ -209,13 +209,13 @@ const certificates = [
     url: "https://www.dicoding.com/certificates/07Z6WV05MZQR",
   },
   {
-    label: "",
+    label: "Ethereum Developer Bootcamp by Alchemy University",
     src: EthereumDeveloperBootcamp,
     highlight: true,
     url: "",
   },
   {
-    label: "",
+    label: "Animations on the Web by Emil Kowalski",
     src: AnimationsOnTheWeb,
     highlight: true,
     url: "",

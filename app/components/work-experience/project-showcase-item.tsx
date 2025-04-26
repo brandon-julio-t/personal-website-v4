@@ -42,6 +42,7 @@ export const ProjectShowcaseItem: React.ComponentType<{
                 <div
                   key={idx}
                   className="relative aspect-video h-auto flex-1 overflow-hidden rounded-xl border p-1"
+                  onClick={() => window.open(image.src, "_blank")}
                 >
                   <Image
                     key={idx}

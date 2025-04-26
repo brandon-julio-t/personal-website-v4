@@ -30,7 +30,7 @@ const UsStockFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
   );
 
   return (
-    <section {...props} className={cn("flex flex-col gap-4", className)}>
+    <>
       <GaugeChart
         title="US Market Fear & Greed"
         gaugeScore={gaugeScore}
@@ -67,7 +67,7 @@ const UsStockFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
           </>
         }
       />
-    </section>
+    </>
   );
 };
 

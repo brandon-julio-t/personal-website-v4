@@ -43,7 +43,7 @@ const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
   );
 
   return (
-    <section {...props} className={cn("flex flex-col gap-4", className)}>
+    <>
       <GaugeChart
         title="Crypto Market Fear & Greed"
         gaugeScore={gaugeScore}
@@ -76,7 +76,7 @@ const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
           </>
         }
       />
-    </section>
+    </>
   );
 };
 
