@@ -73,7 +73,7 @@ export const workExperiences = [
       <>
         Joined the Research and Development Team after a year as a teaching
         assistant, maintaining and improving existing applications and also
-        building new ones to support stakeholders&abpos; needs.
+        building new ones to support stakeholders&apos; needs.
       </>
     ),
     showcaseProjects: [
