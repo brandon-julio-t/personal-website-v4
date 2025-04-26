@@ -8,7 +8,7 @@ export function TypographyH1({
   return (
     <h1
       className={cn(
-        "scroll-m-20 text-4xl font-extrabold tracking-tight text-foreground lg:text-5xl",
+        "text-foreground scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
         className,
       )}
     >
@@ -24,7 +24,7 @@ export function TypographyH2({
   return (
     <h2
       className={cn(
-        "scroll-m-20 text-3xl font-semibold tracking-tight text-foreground",
+        "text-foreground scroll-m-20 text-3xl font-semibold tracking-tight",
         className,
       )}
     >
@@ -40,7 +40,7 @@ export function TypographyH3({
   return (
     <h3
       className={cn(
-        "scroll-m-20 text-2xl font-semibold tracking-tight text-foreground",
+        "text-foreground scroll-m-20 text-2xl font-semibold tracking-tight",
         className,
       )}
     >
@@ -56,7 +56,7 @@ export function TypographyH4({
   return (
     <h4
       className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight text-foreground",
+        "text-foreground scroll-m-20 text-xl font-semibold tracking-tight",
         className,
       )}
     >
@@ -68,14 +68,14 @@ export function TypographyH4({
 export function TypographyP({
   children,
 }: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="leading-7 text-foreground">{children}</p>;
+  return <p className="text-foreground leading-7">{children}</p>;
 }
 
 export function TypographyList({
   children,
 }: PropsWithChildren & ComponentProps<"ul">) {
   return (
-    <ul className="my-6 ml-6 list-disc text-foreground [&>li]:mt-2">
+    <ul className="text-foreground my-6 ml-6 list-disc [&>li]:mt-2">
       {children}
       {/* <li>1st level of puns: 5 gold coins</li>
       <li>2nd level of jokes: 10 gold coins</li>
@@ -87,7 +87,7 @@ export function TypographyList({
 export function TypographyLead({
   children,
 }: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="text-xl text-muted-foreground">{children}</p>;
+  return <p className="text-muted-foreground text-xl">{children}</p>;
 }
 
 export function TypographyLarge({
@@ -95,7 +95,7 @@ export function TypographyLarge({
   className,
 }: PropsWithChildren & ComponentProps<"div">) {
   return (
-    <div className={cn("text-lg font-semibold text-foreground", className)}>
+    <div className={cn("text-foreground text-lg font-semibold", className)}>
       {children}
     </div>
   );
@@ -106,12 +106,7 @@ export function TypographySmall({
   className,
 }: PropsWithChildren & ComponentProps<"small">) {
   return (
-    <small
-      className={cn(
-        "text-sm font-medium leading-none text-foreground",
-        className,
-      )}
-    >
+    <small className={cn("text-foreground text-sm font-medium", className)}>
       {children}
     </small>
   );
@@ -122,6 +117,6 @@ export function TypographyMuted({
   className,
 }: PropsWithChildren & ComponentProps<"p">) {
   return (
-    <p className={cn("text-sm text-muted-foreground", className)}>{children}</p>
+    <p className={cn("text-muted-foreground text-sm", className)}>{children}</p>
   );
 }

@@ -1,13 +1,17 @@
-import ListItem from "./list-item";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faEthereum, faPiedPiperHat } from "@fortawesome/free-brands-svg-icons";
+import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListItem from "./list-item";
 
 export default function Web3() {
   return (
     <section className="text-center">
-      <TypographyH3>Web3 / Blockchain</TypographyH3>
+      <BlurFade inView>
+        <TypographyH4>Web3 / Blockchain</TypographyH4>
+      </BlurFade>
+
       <ul className="my-1">
         <ListItem>
           <FontAwesomeIcon icon={faEthereum as IconProp} className="h-5" />
@@ -25,10 +29,10 @@ export default function Web3() {
                 gradientTransform="translate(-2.326 11.158) scale(2.56617)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#EDCF00"></stop>
-                <stop offset=".33" stop-color="#F0D500"></stop>
-                <stop offset=".77" stop-color="#F9E500"></stop>
-                <stop offset="1" stop-color="#FFF100"></stop>
+                <stop stopColor="#EDCF00"></stop>
+                <stop offset=".33" stopColor="#F0D500"></stop>
+                <stop offset=".77" stopColor="#F9E500"></stop>
+                <stop offset="1" stopColor="#FFF100"></stop>
               </linearGradient>
               <linearGradient
                 id="b"
@@ -39,9 +43,9 @@ export default function Web3() {
                 gradientTransform="translate(-2.326 11.158) scale(2.56617)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#EDCF00"></stop>
-                <stop offset=".59" stop-color="#F7E100"></stop>
-                <stop offset="1" stop-color="#FFF100"></stop>
+                <stop stopColor="#EDCF00"></stop>
+                <stop offset=".59" stopColor="#F7E100"></stop>
+                <stop offset="1" stopColor="#FFF100"></stop>
               </linearGradient>
               <radialGradient
                 id="c"
@@ -51,10 +55,10 @@ export default function Web3() {
                 gradientTransform="matrix(47.57621 0 0 47.25236 7.172 132.114)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFF100"></stop>
-                <stop offset=".23" stop-color="#F9E500"></stop>
-                <stop offset=".67" stop-color="#F0D500"></stop>
-                <stop offset="1" stop-color="#EDCF00"></stop>
+                <stop stopColor="#FFF100"></stop>
+                <stop offset=".23" stopColor="#F9E500"></stop>
+                <stop offset=".67" stopColor="#F0D500"></stop>
+                <stop offset="1" stopColor="#EDCF00"></stop>
               </radialGradient>
             </defs>
             <path
@@ -116,9 +120,9 @@ export default function Web3() {
                 y2="861.061"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#05D5FF" />
-                <stop offset="0.723958" stop-color="#363FF9" />
-                <stop offset="1" stop-color="#5533FF" />
+                <stop stopColor="#05D5FF" />
+                <stop offset="0.723958" stopColor="#363FF9" />
+                <stop offset="1" stopColor="#5533FF" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear"
@@ -128,9 +132,9 @@ export default function Web3() {
                 y2="861.061"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#05D5FF" />
-                <stop offset="0.723958" stop-color="#363FF9" />
-                <stop offset="1" stop-color="#5533FF" />
+                <stop stopColor="#05D5FF" />
+                <stop offset="0.723958" stopColor="#363FF9" />
+                <stop offset="1" stopColor="#5533FF" />
               </linearGradient>
               <linearGradient
                 id="paint2_linear"
@@ -140,9 +144,9 @@ export default function Web3() {
                 y2="861.061"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#05D5FF" />
-                <stop offset="0.723958" stop-color="#363FF9" />
-                <stop offset="1" stop-color="#5533FF" />
+                <stop stopColor="#05D5FF" />
+                <stop offset="0.723958" stopColor="#363FF9" />
+                <stop offset="1" stopColor="#5533FF" />
               </linearGradient>
             </defs>
           </svg>

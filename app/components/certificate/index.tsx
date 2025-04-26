@@ -2,8 +2,7 @@
 
 import ExternalLink from "@/components/common/external-link";
 import BlurFade from "@/components/magicui/blur-fade";
-import { BorderBeam } from "@/components/magicui/border-beam";
-import { TypographyH2 } from "@/components/ui/typography";
+import { TypographyH3 } from "@/components/ui/typography";
 import Image from "next/image";
 import APIsAndMicroservices from "./images/APIs and Microservices.png";
 import AWSAcademyGraduateAWSAcademyCloudFoundations from "./images/AWS Academy Graduate - AWS Academy Cloud Foundations.png";
@@ -30,6 +29,7 @@ import RestAPI from "./images/Rest API.png";
 import SQLBasic from "./images/SQL (Basic).png";
 import TokopediaSTARTSummit from "./images/Tokopedia START Summit.png";
 import TypingSpeed from "./images/Typing Speed.jpg";
+import AnimationsOnTheWeb from "./images/animations-on-the-web.webp";
 
 export default function Certificate() {
   const highlights = certificates
@@ -42,32 +42,32 @@ export default function Certificate() {
 
   return (
     <section className="flex flex-col gap-4">
-      <TypographyH2 className="mb-4 text-center">Certificates</TypographyH2>
+      <BlurFade inView>
+        <TypographyH3 className="mb-4 text-center">Certificates</TypographyH3>
+      </BlurFade>
 
-      <div className="columns-1 space-y-4 sm:columns-2">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {highlights.map((certificate, idx) => (
-          <BlurFade key={idx} delay={0.25} inView>
+          <BlurFade key={idx} inView>
             <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <div className="relative overflow-hidden rounded">
+              <div className="relative overflow-hidden">
                 <Image
                   className="m-auto"
                   placeholder="blur"
                   src={certificate.src}
                   alt={certificate.label}
                 />
-
-                <BorderBeam />
               </div>
             </ExternalLink>
           </BlurFade>
         ))}
       </div>
 
-      <div className="columns-1 space-y-4 sm:columns-2 md:columns-3">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {regulars.map((certificate, idx) => (
-          <BlurFade key={idx} delay={0.25} inView>
+          <BlurFade key={idx} inView>
             <ExternalLink href={certificate.url} aria-label={certificate.label}>
-              <div className="relative overflow-hidden rounded">
+              <div className="relative overflow-hidden">
                 <Image
                   className="m-auto"
                   placeholder="blur"
@@ -98,7 +98,6 @@ const certificates = [
   {
     label: "Certificate Java Basic",
     src: JavaBasic,
-    component: <Image className="m-auto" src={JavaBasic} alt="Java Basic" />,
     url: "https://www.hackerrank.com/certificates/db0e67348aaf",
   },
   {
@@ -114,19 +113,16 @@ const certificates = [
   {
     label: "Certificate React Basic",
     src: ReactBasic,
-    component: <Image className="m-auto" src={ReactBasic} alt="React Basic" />,
     url: "https://www.hackerrank.com/certificates/c962efa53fc2",
   },
   {
     label: "Certificate Responsive Web Design",
     src: ResponsiveWebDesign,
     url: "https://www.freecodecamp.org/certification/brandon-julio-thenaro/responsive-web-design",
-    highlight: true,
   },
   {
     label: "Certificate Rest API",
     src: RestAPI,
-    component: <Image className="m-auto" src={RestAPI} alt="Rest API" />,
     url: "https://www.hackerrank.com/certificates/c8d332eb3414",
   },
   {
@@ -178,7 +174,6 @@ const certificates = [
   {
     label: "SQL (Basic)",
     src: SQLBasic,
-    component: <Image className="m-auto" src={SQLBasic} alt="SQL (Basic)" />,
     url: "https://www.hackerrank.com/certificates/e950f9fb6fb2",
   },
   {
@@ -216,6 +211,12 @@ const certificates = [
   {
     label: "",
     src: EthereumDeveloperBootcamp,
+    highlight: true,
+    url: "",
+  },
+  {
+    label: "",
+    src: AnimationsOnTheWeb,
     highlight: true,
     url: "",
   },

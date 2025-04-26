@@ -1,12 +1,16 @@
-import ListItem from "./list-item";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListItem from "./list-item";
 
 export default function Backend() {
   return (
     <section className="text-center">
-      <TypographyH3>Back-end</TypographyH3>
+      <BlurFade inView>
+        <TypographyH4>Back-end</TypographyH4>
+      </BlurFade>
+
       <ul className="my-1">
         <ListItem>
           <svg className="h-5" viewBox="0 0 128 128">

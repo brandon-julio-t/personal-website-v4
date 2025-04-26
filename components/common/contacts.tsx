@@ -1,26 +1,23 @@
-import BlurFade from "../magicui/blur-fade";
-import { Dock, DockIcon } from "../magicui/dock";
-import { DarkModeToggle } from "../ui/dark-mode-toggle";
-import { Separator } from "../ui/separator";
-import ExternalLink from "./external-link";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
-  faFacebook,
-  faFreeCodeCamp,
   faGithub,
   faInstagram,
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import BlurFade from "../magicui/blur-fade";
+import { Button } from "../ui/button";
+import { DarkModeToggle } from "../ui/dark-mode-toggle";
 
 const contacts = [
-  {
-    href: "https://www.facebook.com/profile.php?id=100008724798107",
-    icon: faFacebook,
-    title: "Facebook",
-  },
+  // {
+  //   href: "https://www.facebook.com/profile.php?id=100008724798107",
+  //   icon: faFacebook,
+  //   title: "Facebook",
+  // },
   {
     href: "https://www.instagram.com/brandon.julio.t",
     icon: faInstagram,
@@ -49,30 +46,31 @@ const contacts = [
   // },
 ];
 
-export default function Contacts() {
+export default function Contacts({ delay }: { delay?: number }) {
   return (
-    <BlurFade delay={0.25} inView>
-      <Dock direction="middle">
+    <BlurFade delay={delay} inView>
+      <div className="mx-auto flex w-fit flex-row items-center justify-between gap-1 rounded-xl border p-2">
         {contacts.map((contact, idx) => (
-          <DockIcon key={idx}>
-            <ExternalLink
-              href={contact.href}
+          <div key={idx}>
+            <Button
+              variant="link"
+              size="icon"
               aria-label={contact.title}
               title={contact.title}
             >
-              <FontAwesomeIcon
-                className="h-6 text-foreground"
-                icon={contact.icon as IconProp}
-                size="2x"
-              />
-            </ExternalLink>
-          </DockIcon>
+              <Link
+                href={contact.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={contact.icon as IconProp} size="2x" />
+              </Link>
+            </Button>
+          </div>
         ))}
 
-        <Separator orientation="vertical" className="h-full py-2" />
-
         <DarkModeToggle />
-      </Dock>
+      </div>
     </BlurFade>
   );
 }

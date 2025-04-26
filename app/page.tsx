@@ -1,5 +1,4 @@
 import Contacts from "@/components/common/contacts";
-import { TracingBeam } from "@/components/ui.aceternity/tracing-beam";
 import Certificate from "./components/certificate";
 import GithubProjects from "./components/github-projects";
 import Hero from "./components/hero";
@@ -8,25 +7,14 @@ import WorkExperience from "./components/work-experience";
 
 export default function Home() {
   return (
-    <section className="flex size-full flex-col gap-8 px-4">
+    <section className="container my-4 flex max-w-5xl flex-col gap-6 md:my-8 lg:my-16 xl:my-32">
       <Hero />
-
-      <TracingBeam
-        className="max-w-none"
-        tracingBeamContainerClassName="left-0 md:left-0"
-      >
-        <div className="flex size-full flex-col gap-8 px-4">
-          <Contacts />
-
-          <WorkExperience />
-          <GithubProjects />
-          <TechnologyStack />
-
-          <Certificate />
-
-          <Contacts />
-        </div>
-      </TracingBeam>
+      <Contacts delay={0.2} />
+      <WorkExperience />
+      <GithubProjects />
+      <TechnologyStack />
+      <Certificate />
+      <Contacts />
     </section>
   );
 }

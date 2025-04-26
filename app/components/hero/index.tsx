@@ -1,37 +1,45 @@
 "use client";
 
-import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
-import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import BlurFade from "@/components/magicui/blur-fade";
-import { BackgroundBeams } from "@/components/ui.aceternity/background-beams";
-import { TypographyH1, TypographyH2 } from "@/components/ui/typography";
-import { JOB_TITLE } from "@/config";
+import { Button } from "@/components/ui/button";
+import { TypographyH3 } from "@/components/ui/typography";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <>
-      <header className="flex min-h-screen flex-col items-center justify-center space-y-4 text-center">
-        <BlurFade delay={0.25} inView>
-          <TypographyH1>
-            <AnimatedGradientText>
-              <div className="p-2">
-                <Link href="/market/crypto">₿</Link>randon Julio Thenaro
-              </div>
-            </AnimatedGradientText>
-          </TypographyH1>
-        </BlurFade>
+    <header className="flex flex-col gap-4">
+      <BlurFade inView>
+        <TypographyH3>
+          <Link href="/market/crypto">₿</Link>randon Julio Thenaro
+        </TypographyH3>
+      </BlurFade>
 
-        <BlurFade delay={0.25 * 1.5} inView>
-          <TypographyH2>
-            <AnimatedShinyText>{JOB_TITLE}</AnimatedShinyText>
-          </TypographyH2>
-        </BlurFade>
-      </header>
-
-      <div className="absolute inset-0 -z-10 h-screen w-screen">
-        <BackgroundBeams />
-      </div>
-    </>
+      <BlurFade delay={0.1} inView>
+        <section className="flex flex-col gap-1">
+          {[
+            <>Building polished UI/UX in both web and mobile application.</>,
+            <>
+              Experimenting with AI to build product solutions to help business
+              scale.
+            </>,
+            <>
+              <span className="italic">Pragmatic</span> Software Engineer at{" "}
+              <Button
+                variant="link"
+                className="h-fit p-0 text-base underline"
+                asChild
+              >
+                <Link target="_blank" href="https://farmio.com">
+                  Farmio
+                </Link>
+              </Button>
+              .
+            </>,
+          ].map((item, index) => (
+            <div key={index}>{item}</div>
+          ))}
+        </section>
+      </BlurFade>
+    </header>
   );
 }

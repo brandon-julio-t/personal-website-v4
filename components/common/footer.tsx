@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="flex flex-col gap-4">
         <section className="flex flex-wrap justify-center gap-8">
           {credits.map((credit, idx) => (
-            <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
+            <BlurFade key={idx} inView>
               <ExternalLink href={credit.href}>
                 <TypographyMuted className="text-center">
                   {credit.name}
@@ -24,7 +24,7 @@ const Footer = () => {
           ))}
         </section>
 
-        <BlurFade delay={0.25} inView>
+        <BlurFade inView>
           <TypographyMuted className="text-center">&copy; 2024</TypographyMuted>
         </BlurFade>
       </div>
@@ -47,7 +47,7 @@ const Footer = () => {
         />
 
         {/* Radial Gradient to prevent sharp edges */}
-        <div className="absolute inset-0 h-full w-full bg-background [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        <div className="bg-background absolute inset-0 h-full w-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
     </div>
   );

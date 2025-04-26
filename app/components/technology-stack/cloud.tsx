@@ -1,15 +1,19 @@
-import ListItem from "./list-item";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import { faAws } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListItem from "./list-item";
 
 export default function Cloud() {
   return (
     <section className="text-center">
-      <TypographyH3>Cloud</TypographyH3>
+      <BlurFade inView>
+        <TypographyH4>Cloud</TypographyH4>
+      </BlurFade>
+
       <ul className="my-1">
         <ListItem>
-          <div className="size-5 text-foreground">▲</div>
+          <div className="text-foreground size-5">▲</div>
           <TypographyP>Vercel</TypographyP>
         </ListItem>
         <ListItem>

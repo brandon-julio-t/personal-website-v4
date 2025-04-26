@@ -1,10 +1,14 @@
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import ListItem from "./list-item";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
 
 export default function Programming() {
   return (
     <section className="text-center">
-      <TypographyH3>Programming</TypographyH3>
+      <BlurFade inView>
+        <TypographyH4>Programming</TypographyH4>
+      </BlurFade>
+
       <ul className="my-1">
         <ListItem>
           <svg className="h-5" viewBox="0 0 128 128">

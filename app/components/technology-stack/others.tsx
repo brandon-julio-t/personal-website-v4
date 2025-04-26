@@ -1,13 +1,17 @@
-import ListItem from "./list-item";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
+import BlurFade from "@/components/magicui/blur-fade";
+import { TypographyH4, TypographyP } from "@/components/ui/typography";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faMarkdown } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListItem from "./list-item";
 
 export default function Others() {
   return (
     <section className="text-center">
-      <TypographyH3>Other</TypographyH3>
+      <BlurFade inView>
+        <TypographyH4>Other</TypographyH4>
+      </BlurFade>
+
       <ul className="my-1">
         <ListItem>
           <svg

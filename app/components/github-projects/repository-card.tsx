@@ -1,16 +1,20 @@
-import LanguagePill from "./language-pill";
-import ExternalLink from "@/components/common/external-link";
-import { MagicCard } from "@/components/magicui/magic-card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
-  TypographyH4,
-  TypographyP,
-  TypographySmall,
-} from "@/components/ui/typography";
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { TypographySmall } from "@/components/ui/typography";
 import IRepository from "@/interfaces/repository";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const RepositoryCard: React.FunctionComponent<
@@ -43,52 +47,48 @@ const RepositoryCard: React.FunctionComponent<
 
   return (
     <div {...rest}>
-      <MagicCard className="p-4">
-        <div className="flex size-full flex-col gap-2">
-          <header>
-            <TypographyH4>{toTitleCase(repository.name)}</TypographyH4>
-            <TypographySmall>{createdAt}</TypographySmall>
-          </header>
+      <Card className="gap-2">
+        <CardHeader>
+          <CardTitle>{toTitleCase(repository.name)}</CardTitle>
+          <CardDescription>{createdAt}</CardDescription>
+        </CardHeader>
 
-          <div className="flex flex-wrap gap-1">
-            {repository.languages.nodes.map((language, idx) => (
-              <LanguagePill key={idx} language={language} />
-            ))}
-          </div>
-
+        <CardContent className="flex flex-col gap-2">
           {repository.description && (
-            <TypographyP className="italic">
-              {repository.description}
-            </TypographyP>
+            <section>
+              <TypographySmall className="font-normal">
+                {repository.description}
+              </TypographySmall>
+            </section>
           )}
 
-          <div className="mt-auto flex flex-col gap-1">
-            <ExternalLink
-              href={repository.url}
-              className="flex items-center hover:underline"
-            >
-              <FontAwesomeIcon
-                className="mr-1 h-5"
-                icon={faGithub as IconProp}
-              />{" "}
-              View on GitHub
-            </ExternalLink>
+          <section className="flex flex-row flex-wrap gap-1">
+            {repository.languages.nodes.map((language, idx) => (
+              <Badge key={idx} variant="outline">
+                {language.name}
+              </Badge>
+            ))}
+          </section>
+        </CardContent>
 
-            {repository.homepageUrl && (
-              <ExternalLink
-                href={repository.homepageUrl}
-                className="flex items-center hover:underline"
-              >
-                <FontAwesomeIcon
-                  className="mr-1 h-5"
-                  icon={faGlobe as IconProp}
-                />{" "}
+        <CardFooter className="flex flex-col items-start gap-1">
+          <Button variant="link" className="h-fit p-0" asChild>
+            <Link href={repository.url} target="_blank">
+              <FontAwesomeIcon className="mr-1" icon={faGithub as IconProp} />{" "}
+              View on GitHub
+            </Link>
+          </Button>
+
+          {repository.homepageUrl && (
+            <Button variant="link" className="h-fit p-0" asChild>
+              <Link href={repository.homepageUrl} target="_blank">
+                <FontAwesomeIcon className="mr-1" icon={faGlobe as IconProp} />{" "}
                 View Live
-              </ExternalLink>
-            )}
-          </div>
-        </div>
-      </MagicCard>
+              </Link>
+            </Button>
+          )}
+        </CardFooter>
+      </Card>
     </div>
   );
 };

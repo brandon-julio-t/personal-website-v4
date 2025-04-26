@@ -1,10 +1,8 @@
+import BlurFade from "@/components/magicui/blur-fade";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { TypographyH3 } from "@/components/ui/typography";
+import { InfoIcon } from "lucide-react";
 import CardsContainer from "./cards-container";
-import Card from "@/components/common/card";
-import {
-  TypographyH2,
-  TypographyH3,
-  TypographyP,
-} from "@/components/ui/typography";
 
 const GithubProjects: React.FunctionComponent = async () => {
   const { data, error } = await getData();
@@ -15,19 +13,21 @@ const GithubProjects: React.FunctionComponent = async () => {
     data?.data?.viewer?.repositories?.edges?.map((edge) => edge.node) ?? [];
 
   return (
-    <section className="mb-8">
-      <TypographyH2 className="text-center">GitHub Projects</TypographyH2>
+    <section className="flex flex-col gap-4">
+      <BlurFade inView>
+        <TypographyH3 className="text-center">GitHub Projects</TypographyH3>
+      </BlurFade>
 
       {error ? (
-        <Card className="mx-auto my-8 max-w-(--breakpoint-md)">
-          <TypographyH3 className="mb-2 text-center text-3xl">
-            Error
-          </TypographyH3>
-          <TypographyP className="mb-4 text-center font-bold">
+        <Alert className="mx-auto my-8 max-w-(--breakpoint-md)">
+          <InfoIcon />
+          <AlertTitle className="mb-2 text-center text-3xl">Error</AlertTitle>
+          <AlertDescription className="mb-4 text-center font-bold">
             Please contact the developer with the following detail
-          </TypographyP>
-          <TypographyP className="text-center">{error}</TypographyP>
-        </Card>
+            <br />
+            <span className="font-mono">{error}</span>
+          </AlertDescription>
+        </Alert>
       ) : (
         <>
           <CardsContainer
