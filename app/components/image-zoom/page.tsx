@@ -59,6 +59,7 @@ const ImageZoomComponentPage = () => {
 
             <div className="absolute top-2 right-2">
               <Button
+                tabIndex={0}
                 variant="outline"
                 size="icon"
                 className="rounded-r-none"
@@ -69,6 +70,7 @@ const ImageZoomComponentPage = () => {
                 <PlusIcon />
               </Button>
               <Button
+                tabIndex={0}
                 variant="outline"
                 size="icon"
                 className="rounded-l-none rounded-r-none border-l-0"
@@ -79,6 +81,7 @@ const ImageZoomComponentPage = () => {
                 <MinusIcon />
               </Button>
               <Button
+                tabIndex={0}
                 variant="outline"
                 size="icon"
                 className="rounded-l-none rounded-r-none border-l-0"
@@ -96,6 +99,7 @@ const ImageZoomComponentPage = () => {
                 <RotateCwSquareIcon />
               </Button>
               <Button
+                tabIndex={0}
                 variant="outline"
                 size="icon"
                 className="rounded-l-none border-l-0"
