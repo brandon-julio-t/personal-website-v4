@@ -84,12 +84,12 @@ const BanterBubblesTreemapChart: ComponentType<
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none">
+            <div className="flex items-center gap-2 leading-none font-medium">
               Top 100 Crypto by Banter Bubbles Ranking excluding sleeping asset
               (0% performance)
             </div>
 
-            <div className="flex items-center gap-1 leading-none text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-1 leading-none">
               Data by
               <a
                 href="https://banterbubbles.com"

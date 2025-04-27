@@ -114,7 +114,7 @@ const LineChartForGoogleTrend = ({
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
-            <div className="flex items-center gap-1 leading-none text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-1 leading-none">
               Data by
               <a
                 href="https://trends.google.com/trends"

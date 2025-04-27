@@ -28,7 +28,7 @@ function toRgbString(rgb: RGB, opacity?: number | null): string {
   return `rgba(${r}, ${g}, ${b}, ${1 - opacity})`;
 }
 
-export { randomIntegerBetween, randomHexColor, hexToRgb, toRgbString };
+export { hexToRgb, randomHexColor, randomIntegerBetween, toRgbString };
 
 const colors = [
   "#F8FAFC",

@@ -119,7 +119,7 @@ export const LineChart = ({
         <CardFooter>
           <div className="flex w-full items-start gap-2 text-sm">
             <div className="grid gap-2">
-              <div className="flex items-center gap-1 leading-none text-muted-foreground">
+              <div className="text-muted-foreground flex items-center gap-1 leading-none">
                 {footer}
               </div>
             </div>

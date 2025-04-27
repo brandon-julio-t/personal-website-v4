@@ -8,7 +8,7 @@ const Card: FunctionComponent<ComponentProps<"div">> = ({
   return (
     <div
       {...rest}
-      className={`rounded-xl border border-black border-opacity-10 px-8 py-4 shadow-sm backdrop-blur-xs transition-all hover:shadow-md hover:backdrop-blur-sm dark:border-neutral-400 ${className}`}
+      className={`border-opacity-10 rounded-xl border border-black px-8 py-4 shadow-sm backdrop-blur-xs transition-all hover:shadow-md hover:backdrop-blur-sm dark:border-neutral-400 ${className}`}
     >
       {children}
     </div>
