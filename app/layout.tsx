@@ -1,7 +1,6 @@
 import Footer from "@/components/common/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { JOB_TITLE } from "@/config";
-import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -22,12 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-background text-foreground min-h-screen font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body className={fontSans.variable}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
