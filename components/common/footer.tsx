@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="flex flex-col gap-4">
         <section className="flex flex-wrap justify-center gap-8">
           {credits.map((credit, idx) => (
-            <BlurFade key={idx} inView>
+            <BlurFade key={idx} delay={idx * 0.025} inView>
               <ExternalLink href={credit.href}>
                 <TypographyMuted className="text-center">
                   {credit.name}
@@ -24,7 +24,7 @@ const Footer = () => {
           ))}
         </section>
 
-        <BlurFade inView>
+        <BlurFade delay={(credits.length + 1) * 0.025} inView>
           <TypographyMuted className="text-center">&copy; 2024</TypographyMuted>
         </BlurFade>
       </div>
