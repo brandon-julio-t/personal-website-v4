@@ -37,7 +37,7 @@ export const workExperiences = [
           </>
         ),
         images: [Kokopilot1, Kokopilot2],
-        skills: [],
+        skills: ["LLM", "AI Agent"],
       },
       {
         title: "Chat Order AI Agent",
@@ -48,7 +48,7 @@ export const workExperiences = [
           </>
         ),
         images: [OrderAI1, OrderAI2],
-        skills: [],
+        skills: ["LLM", "AI Agent", "Prompt Engineering"],
       },
       {
         title: "Route Optimization",
@@ -60,7 +60,7 @@ export const workExperiences = [
           </>
         ),
         images: [RouteOptimization1, RouteOptimization2, RouteOptimization3],
-        skills: [],
+        skills: ["Vehicle Routing Problem (VRP)"],
       },
     ],
   },
