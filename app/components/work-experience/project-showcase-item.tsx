@@ -24,7 +24,7 @@ export const ProjectShowcaseItem: React.ComponentType<{
         <TypographyMuted>{project.description}</TypographyMuted>
       </header>
 
-      {(project.skills?.length ?? 0) > 0 && (
+      {project.skills.length > 0 && (
         <section className="flex flex-row flex-wrap gap-1">
           {project.skills.map((skill) => (
             <Badge key={skill} className="mr-1 last:mr-0" variant="outline">
