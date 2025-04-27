@@ -23,6 +23,17 @@ export default function Hero() {
               scale.
             </>,
             <>
+              Tinkering with{" "}
+              <Button
+                variant="link"
+                className="h-fit p-0 text-base underline"
+                asChild
+              >
+                <Link href="/components">components</Link>
+              </Button>{" "}
+              in spare time.
+            </>,
+            <>
               <span className="italic">Pragmatic</span> Software Engineer at{" "}
               <Button
                 variant="link"
