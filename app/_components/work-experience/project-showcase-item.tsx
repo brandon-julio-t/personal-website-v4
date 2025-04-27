@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageZoomManipulator } from "@/app/components/image-zoom/block";
 import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
@@ -8,6 +9,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { TypographyMuted, TypographySmall } from "@/components/ui/typography";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -38,21 +47,27 @@ export const ProjectShowcaseItem: React.ComponentType<{
         <Carousel plugins={[Autoplay()]} className="mx-auto w-full md:w-[90%]">
           <CarouselContent>
             {project.images.map((image, idx) => (
-              <CarouselItem key={idx}>
-                <div
-                  key={idx}
-                  className="relative aspect-video h-auto flex-1 overflow-hidden rounded-xl border p-1"
-                  onClick={() => window.open(image.src, "_blank")}
-                >
-                  <Image
-                    key={idx}
-                    src={image}
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              </CarouselItem>
+              <Dialog key={idx}>
+                <DialogTrigger asChild>
+                  <CarouselItem>
+                    <div className="relative aspect-video h-auto flex-1 overflow-hidden rounded-xl border p-1">
+                      <Image
+                        src={image}
+                        alt={project.title}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                  </CarouselItem>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[90vw]">
+                  <DialogHeader>
+                    <DialogTitle>{project.title}</DialogTitle>
+                    <DialogDescription>{project.description}</DialogDescription>
+                  </DialogHeader>
+                  <ImageZoomManipulator src={image.src} alt={project.title} />
+                </DialogContent>
+              </Dialog>
             ))}
           </CarouselContent>
           <CarouselPrevious className="left-1 md:-left-12" />

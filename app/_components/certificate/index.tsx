@@ -2,7 +2,7 @@
 
 import BlurFade from "@/components/magicui/blur-fade";
 import { TypographyH3 } from "@/components/ui/typography";
-import Image from "next/image";
+import { CertificateImage } from "./certificate-image";
 import APIsAndMicroservices from "./images/APIs and Microservices.png";
 import AWSAcademyGraduateAWSAcademyCloudFoundations from "./images/AWS Academy Graduate - AWS Academy Cloud Foundations.png";
 import AWSCertifiedCloudPractitionerFoundational from "./images/AWS Certified Cloud Practitioner Foundational.png";
@@ -48,16 +48,7 @@ export default function Certificate() {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {highlights.map((certificate, idx) => (
           <BlurFade key={idx} inView>
-            <div
-              className="relative overflow-hidden"
-              onClick={() => window.open(certificate.src.src, "_blank")}
-            >
-              <Image
-                placeholder="blur"
-                src={certificate.src}
-                alt={certificate.label}
-              />
-            </div>
+            <CertificateImage src={certificate.src} alt={certificate.label} />
           </BlurFade>
         ))}
       </div>
@@ -65,17 +56,7 @@ export default function Certificate() {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         {regulars.map((certificate, idx) => (
           <BlurFade key={idx} inView>
-            <div
-              className="relative overflow-hidden"
-              onClick={() => window.open(certificate.src.src, "_blank")}
-            >
-              <Image
-                className="m-auto"
-                placeholder="blur"
-                src={certificate.src}
-                alt={certificate.label}
-              />
-            </div>
+            <CertificateImage src={certificate.src} alt={certificate.label} />
           </BlurFade>
         ))}
       </div>
