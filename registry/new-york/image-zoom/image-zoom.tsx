@@ -14,7 +14,7 @@ import {
   RotateCwSquareIcon,
 } from "lucide-react";
 import { motion, useSpring } from "motion/react";
-import Image, { ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 import React from "react";
 
 export const ImageZoom: React.ComponentType<ImageProps> = (imageProps) => {

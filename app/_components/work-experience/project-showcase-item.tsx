@@ -1,6 +1,5 @@
 "use client";
 
-import { ImageZoomManipulator } from "@/app/components/image-zoom/block";
 import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
@@ -18,6 +17,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { TypographyMuted, TypographySmall } from "@/components/ui/typography";
+import { ImageZoomManipulator } from "@/registry/new-york/image-zoom/image-zoom";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import React from "react";

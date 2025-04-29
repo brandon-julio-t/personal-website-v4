@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "brandonjt",
+  "homepage": "https://brandonjuliothenaro.my.id",
+  "items": [
+    {
+      "name": "image-zoom",
+      "type": "registry:block",
+      "title": "Image Zoom",
+      "description": "A simple image zoom component.",
+      "files": [
+        {
+          "path": "registry/new-york/image-zoom/image-zoom.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["button", "dialog"]
+    }
+  ]
+}

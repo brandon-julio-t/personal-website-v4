@@ -1,4 +1,3 @@
-import { ImageZoomManipulator } from "@/app/components/image-zoom/block";
 import {
   Dialog,
   DialogContent,
@@ -7,6 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { ImageZoomManipulator } from "@/registry/new-york/image-zoom/image-zoom";
 import Image, { StaticImageData } from "next/image";
 
 export const CertificateImage: React.ComponentType<{

@@ -8,7 +8,7 @@ import {
   TypographySmall,
 } from "@/components/ui/typography";
 import Link from "next/link";
-import { ImageZoom } from "./block";
+import { ImageZoom } from "../../../registry/new-york/image-zoom/image-zoom";
 
 const imageSrcRectangle = "https://picsum.photos/seed/rectangle/1600/900";
 const imageSrcZackSnyder = "https://picsum.photos/seed/zacksnyder/400/300";
