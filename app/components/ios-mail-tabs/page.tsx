@@ -61,7 +61,7 @@ const IosMailTabsComponentPage = () => {
           </TabsList>
           <TabsContent value="preview">
             <Card>
-              <CardContent className="flex flex-col items-center gap-1.5 md:flex-row md:justify-center">
+              <CardContent className="flex flex-col items-center gap-1.5 overflow-auto md:flex-row md:justify-center">
                 <IosMailTabs defaultValue="primary">
                   <IosMailTabsList>
                     <IosMailTabsTrigger
