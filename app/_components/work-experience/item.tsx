@@ -18,7 +18,7 @@ export const WorkExperienceSection: React.ComponentType<{
 
   return (
     <section className="flex flex-col gap-2">
-      <header className="flex flex-wrap items-baseline justify-between gap-4">
+      <header className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
         <div className="flex flex-row items-center gap-2">
           <span>{data.jobTitle}</span>
           <span className="text-muted-foreground">@</span>
