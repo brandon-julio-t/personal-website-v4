@@ -11,11 +11,11 @@ import { cn } from "@/lib/utils";
 const chartConfig = {
   score: {
     label: "Score",
-    color: "hsl(var(--chart-1))",
+    color: "var(--chart-1)",
   },
   fillScore: {
     label: "Filler Score",
-    color: "hsl(var(--accent))",
+    color: "var(--accent)",
   },
 } satisfies ChartConfig;
 

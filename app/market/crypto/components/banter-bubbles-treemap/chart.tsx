@@ -18,14 +18,6 @@ import { ComponentType } from "react";
 
 export const description = "A multiple line chart";
 
-const chartColors = [
-  "hsl(var(--chart-1))",
-  "hsl(var(--chart-2))",
-  "hsl(var(--chart-3))",
-  "hsl(var(--chart-4))",
-  "hsl(var(--chart-5))",
-];
-
 export type BanterBubblesTreemapChartProps = {
   chartData: Record<string, string | number>[];
   title: string;
@@ -53,8 +45,10 @@ const BanterBubblesTreemapChart: ComponentType<
                 key={item.name}
                 className={cn(
                   "flex-1",
-                  Number(item.performance) > 0 && "bg-success text-white",
-                  Number(item.performance) < 0 && "bg-destructive text-white",
+                  Number(item.performance) > 0 &&
+                    "bg-emerald-600 text-white dark:bg-emerald-700",
+                  Number(item.performance) < 0 &&
+                    "bg-rose-700 text-white dark:bg-rose-800",
                   Number(item.performance) === 0 && "bg-muted text-black",
                 )}
               >
