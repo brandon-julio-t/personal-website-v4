@@ -16,6 +16,19 @@
       ],
       "dependencies": ["motion", "lucide-react"],
       "registryDependencies": ["button", "dialog"]
+    },
+    {
+      "name": "ios-mail-tabs",
+      "type": "registry:block",
+      "title": "iOS Mail Tabs",
+      "description": "A set of animated, iOS-inspired mail tabs for React apps. Switch between tabs like Primary, Transactions, Updates, Promotions, and All Mail with smooth transitions. Great for email clients or any UI needing visually distinct, interactive tab navigation.",
+      "files": [
+        {
+          "path": "registry/new-york/ios-mail-tabs/ios-mail-tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"]
     }
   ]
 }

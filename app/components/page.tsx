@@ -14,14 +14,27 @@ const ComponentsPage = () => {
       </header>
 
       <ul className="list-inside">
-        <li className="list-disc">
-          <Button variant="link" className="-mx-4" asChild>
-            <Link href="/components/image-zoom">Image Zoom</Link>
-          </Button>
-        </li>
+        {components.map((component) => (
+          <li key={component.title} className="list-disc">
+            <Button variant="link" className="-mx-4" asChild>
+              <Link href={component.href}>{component.title}</Link>
+            </Button>
+          </li>
+        ))}
       </ul>
     </main>
   );
 };
+
+const components = [
+  {
+    title: "Image Zoom",
+    href: "/components/image-zoom",
+  },
+  {
+    title: "iOS Mail Tabs",
+    href: "/components/ios-mail-tabs",
+  },
+];
 
 export default ComponentsPage;
