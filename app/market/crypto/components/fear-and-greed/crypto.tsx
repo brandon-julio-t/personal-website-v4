@@ -1,19 +1,38 @@
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { GaugeChart } from "@/components/ui/chart/gauge";
 import { LineChart } from "@/components/ui/chart/line";
 import { cn } from "@/lib/utils";
 import { ComponentProps, ComponentType } from "react";
 import { CryptoFearAndGreedHistory, CryptoFngData } from "../../types";
 
-const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
-  className,
-  ...props
-}) => {
-  const [todayDataResponse, historyDataResponse] = await Promise.all([
-    fetch("https://api.alternative.me/fng")
-      .then((res) => res.json())
-      .then((data) => data as CryptoFngData),
+/**
+ * Fetches the current Crypto Fear & Greed index.
+ * @returns {Promise<CryptoFngData | null>}
+ * @example
+ * // returns { data: [...] }
+ * await fetchCryptoFngData();
+ */
+async function fetchCryptoFngData(): Promise<CryptoFngData | null> {
+  const res = await fetch("https://api.alternative.me/fng");
+  if (!res.ok) {
+    const text = await res.text();
+    console.error("Failed to fetch FNG data:", res.status, text);
+    return null;
+  }
+  return (await res.json()) as CryptoFngData;
+}
 
-    fetch("https://alternative.me/api/crypto/fear-and-greed-index/history", {
+/**
+ * Fetches the Crypto Fear & Greed index history.
+ * @returns {Promise<CryptoFearAndGreedHistory | null>}
+ * @example
+ * // returns { data: { labels: [...], datasets: [...] } }
+ * await fetchCryptoFngHistory();
+ */
+async function fetchCryptoFngHistory(): Promise<CryptoFearAndGreedHistory | null> {
+  const res = await fetch(
+    "https://alternative.me/api/crypto/fear-and-greed-index/history",
+    {
       body: '{"days":365}',
       cache: "default",
       credentials: "include",
@@ -29,15 +48,43 @@ const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
       redirect: "follow",
       referrer: "https://alternative.me/crypto/fear-and-greed-index/",
       referrerPolicy: "unsafe-url",
-    })
-      .then((res) => res.json())
-      .then((data) => data as CryptoFearAndGreedHistory),
+    },
+  );
+  if (!res.ok) {
+    const text = await res.text();
+    console.error("Failed to fetch FNG history:", res.status, text);
+    return null;
+  }
+  return (await res.json()) as CryptoFearAndGreedHistory;
+}
+
+const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
+  className,
+}) => {
+  const [todayDataResponse, historyDataResponse] = await Promise.all([
+    fetchCryptoFngData(),
+    fetchCryptoFngHistory(),
   ]);
 
+  if (!todayDataResponse) {
+    console.error("Failed to fetch today's FNG data");
+  }
+
+  if (!historyDataResponse) {
+    console.error("Failed to fetch FNG history");
+  }
+
+  if (!todayDataResponse || !historyDataResponse) {
+    return (
+      <Alert variant="destructive">
+        <AlertTitle>Failed to load Crypto Fear & Greed data.</AlertTitle>
+        <AlertDescription>Please try again later.</AlertDescription>
+      </Alert>
+    );
+  }
+
   const cryptoFngData = todayDataResponse.data.at(0);
-
   const gaugeScore = Number(cryptoFngData?.value ?? 0);
-
   const normalizedLabel = normalizeToSnakeCase(
     cryptoFngData?.value_classification ?? "",
   );
