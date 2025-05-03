@@ -40,7 +40,7 @@ export default function Hero() {
                 className="h-fit p-0 text-base underline"
                 asChild
               >
-                <Link target="_blank" href="https://farmio.com">
+                <Link target="_blank" href="https://farmio.io">
                   Farmio
                 </Link>
               </Button>
