@@ -7,7 +7,7 @@
       "name": "image-zoom",
       "type": "registry:block",
       "title": "Image Zoom",
-      "description": "A simple image zoom component.",
+      "description": "An interactive image viewer for React apps. Easily zoom, drag, resize, and rotate images with smooth controls. Perfect for galleries, portfolios, or any UI where users need to explore images in detail.",
       "files": [
         {
           "path": "registry/new-york/image-zoom/image-zoom.tsx",

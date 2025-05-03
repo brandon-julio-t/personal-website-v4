@@ -25,7 +25,9 @@ const ImageZoomComponentPage = () => {
         <TypographyH4>Image Zoom</TypographyH4>
 
         <TypographySmall>
-          A draggable, resizable, and rotatable image viewer
+          An interactive image viewer for React apps. Easily zoom, drag, resize,
+          and rotate images with smooth controls. Perfect for galleries,
+          portfolios, or any UI where users need to explore images in detail.
         </TypographySmall>
 
         <div>
@@ -75,31 +77,34 @@ const ImageZoomComponentPage = () => {
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Link from "next/link";
+import { TypographyLarge } from "@/components/ui/typography";
 import { ImageZoom } from "@/components/image-zoom";
 
 const imageSrcRectangle = "https://picsum.photos/seed/rectangle/1600/900";
 const imageSrcZackSnyder = "https://picsum.photos/seed/zacksnyder/400/300";
 const imageSrcSquare = "https://picsum.photos/seed/square/500";
 
-<div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
-  <section className="flex flex-col gap-2">
-    <TypographyLarge>Image 16:9</TypographyLarge>
-    <ImageZoom src={imageSrcRectangle} alt="placeholder" />
-  </section>
+const ImageZoomDemo = () => {
+  return (
+    <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
+      <section className="flex flex-col gap-2">
+        <TypographyLarge>Image 16:9</TypographyLarge>
+        <ImageZoom src={imageSrcRectangle} alt="placeholder" />
+      </section>
 
-  <section className="flex flex-col gap-2">
-    <TypographyLarge>Image 4:3</TypographyLarge>
-    <ImageZoom src={imageSrcZackSnyder} alt="placeholder" />
-  </section>
+      <section className="flex flex-col gap-2">
+        <TypographyLarge>Image 4:3</TypographyLarge>
+        <ImageZoom src={imageSrcZackSnyder} alt="placeholder" />
+      </section>
 
-  <section className="flex flex-col gap-2">
-    <TypographyLarge>Image 1:1</TypographyLarge>
-    <ImageZoom src={imageSrcSquare} alt="placeholder" />
-  </section>
-</div>
-`.trim()}
+      <section className="flex flex-col gap-2">
+        <TypographyLarge>Image 1:1</TypographyLarge>
+        <ImageZoom src={imageSrcSquare} alt="placeholder" />
+      </section>
+    </div>
+  );
+};
+  `.trim()}
             </SyntaxHighlighter>
           </TabsContent>
         </Tabs>
