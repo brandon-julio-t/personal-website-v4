@@ -54,9 +54,9 @@ export const SyntaxHighlighter = React.memo<
           {copied ? (
             <motion.span
               key="copied"
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+              initial={{ opacity: 0, scale: 0, filter: "blur(2px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+              exit={{ opacity: 0, scale: 0, filter: "blur(2px)" }}
             >
               <Check />
               <span className="sr-only">Copied!</span>
@@ -64,9 +64,9 @@ export const SyntaxHighlighter = React.memo<
           ) : (
             <motion.span
               key="copy"
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+              initial={{ opacity: 0, scale: 0, filter: "blur(2px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+              exit={{ opacity: 0, scale: 0, filter: "blur(2px)" }}
             >
               <Copy />
               <span className="sr-only">Copy code</span>
