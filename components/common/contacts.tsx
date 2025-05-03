@@ -49,11 +49,11 @@ const contacts = [
 export default function Contacts({ delay }: { delay?: number }) {
   return (
     <BlurFade delay={delay} inView>
-      <div className="mx-auto flex w-fit flex-row items-center justify-between gap-1 rounded-xl border p-2">
+      <div className="mx-auto flex w-fit flex-row items-center justify-between gap-0.5 rounded-xl border p-2">
         {contacts.map((contact, idx) => (
           <div key={idx}>
             <Button
-              variant="link"
+              variant="ghost"
               size="icon"
               aria-label={contact.title}
               title={contact.title}
