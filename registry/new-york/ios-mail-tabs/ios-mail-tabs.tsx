@@ -88,7 +88,7 @@ export function IosMailTabsList({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-1.5 md:flex-row md:justify-center",
+        "flex flex-row items-center justify-center gap-1.5",
         className,
       )}
     >
