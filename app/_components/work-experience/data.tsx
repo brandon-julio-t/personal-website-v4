@@ -9,7 +9,7 @@ import RouteOptimization3 from "./images/route-optimization-3.webp";
 export const workExperiences = [
   {
     companyName: "Farmio",
-    companyUrl: "https://farmio.com",
+    companyUrl: "https://farmio.io",
     period: "2024 - present",
     jobTitle: "Senior Software Engineer",
     description: (
