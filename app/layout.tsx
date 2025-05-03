@@ -4,10 +4,11 @@ import { JOB_TITLE } from "@/config";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Geist_Mono as FontMono, Geist as FontSans } from "next/font/google";
 import "./globals.css";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
+const fontMono = FontMono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: `Brandon Julio Thenaro | ${JOB_TITLE}`,
@@ -20,8 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={fontSans.variable}>
+    <html
+      lang="en"
+      className={`${fontSans.variable} ${fontMono.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

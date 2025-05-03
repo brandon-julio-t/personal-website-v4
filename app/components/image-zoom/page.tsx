@@ -8,6 +8,9 @@ import {
   TypographyLarge,
   TypographySmall,
 } from "@/components/ui/typography";
+
+import { Card, CardContent } from "@/components/ui/card";
+import { SyntaxHighlighter } from "@/components/ui/syntax-highlighter";
 import Link from "next/link";
 import { ImageZoom } from "../../../registry/new-york/image-zoom/image-zoom";
 
@@ -47,25 +50,27 @@ const ImageZoomComponentPage = () => {
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
           <TabsContent value="preview">
-            <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
-              <section className="flex flex-col gap-2">
-                <TypographyLarge>Image 16:9</TypographyLarge>
-                <ImageZoom src={imageSrcRectangle} alt="placeholder" />
-              </section>
+            <Card>
+              <CardContent className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
+                <section className="flex flex-col gap-2">
+                  <TypographyLarge>Image 16:9</TypographyLarge>
+                  <ImageZoom src={imageSrcRectangle} alt="placeholder" />
+                </section>
 
-              <section className="flex flex-col gap-2">
-                <TypographyLarge>Image 4:3</TypographyLarge>
-                <ImageZoom src={imageSrcZackSnyder} alt="placeholder" />
-              </section>
+                <section className="flex flex-col gap-2">
+                  <TypographyLarge>Image 4:3</TypographyLarge>
+                  <ImageZoom src={imageSrcZackSnyder} alt="placeholder" />
+                </section>
 
-              <section className="flex flex-col gap-2">
-                <TypographyLarge>Image 1:1</TypographyLarge>
-                <ImageZoom src={imageSrcSquare} alt="placeholder" />
-              </section>
-            </div>
+                <section className="flex flex-col gap-2">
+                  <TypographyLarge>Image 1:1</TypographyLarge>
+                  <ImageZoom src={imageSrcSquare} alt="placeholder" />
+                </section>
+              </CardContent>
+            </Card>
           </TabsContent>
           <TabsContent value="code">
-            <code className="bg-muted block rounded-lg px-3 py-2 font-mono whitespace-pre-wrap">
+            <SyntaxHighlighter>
               {`
 "use client";
 
@@ -95,17 +100,17 @@ const imageSrcSquare = "https://picsum.photos/seed/square/500";
   </section>
 </div>
 `.trim()}
-            </code>
+            </SyntaxHighlighter>
           </TabsContent>
         </Tabs>
       </section>
 
       <section className="flex flex-col gap-1">
         <TypographyLarge>Installation</TypographyLarge>
-        <code className="bg-muted rounded-lg px-3 py-2 font-mono select-all">
+        <SyntaxHighlighter language="bash">
           npx shadcn@latest add
           https://brandonjuliothenaro.my.id/r/image-zoom.json
-        </code>
+        </SyntaxHighlighter>
       </section>
     </section>
   );
