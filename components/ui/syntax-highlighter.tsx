@@ -81,8 +81,7 @@ export const SyntaxHighlighter = React.memo<
         className="rounded-xl !font-mono"
         codeTagProps={{
           style: {
-            lineHeight: "inherit",
-            fontSize: "inherit",
+            fontFamily: "var(--font-mono)",
           },
         }}
         {...props}
