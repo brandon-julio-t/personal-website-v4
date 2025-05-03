@@ -16,7 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { TypographyMuted, TypographySmall } from "@/components/ui/typography";
+import { TypographySmall } from "@/components/ui/typography";
 import { ImageZoomManipulator } from "@/registry/new-york/image-zoom/image-zoom";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -30,15 +30,15 @@ export const ProjectShowcaseItem: React.ComponentType<{
     <section className="flex flex-col gap-2">
       <header className="flex flex-col gap-1">
         <TypographySmall>{project.title}</TypographySmall>
-        <TypographyMuted className="text-sm/relaxed">
+        <TypographySmall className="text-sm/relaxed font-normal">
           {project.description}
-        </TypographyMuted>
+        </TypographySmall>
       </header>
 
       {project.skills.length > 0 && (
         <section className="flex flex-row flex-wrap gap-1.5">
           {project.skills.map((skill) => (
-            <Badge key={skill} variant="outline">
+            <Badge key={skill} variant="outline" className="font-semibold">
               {skill}
             </Badge>
           ))}

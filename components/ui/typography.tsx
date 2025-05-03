@@ -106,7 +106,7 @@ export function TypographySmall({
   className,
 }: PropsWithChildren & ComponentProps<"small">) {
   return (
-    <small className={cn("text-foreground text-sm font-medium", className)}>
+    <small className={cn("text-foreground text-sm font-semibold", className)}>
       {children}
     </small>
   );
