@@ -18,12 +18,12 @@ import {
 } from "@/registry/new-york/ios-mail-tabs/ios-mail-tabs";
 import {
   InboxIcon,
-  Link,
   MegaphoneIcon,
   MessageSquareTextIcon,
   ShoppingCartIcon,
   UserRoundIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 const IosMailTabsComponentPage = () => {
   return (
