@@ -31,7 +31,7 @@ const IosMailTabsComponentPage = () => {
       <header className="flex flex-col gap-1">
         <TypographyH4>iOS Mail Tabs</TypographyH4>
 
-        <TypographySmall>
+        <TypographySmall className="font-normal">
           A set of animated, iOS-inspired mail tabs for React apps. Switch
           between tabs like Primary, Transactions, Updates, Promotions, and All
           Mail with smooth transitions. Great for email clients or any UI
@@ -51,7 +51,7 @@ const IosMailTabsComponentPage = () => {
         </div>
       </header>
 
-      <section>
+      <section className="flex flex-col gap-1">
         <TypographyLarge>Examples</TypographyLarge>
 
         <Tabs defaultValue="preview">

@@ -17,7 +17,7 @@ export default function TechnologyStack() {
         <TypographyH3 className="text-center">Technology Stack</TypographyH3>
       </BlurFade>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid w-fit grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Web3 />
         <Frontend />
         <Backend />

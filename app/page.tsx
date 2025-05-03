@@ -7,7 +7,7 @@ import WorkExperience from "./_components/work-experience";
 
 export default function Home() {
   return (
-    <main className="container my-6 flex max-w-5xl flex-col gap-6 md:my-8 lg:my-16 xl:my-32">
+    <main className="container my-6 flex max-w-2xl flex-col gap-6 md:my-8 lg:my-16 xl:my-32">
       <Hero />
       <Contacts delay={0.2} />
       <WorkExperience />

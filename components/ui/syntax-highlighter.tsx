@@ -32,10 +32,7 @@ export const SyntaxHighlighter = React.memo<
     }
   }, [code]);
 
-  const isJustOneLine = React.useMemo(
-    () => code.split("\n").length === 1,
-    [code],
-  );
+  const isOneLine = React.useMemo(() => code.split("\n").length === 1, [code]);
 
   return (
     <div className="relative">
@@ -47,7 +44,7 @@ export const SyntaxHighlighter = React.memo<
         onClick={handleCopy}
         className={cn(
           "absolute z-1",
-          isJustOneLine ? "top-5 right-2" : "top-2 right-2",
+          isOneLine ? "top-3 right-2" : "top-2 right-2",
         )}
       >
         <AnimatePresence mode="popLayout">

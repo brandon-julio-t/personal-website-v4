@@ -1,5 +1,5 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import { TypographyH4, TypographyP } from "@/components/ui/typography";
+import { TypographyMuted, TypographyP } from "@/components/ui/typography";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,18 +7,18 @@ import ListItem from "./list-item";
 
 export default function Web3() {
   return (
-    <section className="text-center">
+    <section className="text-left">
       <BlurFade inView>
-        <TypographyH4>Web3 / Blockchain</TypographyH4>
+        <TypographyMuted>Web3 / Blockchain</TypographyMuted>
       </BlurFade>
 
       <ul className="my-1">
         <ListItem>
-          <FontAwesomeIcon icon={faEthereum as IconProp} className="h-5" />
+          <FontAwesomeIcon icon={faEthereum as IconProp} className="size-5" />
           <TypographyP>Solidity (Ethereum)</TypographyP>
         </ListItem>
         <ListItem>
-          <svg viewBox="0 0 128 128" className="h-5">
+          <svg viewBox="0 0 128 128" className="size-5">
             <defs>
               <linearGradient
                 id="a"
@@ -94,7 +94,7 @@ export default function Web3() {
         </ListItem>
         <ListItem>
           <svg
-            className="h-5"
+            className="size-5"
             viewBox="0 0 1008 861"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

@@ -45,7 +45,7 @@ export default function Certificate() {
         <TypographyH3 className="mb-4 text-center">Certificates</TypographyH3>
       </BlurFade>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2">
         {highlights.map((certificate, idx) => (
           <BlurFade key={idx} inView>
             <CertificateImage src={certificate.src} alt={certificate.label} />
@@ -53,7 +53,7 @@ export default function Certificate() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {regulars.map((certificate, idx) => (
           <BlurFade key={idx} inView>
             <CertificateImage src={certificate.src} alt={certificate.label} />

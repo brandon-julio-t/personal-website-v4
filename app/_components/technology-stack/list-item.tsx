@@ -5,10 +5,10 @@ const ListItem: React.FunctionComponent<
   React.HTMLAttributes<HTMLLIElement>
 > = ({ children }) => {
   return (
-    <motion.li whileHover={{ scale: 1.15 }}>
+    <motion.li whileHover={{ scale: 1.05 }}>
       <BlurFade
         inView
-        className="flex items-center justify-center space-x-1 text-lg"
+        className="flex items-center justify-start space-x-1.5 text-base"
       >
         {children}
       </BlurFade>

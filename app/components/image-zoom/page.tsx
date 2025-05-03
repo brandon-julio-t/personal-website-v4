@@ -24,7 +24,7 @@ const ImageZoomComponentPage = () => {
       <header className="flex flex-col gap-1">
         <TypographyH4>Image Zoom</TypographyH4>
 
-        <TypographySmall>
+        <TypographySmall className="font-normal">
           An interactive image viewer for React apps. Easily zoom, drag, resize,
           and rotate images with smooth controls. Perfect for galleries,
           portfolios, or any UI where users need to explore images in detail.
@@ -43,7 +43,7 @@ const ImageZoomComponentPage = () => {
         </div>
       </header>
 
-      <section>
+      <section className="flex flex-col gap-1">
         <TypographyLarge>Examples</TypographyLarge>
 
         <Tabs defaultValue="preview">
@@ -110,7 +110,7 @@ const ImageZoomDemo = () => {
         </Tabs>
       </section>
 
-      <section className="flex flex-col gap-1">
+      <section>
         <TypographyLarge>Installation</TypographyLarge>
         <SyntaxHighlighter language="bash">
           npx shadcn@latest add

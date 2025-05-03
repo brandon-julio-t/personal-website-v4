@@ -30,13 +30,15 @@ export const ProjectShowcaseItem: React.ComponentType<{
     <section className="flex flex-col gap-2">
       <header className="flex flex-col gap-1">
         <TypographySmall>{project.title}</TypographySmall>
-        <TypographyMuted>{project.description}</TypographyMuted>
+        <TypographyMuted className="text-sm/relaxed">
+          {project.description}
+        </TypographyMuted>
       </header>
 
       {project.skills.length > 0 && (
-        <section className="flex flex-row flex-wrap gap-1">
+        <section className="flex flex-row flex-wrap gap-1.5">
           {project.skills.map((skill) => (
-            <Badge key={skill} className="mr-1 last:mr-0" variant="outline">
+            <Badge key={skill} variant="outline">
               {skill}
             </Badge>
           ))}
@@ -44,7 +46,7 @@ export const ProjectShowcaseItem: React.ComponentType<{
       )}
 
       {project.images.length > 0 && (
-        <Carousel plugins={[Autoplay()]} className="mx-auto w-full md:w-[90%]">
+        <Carousel plugins={[Autoplay()]} className="mx-auto w-full md:w-xl">
           <CarouselContent>
             {project.images.map((image, idx) => (
               <Dialog key={idx}>
@@ -70,8 +72,8 @@ export const ProjectShowcaseItem: React.ComponentType<{
               </Dialog>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-1 md:-left-12" />
-          <CarouselNext className="right-1 md:-right-12" />
+          <CarouselPrevious className="left-1 md:-left-10" />
+          <CarouselNext className="right-1 md:-right-10" />
         </Carousel>
       )}
     </section>

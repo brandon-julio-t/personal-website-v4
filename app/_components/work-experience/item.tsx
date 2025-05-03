@@ -41,7 +41,7 @@ export const WorkExperienceSection: React.ComponentType<{
       <Accordion type="single" collapsible>
         <AccordionItem value={id} className="!border-b">
           <AccordionTrigger>Projects</AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-2">
+          <AccordionContent className="flex flex-col gap-6 border-t pt-4">
             {data.showcaseProjects.map((project, idx) => (
               <ProjectShowcaseItem key={idx} project={project} />
             ))}
