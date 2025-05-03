@@ -68,7 +68,7 @@ export function TypographyH4({
 export function TypographyP({
   children,
 }: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="text-foreground leading-7">{children}</p>;
+  return <p className="text-foreground text-base/relaxed">{children}</p>;
 }
 
 export function TypographyList({
