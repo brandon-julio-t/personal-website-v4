@@ -49,25 +49,27 @@ const contacts = [
 export default function Contacts({ delay }: { delay?: number }) {
   return (
     <BlurFade delay={delay} inView>
-      <div className="mx-auto flex w-fit flex-row items-center justify-between gap-0.5 rounded-xl border p-2">
-        {contacts.map((contact, idx) => (
-          <div key={idx}>
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label={contact.title}
-              title={contact.title}
-            >
-              <Link
-                href={contact.href}
-                target="_blank"
-                rel="noopener noreferrer"
+      <div className="mx-auto flex w-fit flex-row items-center justify-between gap-0.5 rounded-xl border p-1.5">
+        <div className="flex flex-row items-center justify-between gap-0.5">
+          {contacts.map((contact, idx) => (
+            <div key={idx} className="last:mr-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={contact.title}
+                title={contact.title}
               >
-                <FontAwesomeIcon icon={contact.icon as IconProp} size="2x" />
-              </Link>
-            </Button>
-          </div>
-        ))}
+                <Link
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={contact.icon as IconProp} size="2x" />
+                </Link>
+              </Button>
+            </div>
+          ))}
+        </div>
 
         <DarkModeToggle />
       </div>

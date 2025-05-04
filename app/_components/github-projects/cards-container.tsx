@@ -2,7 +2,7 @@
 
 import Skeleton from "@/components/common/skeleton";
 import BlurFade from "@/components/magicui/blur-fade";
-import { TypographyH4 } from "@/components/ui/typography";
+import { TypographyLarge } from "@/components/ui/typography";
 import IRepository from "@/interfaces/repository";
 import { FunctionComponent } from "react";
 import RepositoryCard from "./repository-card";
@@ -15,7 +15,7 @@ const CardsContainer: FunctionComponent<{
   return (
     <>
       <BlurFade inView>
-        <TypographyH4 className="text-center">{title}</TypographyH4>
+        <TypographyLarge className="text-center">{title}</TypographyLarge>
       </BlurFade>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -1,7 +1,9 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { TypographyH3 } from "@/components/ui/typography";
-import { InfoIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { TypographyH4 } from "@/components/ui/typography";
+import { ExternalLinkIcon, InfoIcon } from "lucide-react";
+import Link from "next/link";
 import CardsContainer from "./cards-container";
 
 const GithubProjects: React.FunctionComponent = async () => {
@@ -15,7 +17,7 @@ const GithubProjects: React.FunctionComponent = async () => {
   return (
     <section className="flex flex-col gap-4">
       <BlurFade inView>
-        <TypographyH3 className="text-center">GitHub Projects</TypographyH3>
+        <TypographyH4 className="text-center">GitHub Projects</TypographyH4>
       </BlurFade>
 
       {error ? (
@@ -42,6 +44,13 @@ const GithubProjects: React.FunctionComponent = async () => {
           />
         </>
       )}
+
+      <Button variant="outline" className="mx-auto w-full max-w-xs" asChild>
+        <Link href="http://github.com/brandon-julio-t" target="_blank">
+          View more
+          <ExternalLinkIcon />
+        </Link>
+      </Button>
     </section>
   );
 };

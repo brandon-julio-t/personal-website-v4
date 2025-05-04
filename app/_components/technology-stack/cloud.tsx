@@ -14,14 +14,14 @@ export default function Cloud() {
       <ul className="my-1">
         <ListItem>
           <div className="text-foreground size-5">▲</div>
-          <TypographyP>Vercel</TypographyP>
+          <TypographyP>Vercel ⭐️</TypographyP>
         </ListItem>
         <ListItem>
           <FontAwesomeIcon
             icon={faAws}
             className="h-4 fill-current text-red-600"
           />
-          <TypographyP>Amazon Web Services</TypographyP>
+          <TypographyP>Amazon Web Services ⭐️</TypographyP>
         </ListItem>
         <ListItem>
           <svg className="size-5" viewBox="0 0 128 128">

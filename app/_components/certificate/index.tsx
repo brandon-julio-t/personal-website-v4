@@ -1,7 +1,7 @@
 "use client";
 
 import BlurFade from "@/components/magicui/blur-fade";
-import { TypographyH3 } from "@/components/ui/typography";
+import { TypographyH4 } from "@/components/ui/typography";
 import { CertificateImage } from "./certificate-image";
 import APIsAndMicroservices from "./images/APIs and Microservices.png";
 import AWSAcademyGraduateAWSAcademyCloudFoundations from "./images/AWS Academy Graduate - AWS Academy Cloud Foundations.png";
@@ -42,7 +42,7 @@ export default function Certificate() {
   return (
     <section className="flex flex-col gap-4">
       <BlurFade inView>
-        <TypographyH3 className="mb-4 text-center">Certificates</TypographyH3>
+        <TypographyH4 className="mb-4 text-center">Certificates</TypographyH4>
       </BlurFade>
 
       <div className="grid grid-cols-1 gap-2">

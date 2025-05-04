@@ -72,7 +72,7 @@ const RepositoryCard: React.FunctionComponent<
         </CardContent>
 
         <CardFooter className="flex flex-col items-start gap-1">
-          <Button variant="link" className="h-fit p-0" asChild>
+          <Button variant="link" className="-mx-3 h-fit p-0" asChild>
             <Link href={repository.url} target="_blank">
               <FontAwesomeIcon className="mr-1" icon={faGithub as IconProp} />{" "}
               View on GitHub
@@ -80,7 +80,7 @@ const RepositoryCard: React.FunctionComponent<
           </Button>
 
           {repository.homepageUrl && (
-            <Button variant="link" className="h-fit p-0" asChild>
+            <Button variant="link" className="-mx-3 h-fit p-0" asChild>
               <Link href={repository.homepageUrl} target="_blank">
                 <FontAwesomeIcon className="mr-1" icon={faGlobe as IconProp} />{" "}
                 View Live
