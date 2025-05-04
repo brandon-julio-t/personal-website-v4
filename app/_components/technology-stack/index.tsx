@@ -14,7 +14,9 @@ export default function TechnologyStack() {
   return (
     <section className="flex flex-col gap-4">
       <BlurFade inView>
-        <TypographyH4 className="text-center">Technology Stack</TypographyH4>
+        <TypographyH4 className="text-center" asChild>
+          <h2>Technology Stack</h2>
+        </TypographyH4>
       </BlurFade>
 
       <div className="mx-auto grid w-fit grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -16,7 +16,7 @@ export const CertificateImage: React.ComponentType<{
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden rounded-xl border-t p-2 shadow-sm">
           <Image placeholder="blur" src={src} alt={alt} />
         </div>
       </DialogTrigger>

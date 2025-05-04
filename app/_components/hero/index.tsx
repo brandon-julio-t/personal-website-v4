@@ -9,8 +9,10 @@ export default function Hero() {
   return (
     <header className="flex flex-col gap-4">
       <BlurFade inView>
-        <TypographyH3>
-          <Link href="/market/crypto">₿</Link>randon Julio Thenaro
+        <TypographyH3 asChild>
+          <h1>
+            <Link href="/market/crypto">₿</Link>randon Julio Thenaro
+          </h1>
         </TypographyH3>
       </BlurFade>
 

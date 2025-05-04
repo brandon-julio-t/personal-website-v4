@@ -7,7 +7,9 @@ export default function WorkExperience() {
   return (
     <section className="flex flex-col gap-4">
       <BlurFade delay={0.3}>
-        <TypographyH4 className="text-center">Work Experience</TypographyH4>
+        <TypographyH4 className="text-center" asChild>
+          <h2>Work Experience</h2>
+        </TypographyH4>
       </BlurFade>
 
       <section className="flex flex-col gap-4">

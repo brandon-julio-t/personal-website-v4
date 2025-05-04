@@ -1,25 +1,30 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import BlurFade from "../magicui/blur-fade";
 import { SparklesCore } from "../ui.aceternity/sparkles";
+import { Button } from "../ui/button";
 import { TypographyMuted } from "../ui/typography";
-import ExternalLink from "./external-link";
 
 const Footer = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-md pt-8">
+    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-md">
       <div className="flex flex-col gap-4">
-        <section className="flex flex-wrap justify-center gap-8">
+        <section className="flex flex-col md:flex-row md:flex-wrap md:justify-center">
           {credits.map((credit, idx) => (
             <BlurFade key={idx} delay={idx * 0.025} inView>
-              <ExternalLink href={credit.href}>
-                <TypographyMuted className="text-center">
+              <Button
+                variant="link"
+                className="text-muted-foreground w-full text-center"
+                asChild
+              >
+                <Link href={credit.href} target="_blank">
                   {credit.name}
-                </TypographyMuted>
-              </ExternalLink>
+                </Link>
+              </Button>
             </BlurFade>
           ))}
         </section>
@@ -77,6 +82,10 @@ const credits = [
   {
     href: "https://magicui.design",
     name: "Magic UI",
+  },
+  {
+    href: "https://devicon.dev",
+    name: "Devicon",
   },
   {
     href: "https://fortawesome.com",

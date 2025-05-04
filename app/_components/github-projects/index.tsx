@@ -17,7 +17,9 @@ const GithubProjects: React.FunctionComponent = async () => {
   return (
     <section className="flex flex-col gap-4">
       <BlurFade inView>
-        <TypographyH4 className="text-center">GitHub Projects</TypographyH4>
+        <TypographyH4 className="text-center" asChild>
+          <h2>GitHub Projects</h2>
+        </TypographyH4>
       </BlurFade>
 
       {error ? (
@@ -32,25 +34,32 @@ const GithubProjects: React.FunctionComponent = async () => {
         </Alert>
       ) : (
         <>
-          <CardsContainer
-            title="Pinned Repositories"
-            repositories={pinnedRepositories}
-            isLoading={isLoading}
-          />
-          <CardsContainer
-            title="Latest Repositories"
-            repositories={latestRepositories}
-            isLoading={isLoading}
-          />
+          <section className="mb-6">
+            <CardsContainer
+              title="Pinned Repositories"
+              repositories={pinnedRepositories}
+              isLoading={isLoading}
+            />
+          </section>
+
+          <section className="mb-0">
+            <CardsContainer
+              title="Latest Repositories"
+              repositories={latestRepositories}
+              isLoading={isLoading}
+            />
+          </section>
         </>
       )}
 
-      <Button variant="outline" className="mx-auto w-full max-w-xs" asChild>
-        <Link href="http://github.com/brandon-julio-t" target="_blank">
-          View more
-          <ExternalLinkIcon />
-        </Link>
-      </Button>
+      <BlurFade inView className="mx-auto w-full max-w-none sm:max-w-xs">
+        <Button variant="outline" className="w-full" asChild>
+          <Link href="http://github.com/brandon-julio-t" target="_blank">
+            View more
+            <ExternalLinkIcon />
+          </Link>
+        </Button>
+      </BlurFade>
     </section>
   );
 };

@@ -40,12 +40,14 @@ export default function Certificate() {
     .sort((a, b) => b.url.localeCompare(a.url));
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col">
       <BlurFade inView>
-        <TypographyH4 className="mb-4 text-center">Certificates</TypographyH4>
+        <TypographyH4 className="mb-4 text-center" asChild>
+          <h2>Certificates</h2>
+        </TypographyH4>
       </BlurFade>
 
-      <div className="grid grid-cols-1 gap-2">
+      <div className="flex flex-col gap-2">
         {highlights.map((certificate, idx) => (
           <BlurFade key={idx} inView>
             <CertificateImage src={certificate.src} alt={certificate.label} />
@@ -53,9 +55,9 @@ export default function Certificate() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+      <div className="mt-2 columns-1 md:columns-2">
         {regulars.map((certificate, idx) => (
-          <BlurFade key={idx} inView>
+          <BlurFade key={idx} inView className="py-2">
             <CertificateImage src={certificate.src} alt={certificate.label} />
           </BlurFade>
         ))}

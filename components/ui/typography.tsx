@@ -1,127 +1,151 @@
 import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 import { ComponentProps, PropsWithChildren } from "react";
 
 export function TypographyH1({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"h1">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"h1">) {
+  const Comp = asChild ? Slot : "h1";
+
   return (
-    <h1
+    <Comp
       className={cn(
         "text-foreground scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
         className,
       )}
     >
       {children}
-    </h1>
+    </Comp>
   );
 }
 
 export function TypographyH2({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"h2">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"h2">) {
+  const Comp = asChild ? Slot : "h2";
   return (
-    <h2
+    <Comp
       className={cn(
         "text-foreground scroll-m-20 text-3xl font-medium tracking-tight",
         className,
       )}
     >
       {children}
-    </h2>
+    </Comp>
   );
 }
 
 export function TypographyH3({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"h3">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"h3">) {
+  const Comp = asChild ? Slot : "h3";
   return (
-    <h3
+    <Comp
       className={cn(
         "text-foreground scroll-m-20 text-2xl font-medium tracking-tight",
         className,
       )}
     >
       {children}
-    </h3>
+    </Comp>
   );
 }
 
 export function TypographyH4({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"h4">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"h4">) {
+  const Comp = asChild ? Slot : "h4";
   return (
-    <h4
+    <Comp
       className={cn(
         "text-foreground scroll-m-20 text-xl font-medium tracking-tight",
         className,
       )}
     >
       {children}
-    </h4>
+    </Comp>
   );
 }
 
 export function TypographyP({
   className,
   children,
-}: PropsWithChildren & ComponentProps<"p">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"p">) {
+  const Comp = asChild ? Slot : "p";
   return (
-    <p className={cn("text-foreground text-base/relaxed", className)}>
+    <Comp className={cn("text-foreground text-base/relaxed", className)}>
       {children}
-    </p>
+    </Comp>
   );
 }
 
 export function TypographyList({
   children,
-}: PropsWithChildren & ComponentProps<"ul">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"ul">) {
+  const Comp = asChild ? Slot : "ul";
   return (
-    <ul className="text-foreground my-6 ml-6 list-disc [&>li]:mt-2">
+    <Comp className="text-foreground my-6 ml-6 list-disc [&>li]:mt-2">
       {children}
       {/* <li>1st level of puns: 5 gold coins</li>
       <li>2nd level of jokes: 10 gold coins</li>
       <li>3rd level of one-liners : 20 gold coins</li> */}
-    </ul>
+    </Comp>
   );
 }
 
 export function TypographyLead({
   children,
-}: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="text-muted-foreground text-xl">{children}</p>;
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"p">) {
+  const Comp = asChild ? Slot : "p";
+  return <Comp className="text-muted-foreground text-xl">{children}</Comp>;
 }
 
 export function TypographyLarge({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"div">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"div">) {
+  const Comp = asChild ? Slot : "div";
   return (
-    <div className={cn("text-foreground text-lg font-medium", className)}>
+    <Comp className={cn("text-foreground text-lg font-medium", className)}>
       {children}
-    </div>
+    </Comp>
   );
 }
 
 export function TypographySmall({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"small">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"small">) {
+  const Comp = asChild ? Slot : "small";
   return (
-    <small className={cn("text-foreground text-sm font-medium", className)}>
+    <Comp className={cn("text-foreground text-sm font-medium", className)}>
       {children}
-    </small>
+    </Comp>
   );
 }
 
 export function TypographyMuted({
   children,
   className,
-}: PropsWithChildren & ComponentProps<"p">) {
+  asChild,
+}: PropsWithChildren<{ asChild?: boolean }> & ComponentProps<"p">) {
+  const Comp = asChild ? Slot : "p";
   return (
-    <p className={cn("text-muted-foreground text-sm", className)}>{children}</p>
+    <Comp className={cn("text-muted-foreground text-sm", className)}>
+      {children}
+    </Comp>
   );
 }
