@@ -2,7 +2,7 @@
 
 import BlurFade from "@/components/magicui/blur-fade";
 import { Button } from "@/components/ui/button";
-import { TypographyH3 } from "@/components/ui/typography";
+import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import Link from "next/link";
 
 export default function Hero() {
@@ -47,7 +47,7 @@ export default function Hero() {
               .
             </>,
           ].map((item, index) => (
-            <div key={index}>{item}</div>
+            <TypographyP key={index}>{item}</TypographyP>
           ))}
         </section>
       </BlurFade>
