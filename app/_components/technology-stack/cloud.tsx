@@ -1,14 +1,15 @@
 import BlurFade from "@/components/magicui/blur-fade";
+import { AWSIcon } from "@/components/ui/devicons";
 import { TypographyMuted, TypographyP } from "@/components/ui/typography";
-import { faAws } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListItem from "./list-item";
 
 export default function Cloud() {
   return (
     <section className="text-left">
       <BlurFade inView>
-        <TypographyMuted>Cloud</TypographyMuted>
+        <TypographyMuted asChild>
+          <h3>Cloud</h3>
+        </TypographyMuted>
       </BlurFade>
 
       <ul className="my-1">
@@ -17,11 +18,8 @@ export default function Cloud() {
           <TypographyP>Vercel ⭐️</TypographyP>
         </ListItem>
         <ListItem>
-          <FontAwesomeIcon
-            icon={faAws}
-            className="h-4 fill-current text-red-600"
-          />
-          <TypographyP>Amazon Web Services ⭐️</TypographyP>
+          <AWSIcon className="size-5" />
+          <TypographyP>AWS ⭐️</TypographyP>
         </ListItem>
         <ListItem>
           <svg className="size-5" viewBox="0 0 128 128">

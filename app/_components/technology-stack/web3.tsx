@@ -9,7 +9,9 @@ export default function Web3() {
   return (
     <section className="text-left">
       <BlurFade inView>
-        <TypographyMuted>Web3 / Blockchain</TypographyMuted>
+        <TypographyMuted asChild>
+          <h3>Web3 / Blockchain</h3>
+        </TypographyMuted>
       </BlurFade>
 
       <ul className="my-1">

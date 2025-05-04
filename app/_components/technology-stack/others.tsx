@@ -9,7 +9,9 @@ export default function Others() {
   return (
     <section className="text-left">
       <BlurFade inView>
-        <TypographyMuted>Other</TypographyMuted>
+        <TypographyMuted asChild>
+          <h3>Other</h3>
+        </TypographyMuted>
       </BlurFade>
 
       <ul className="my-1">

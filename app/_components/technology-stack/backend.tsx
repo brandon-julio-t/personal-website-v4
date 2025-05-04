@@ -8,7 +8,9 @@ export default function Backend() {
   return (
     <section className="text-left">
       <BlurFade inView>
-        <TypographyMuted>Back-end</TypographyMuted>
+        <TypographyMuted asChild>
+          <h3>Back-end</h3>
+        </TypographyMuted>
       </BlurFade>
 
       <ul className="my-1">
