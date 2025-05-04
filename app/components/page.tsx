@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { TypographyH4, TypographyMuted } from "@/components/ui/typography";
+import { TypographyH4, TypographySmall } from "@/components/ui/typography";
 import Link from "next/link";
 
 const ComponentsPage = () => {
@@ -7,10 +7,10 @@ const ComponentsPage = () => {
     <main className="flex flex-col gap-4">
       <header className="flex flex-col gap-2">
         <TypographyH4>Components</TypographyH4>
-        <TypographyMuted>
+        <TypographySmall className="font-normal">
           Collection of animated components that I developed in my spare time to
           satisfy my curiosity
-        </TypographyMuted>
+        </TypographySmall>
       </header>
 
       <ul className="list-inside">

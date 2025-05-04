@@ -24,7 +24,7 @@ export function TypographyH2({
   return (
     <h2
       className={cn(
-        "text-foreground scroll-m-20 text-3xl font-semibold tracking-tight",
+        "text-foreground scroll-m-20 text-3xl font-medium tracking-tight",
         className,
       )}
     >
@@ -40,7 +40,7 @@ export function TypographyH3({
   return (
     <h3
       className={cn(
-        "text-foreground scroll-m-20 text-2xl font-semibold tracking-tight",
+        "text-foreground scroll-m-20 text-2xl font-medium tracking-tight",
         className,
       )}
     >
@@ -56,7 +56,7 @@ export function TypographyH4({
   return (
     <h4
       className={cn(
-        "text-foreground scroll-m-20 text-xl font-semibold tracking-tight",
+        "text-foreground scroll-m-20 text-xl font-medium tracking-tight",
         className,
       )}
     >
@@ -66,9 +66,14 @@ export function TypographyH4({
 }
 
 export function TypographyP({
+  className,
   children,
 }: PropsWithChildren & ComponentProps<"p">) {
-  return <p className="text-foreground text-base/relaxed">{children}</p>;
+  return (
+    <p className={cn("text-foreground text-base/relaxed", className)}>
+      {children}
+    </p>
+  );
 }
 
 export function TypographyList({
@@ -95,7 +100,7 @@ export function TypographyLarge({
   className,
 }: PropsWithChildren & ComponentProps<"div">) {
   return (
-    <div className={cn("text-foreground text-lg font-semibold", className)}>
+    <div className={cn("text-foreground text-lg font-medium", className)}>
       {children}
     </div>
   );
@@ -106,7 +111,7 @@ export function TypographySmall({
   className,
 }: PropsWithChildren & ComponentProps<"small">) {
   return (
-    <small className={cn("text-foreground text-sm font-semibold", className)}>
+    <small className={cn("text-foreground text-sm font-medium", className)}>
       {children}
     </small>
   );
