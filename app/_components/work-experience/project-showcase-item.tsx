@@ -46,7 +46,7 @@ export const ProjectShowcaseItem: React.ComponentType<{
       )}
 
       {project.images.length > 0 && (
-        <Carousel plugins={[Autoplay()]} className="mx-auto w-full md:w-xl">
+        <Carousel plugins={[Autoplay()]} className="mx-auto w-full">
           <CarouselContent>
             {project.images.map((image, idx) => (
               <Dialog key={idx}>
@@ -72,8 +72,8 @@ export const ProjectShowcaseItem: React.ComponentType<{
               </Dialog>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-1 md:-left-10" />
-          <CarouselNext className="right-1 md:-right-10" />
+          <CarouselPrevious className="left-1 md:left-2" variant="secondary" />
+          <CarouselNext className="right-1 md:right-2" variant="secondary" />
         </Carousel>
       )}
     </section>
