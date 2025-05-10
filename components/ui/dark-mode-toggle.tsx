@@ -7,29 +7,52 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Moon, Sun } from "lucide-react";
+import { Monitor, Moon, Sun } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "next-themes";
 
 export function DarkModeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="bg-transparent">
-        <Button variant="outline" size="icon" className="text-foreground">
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" size="icon">
+          <AnimatePresence mode="popLayout" initial={false}>
+            {resolvedTheme === "dark" ? (
+              <motion.span
+                key="moon"
+                initial={{ opacity: 0, scale: 0, filter: "blur(4px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0, filter: "blur(4px)" }}
+              >
+                <Moon />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="sun"
+                initial={{ opacity: 0, scale: 0, filter: "blur(4px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0, filter: "blur(4px)" }}
+              >
+                <Sun />
+              </motion.span>
+            )}
+          </AnimatePresence>
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
+          <Sun className="mr-2 size-(--text-sm)" />
           Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
+          <Moon className="mr-2 size-(--text-sm)" />
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
+          <Monitor className="mr-2 size-(--text-sm)" />
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
