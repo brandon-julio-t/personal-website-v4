@@ -14,15 +14,11 @@ export const workExperiences = [
     jobTitle: "Senior Software Engineer",
     description: (
       <>
-        Building thoughtful software and shaping user experiences.
-        <br />
-        Finds meaning in refining details, collaborating with others, and
-        learning from every project.
-        <br />
-        Believes in approaching technical challenges with curiosity, care, and a
-        focus on what&apos;s genuinely useful for people.
-        <br />
-        Turning ideas into products that matter.
+        Developing a comprehensive ERP platform designed to help businesses
+        operate more efficiently and scale to serve more customers, featuring
+        modules for order management, invoicing, payment reconciliation, credit
+        note issuance, inventory control, driver task management, route
+        planning, and more.
       </>
     ),
     showcaseProjects: [
@@ -78,6 +74,40 @@ export const workExperiences = [
     ),
     showcaseProjects: [
       {
+        title: "Bee-chase",
+        description: (
+          <>
+            Designed and developed a scalable web-based treasure hunt platform
+            to facilitate student orientation post-COVID-19, implementing
+            features such as QR code scanning, location-based check-ins,
+            multiple choice assessments, and interactive photo challenges.
+            Engineered the system architecture and codebase to reliably
+            accommodate up to 100 concurrent users.
+          </>
+        ),
+        images: [],
+        skills: [
+          "React (TypeScript)",
+          "Laravel (PHP)",
+          "Concurrency",
+          "Geofencing",
+        ],
+      },
+      {
+        title: "Tourist Destination Ticket War",
+        description: (
+          <>
+            Developed an internal application featuring a ticket-war mechanism
+            to help employees select preferred tourist destinations for company
+            holidays. Engineered the system architecture and codebase to
+            reliably accommodate up to 100 concurrent users with race condition
+            handling to prevent double counting votes.
+          </>
+        ),
+        images: [],
+        skills: ["React (TypeScript)", "Laravel (PHP)", "Concurrency"],
+      },
+      {
         title: "Messier",
         description: (
           <>
@@ -96,37 +126,6 @@ export const workExperiences = [
           "DevOps",
           "Cross-team Collaboration",
         ],
-      },
-      {
-        title: "Bee-chase",
-        description: (
-          <>
-            Created a web-based treasure hunt game to help students become
-            familiar with the campus environment after the COVID-19 pandemic,
-            featuring activities like seek and scan the QR code, location-based
-            check-ins, multiple choice questions, interactive photo challenges,
-            and many more.
-          </>
-        ),
-        images: [],
-        skills: [
-          "React (TypeScript)",
-          "Laravel (PHP)",
-          "Concurrency",
-          "Geofencing",
-        ],
-      },
-      {
-        title: "Tourist Destination Ticket War",
-        description: (
-          <>
-            Developed an internal application featuring a ticket-war mechanism
-            to help employees select preferred tourist destinations for company
-            holidays.
-          </>
-        ),
-        images: [],
-        skills: ["React (TypeScript)", "Laravel (PHP)", "Concurrency"],
       },
     ],
   },
