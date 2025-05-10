@@ -105,7 +105,12 @@ export const workExperiences = [
           </>
         ),
         images: [],
-        skills: ["React (TypeScript)", "Laravel (PHP)", "Concurrency"],
+        skills: [
+          "React (TypeScript)",
+          "Laravel (PHP)",
+          "Concurrency",
+          "Database Locking",
+        ],
       },
       {
         title: "Messier",
