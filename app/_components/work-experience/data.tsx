@@ -50,9 +50,9 @@ export const workExperiences = [
         title: "Route Optimization",
         description: (
           <>
-            route optimization module to enhance logistics planning for
-            businesses, reducing operational costs by minimizing travel
-            distances.
+            A route optimization module that streamlines logistics planning for
+            businesses by intelligently minimizing travel distances, resulting
+            in lower operational costs and improved delivery efficiency.
           </>
         ),
         images: [RouteOptimization1, RouteOptimization2, RouteOptimization3],
