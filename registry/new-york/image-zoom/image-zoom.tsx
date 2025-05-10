@@ -64,6 +64,11 @@ export const ImageZoomManipulator: React.ComponentType<
     bottom: 0,
   });
 
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
     <div
       ref={(ref) => {
@@ -84,7 +89,7 @@ export const ImageZoomManipulator: React.ComponentType<
         {...imageProps}
         key={resetKey}
         className="size-full cursor-grab object-contain"
-        drag
+        drag={isMounted}
         whileDrag={{ cursor: "grabbing" }}
         style={{ scale, rotate }}
         dragConstraints={dragConstraints}
