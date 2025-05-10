@@ -111,6 +111,7 @@ export const ImageZoomManipulator: React.ComponentType<
         {...imageProps}
         className="size-full cursor-grab object-contain"
         drag={isMounted}
+        dragMomentum={false}
         _dragX={x}
         _dragY={y}
         whileDrag={{ cursor: "grabbing" }}
