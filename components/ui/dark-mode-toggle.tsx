@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { TypographyP } from "./typography";
 
 export function DarkModeToggle() {
   const { setTheme } = useTheme();
@@ -25,13 +24,13 @@ export function DarkModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          <TypographyP>Light</TypographyP>
+          Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <TypographyP>Dark</TypographyP>
+          Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          <TypographyP>System</TypographyP>
+          System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
