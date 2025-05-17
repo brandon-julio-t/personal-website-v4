@@ -44,7 +44,7 @@ export const SyntaxHighlighter = React.memo<
         onClick={handleCopy}
         className={cn(
           "absolute z-1",
-          isOneLine ? "top-3 right-2" : "top-2 right-2",
+          isOneLine ? "top-4.5 right-2" : "top-2 right-2",
         )}
       >
         <AnimatePresence mode="popLayout">
