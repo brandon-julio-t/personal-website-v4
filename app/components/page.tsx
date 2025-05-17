@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ComponentsPage = () => {
   return (
-    <main className="flex flex-col gap-2">
+    <main className="container flex max-w-2xl flex-col gap-2">
       <header className="flex flex-col gap-2">
         <TypographyH4>Components</TypographyH4>
         <TypographySmall className="font-normal">

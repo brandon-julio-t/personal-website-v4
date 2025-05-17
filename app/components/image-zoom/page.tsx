@@ -21,7 +21,7 @@ const imageSrcSquare = "https://picsum.photos/seed/square/500";
 const ImageZoomComponentPage = () => {
   return (
     <section className="flex flex-col gap-4">
-      <header className="flex flex-col gap-1">
+      <header className="container flex max-w-2xl flex-col gap-1">
         <TypographyH4>Image Zoom</TypographyH4>
 
         <TypographySmall className="font-normal">
@@ -44,13 +44,17 @@ const ImageZoomComponentPage = () => {
       </header>
 
       <section className="flex flex-col gap-1">
-        <TypographyLarge>Examples</TypographyLarge>
+        <div className="container max-w-2xl">
+          <TypographyLarge>Examples</TypographyLarge>
+        </div>
 
         <Tabs defaultValue="preview">
-          <TabsList>
-            <TabsTrigger value="preview">Preview</TabsTrigger>
-            <TabsTrigger value="code">Code</TabsTrigger>
-          </TabsList>
+          <div className="container max-w-2xl">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+            </TabsList>
+          </div>
           <TabsContent value="preview">
             <Card>
               <CardContent className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
