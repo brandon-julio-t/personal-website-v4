@@ -4,7 +4,7 @@ import { Check, Copy } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 import { Prism as PrismSyntaxHighlighter } from "react-syntax-highlighter";
-import { materialOceanic } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const SyntaxHighlighter = React.memo<
   React.ComponentProps<typeof PrismSyntaxHighlighter>
@@ -74,7 +74,7 @@ export const SyntaxHighlighter = React.memo<
 
       <PrismSyntaxHighlighter
         language={language}
-        style={materialOceanic}
+        style={oneDark}
         className="rounded-xl !font-mono"
         codeTagProps={{
           style: {
