@@ -47,7 +47,7 @@ export const SyntaxHighlighter = React.memo<
           isOneLine ? "top-4.5 right-2" : "top-2 right-2",
         )}
       >
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="popLayout" initial={false}>
           {copied ? (
             <motion.span
               key="copied"
