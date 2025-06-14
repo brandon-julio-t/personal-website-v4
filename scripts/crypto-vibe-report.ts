@@ -9,9 +9,7 @@ async function main() {
 
   console.log("[analyzeTheStateOfCrypto] Saving report to cache");
 
-  await kv.set(CRYPTO_ANALYST_REPORT_KEY, report.text, {
-    ex: 60 * 60 * 6, // 6 hours, the target is to generate the report every 6 hours
-  });
+  await kv.set(CRYPTO_ANALYST_REPORT_KEY, report.text);
 
   console.log("[analyzeTheStateOfCrypto] Report saved to cache");
 }
