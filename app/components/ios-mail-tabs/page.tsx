@@ -1,9 +1,9 @@
 "use client";
 
+import { CodeHighlight } from "@/components/code-highlighter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { GitHubIcon } from "@/components/ui/devicons";
-import { SyntaxHighlighter } from "@/components/ui/syntax-highlighter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   TypographyH4,
@@ -124,17 +124,17 @@ const IosMailTabsComponentPage = () => {
             </Card>
           </TabsContent>
           <TabsContent value="code">
-            <SyntaxHighlighter>{CODE}</SyntaxHighlighter>
+            <CodeHighlight className="language-tsx">{CODE}</CodeHighlight>
           </TabsContent>
         </Tabs>
       </section>
 
       <section className="flex flex-col gap-1">
         <TypographyLarge>Installation</TypographyLarge>
-        <SyntaxHighlighter language="bash">
+        <CodeHighlight className="language-bash">
           npx shadcn@latest add
           https://brandonjuliothenaro.my.id/r/ios-mail-tabs.json
-        </SyntaxHighlighter>
+        </CodeHighlight>
       </section>
     </section>
   );

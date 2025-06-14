@@ -9,8 +9,8 @@ import {
   TypographySmall,
 } from "@/components/ui/typography";
 
+import { CodeHighlight } from "@/components/code-highlighter";
 import { Card, CardContent } from "@/components/ui/card";
-import { SyntaxHighlighter } from "@/components/ui/syntax-highlighter";
 import Link from "next/link";
 import { ImageZoom } from "../../../registry/new-york/image-zoom/image-zoom";
 
@@ -76,7 +76,7 @@ const ImageZoomComponentPage = () => {
             </Card>
           </TabsContent>
           <TabsContent value="code">
-            <SyntaxHighlighter>
+            <CodeHighlight className="language-tsx">
               {`
 "use client";
 
@@ -109,17 +109,17 @@ const ImageZoomDemo = () => {
   );
 };
   `.trim()}
-            </SyntaxHighlighter>
+            </CodeHighlight>
           </TabsContent>
         </Tabs>
       </section>
 
       <section>
         <TypographyLarge>Installation</TypographyLarge>
-        <SyntaxHighlighter language="bash">
+        <CodeHighlight className="language-bash">
           npx shadcn@latest add
           https://brandonjuliothenaro.my.id/r/image-zoom.json
-        </SyntaxHighlighter>
+        </CodeHighlight>
       </section>
     </section>
   );
