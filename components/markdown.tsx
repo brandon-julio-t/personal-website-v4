@@ -1,14 +1,13 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-
-import { cn } from "@/lib/utils";
+import { CodeHighlight } from "./code-highlighter";
 import { Button } from "./ui/button";
-
-import Link from "next/link";
 import { Table, TableCell, TableHead, TableRow } from "./ui/table";
 
 interface MarkdownProps {
@@ -80,7 +79,7 @@ const Markdown = React.memo<MarkdownProps>(({ content }) => {
             {...props}
           />
         ),
-        code: "code",
+        code: CodeHighlight,
         pre: "pre",
         hr: (props) => <hr className="border-muted" {...props} />,
         table: ({ className, ...props }) => (
