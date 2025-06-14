@@ -1,5 +1,3 @@
-import { ComponentType, Suspense } from "react";
-
 import {
   Accordion,
   AccordionItem,
@@ -12,6 +10,7 @@ import { TypographyH4 } from "@/components/ui/typography";
 import { AccordionContent } from "@radix-ui/react-accordion";
 import { HouseIcon } from "lucide-react";
 import Link from "next/link";
+import { ComponentType, Suspense } from "react";
 import BanterBubblesTreemap from "./banter-bubbles-treemap";
 import { CryptoAnalystVibeReport } from "./crypto-analyst-vibe-report";
 import CryptoFearAndGreed from "./fear-and-greed/crypto";
