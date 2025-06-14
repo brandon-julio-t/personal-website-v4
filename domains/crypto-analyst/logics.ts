@@ -6,14 +6,6 @@ import Parser from "rss-parser";
 
 const CRYPTO_ANALYST_REPORT_KEY = "crypto-analyst-report";
 
-const openrouter = createOpenRouter({
-  apiKey: env.OPENROUTER_API_KEY,
-});
-
-const model = openrouter(env.OPENROUTER_MODEL);
-
-const rssParser = new Parser();
-
 export async function analyzeTheStateOfCrypto(): Promise<string> {
   const existingReport = await kv.get(CRYPTO_ANALYST_REPORT_KEY);
 
@@ -44,6 +36,27 @@ export async function analyzeTheStateOfCrypto(): Promise<string> {
 }
 
 async function __analyzeTheStateOfCrypto() {
+  const openrouter = createOpenRouter({
+    apiKey: env.OPENROUTER_API_KEY,
+  });
+
+  const model = openrouter(env.OPENROUTER_MODEL);
+
+  const rssParser = new Parser({
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    },
+  });
+
+  const fetchRss = async (url: string) => {
+    return await rssParser.parseURL(url).catch((err) => {
+      console.error(`RSS parseURL error in "${url}"`);
+      console.error(err);
+      return [];
+    });
+  };
+
   const [
     cointelegraph,
     coindesk,
@@ -52,12 +65,12 @@ async function __analyzeTheStateOfCrypto() {
     bloombergCrypto,
     akademicryptoid,
   ] = await Promise.all([
-    rssParser.parseURL("https://cointelegraph.com/editors_pick_rss"),
-    rssParser.parseURL("https://www.coindesk.com/arc/outboundfeeds/rss"),
-    rssParser.parseURL("https://feeds.bloomberg.com/markets/news.rss"),
-    rssParser.parseURL("https://feeds.bloomberg.com/technology/news.rss"),
-    rssParser.parseURL("https://feeds.bloomberg.com/crypto/news.rss"),
-    rssParser.parseURL("https://rss.app/feeds/uRXqRh79ys06WRxt.xml"), // https://x.com/akademicryptoid
+    fetchRss("https://cointelegraph.com/editors_pick_rss"),
+    fetchRss("https://www.coindesk.com/arc/outboundfeeds/rss"),
+    fetchRss("https://feeds.bloomberg.com/markets/news.rss"),
+    fetchRss("https://feeds.bloomberg.com/technology/news.rss"),
+    fetchRss("https://feeds.bloomberg.com/crypto/news.rss"),
+    fetchRss("https://rss.app/feeds/uRXqRh79ys06WRxt.xml"), // https://x.com/akademicryptoid
   ]);
 
   return await generateText({
