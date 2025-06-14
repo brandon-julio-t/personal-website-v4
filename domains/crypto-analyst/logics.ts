@@ -54,7 +54,7 @@ export async function analyzeTheStateOfCrypto() {
     fetchRss("https://feeds.bloomberg.com/markets/news.rss"),
     fetchRss("https://feeds.bloomberg.com/technology/news.rss"),
     fetchRss("https://feeds.bloomberg.com/crypto/news.rss"),
-    fetchRss("https://rss.app/feeds/uRXqRh79ys06WRxt.xml"), // https://x.com/akademicryptoid
+    fetchRss("https://rss.app/feeds/8ZCDdbRS2vrRbRAX.xml"), // https://www.instagram.com/akademicryptocom/
   ]);
 
   return await generateText({
