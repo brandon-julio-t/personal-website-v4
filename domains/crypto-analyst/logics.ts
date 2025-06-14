@@ -105,7 +105,7 @@ Write a professional, concise, and analytical report in the style of a hedge fun
 - Cite specific articles, dates, or metrics from the RSS feeds to substantiate claims (e.g., "Cointelegraph, June 10, 2025, reported...").
 - Keep the report between 1,000–1,500 words unless otherwise specified.
 - Avoid placeholder text, variables, or overly technical jargon unless necessary for clarity.
-- The author of the report is yourself. Bad example: "[Your Name], Head of Research, Crypto Hedge Fund". Good example: "DeepSeek R1/Grok 3/ChatGPT 4.1/etc., Head of Research, Crypto Hedge Fund".
+- The author of the report is yourself. Bad example: "[Your Name], ...". Good example: "DeepSeek R1/Grok 3/ChatGPT 4.1/etc., ...".
 - Current date and time: ${new Date().toLocaleString("en-US", {
       year: "numeric",
       month: "long",
