@@ -5,7 +5,7 @@ export const CryptoAnalystVibeReport = async () => {
   const result = await analyzeTheStateOfCrypto();
 
   return (
-    <article className="text-justify text-sm whitespace-pre-wrap">
+    <article className="text-left text-sm whitespace-pre-wrap">
       <Markdown content={result} />
     </article>
   );
