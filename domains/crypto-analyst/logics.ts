@@ -47,14 +47,12 @@ export async function analyzeTheStateOfCrypto() {
     bloombergMarkets,
     bloombergTechnology,
     bloombergCrypto,
-    akademicryptoid,
   ] = await Promise.all([
     fetchRss("https://cointelegraph.com/editors_pick_rss"),
     fetchRss("https://www.coindesk.com/arc/outboundfeeds/rss"),
     fetchRss("https://feeds.bloomberg.com/markets/news.rss"),
     fetchRss("https://feeds.bloomberg.com/technology/news.rss"),
     fetchRss("https://feeds.bloomberg.com/crypto/news.rss"),
-    fetchRss("https://rss.app/feeds/8ZCDdbRS2vrRbRAX.xml"), // https://www.instagram.com/akademicryptocom/
   ]);
 
   return await generateText({
@@ -147,12 +145,6 @@ Bloomberg Technology is a premier media outlet focused on the global technology 
 Bloomberg Crypto is a specialized media segment covering the cryptocurrency and decentralized finance (DeFi) landscape, delivering news, data, and insights on digital assets, blockchain, and regulatory developments. Hosted by Sonali Basak and Tim Stenovec, it explores market trends, institutional adoption, and technological advancements. Accessible via Bloomberg Terminal, TV, and digital platforms, it offers tools like real-time pricing for top 50 crypto assets and proprietary indices. Recent coverage includes Circle's IPO, Trump's crypto policies, and stablecoin market growth, underscoring its focus on the evolving crypto ecosystem.
 
 <bloombergCrypto>${JSON.stringify(bloombergCrypto)}</bloombergCrypto>
-
-## Akademi Crypto
-
-Akademi Crypto, operating the X account @akademicryptoid, is a platform focused on cryptocurrency education and community engagement in Indonesia. Founded by Timothy Ronald, it offers comprehensive guides on crypto trading, Bitcoin, and blockchain technology, aiming to empower investors through accessible education. The platform provides subscription-based access to over 1,000 educational modules, premium crypto signals, and data from sources like Glassnode and Bloomberg. It emphasizes community support, offline events, and skill-building in Web3 programming. Recent posts on X cover Bitcoin price movements, institutional adoption, and fintech developments, reflecting its focus on timely crypto market insights.
-
-<akademicryptoid>${JSON.stringify(akademicryptoid)}</akademicryptoid>
     `.trim(),
   });
 }
