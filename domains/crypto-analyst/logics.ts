@@ -112,6 +112,7 @@ Format the report in beautiful markdown with the following guidelines:
 - Add emphasis using *italics* for important terms
 - Include a summary box at the beginning using blockquotes
 - Use code blocks for any technical data or metrics
+- IMPORTANT: Output the entire report in raw markdown format without wrapping it in \`\`\`markdown\`\`\` code blocks
 
 # Input Data
 
