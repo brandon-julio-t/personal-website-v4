@@ -2,11 +2,17 @@ import { env } from "@/env";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { kv } from "@vercel/kv";
 import { generateText } from "ai";
+import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import Parser from "rss-parser";
 
 const CRYPTO_ANALYST_REPORT_KEY = "crypto-analyst-report";
 
 export async function analyzeTheStateOfCrypto(): Promise<string> {
+  if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
+    console.log("[analyzeTheStateOfCrypto] This is a production build");
+    return "This is a production build";
+  }
+
   const existingReport = await kv.get(CRYPTO_ANALYST_REPORT_KEY);
 
   console.log(
