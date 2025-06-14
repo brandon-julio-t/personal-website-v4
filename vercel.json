@@ -3,6 +3,10 @@
     {
       "path": "/api/setup-data",
       "schedule": "0 0 1,15 1-12 *"
+    },
+    {
+      "path": "/api/crypto-vibe-report",
+      "schedule": "0 */6 * * *"
     }
   ]
 }

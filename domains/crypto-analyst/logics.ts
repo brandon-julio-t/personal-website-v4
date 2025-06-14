@@ -2,46 +2,15 @@ import { env } from "@/env";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { kv } from "@vercel/kv";
 import { generateText } from "ai";
-import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import Parser from "rss-parser";
+import { CRYPTO_ANALYST_REPORT_KEY } from "./constants";
 
-const CRYPTO_ANALYST_REPORT_KEY = "crypto-analyst-report";
-
-export async function analyzeTheStateOfCrypto(): Promise<string> {
-  if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
-    console.log("[analyzeTheStateOfCrypto] This is a production build");
-    return "This is a production build";
-  }
-
-  const existingReport = await kv.get(CRYPTO_ANALYST_REPORT_KEY);
-
-  console.log(
-    "[analyzeTheStateOfCrypto] Existing report:",
-    `${existingReport}`.slice(0, 1000),
-  );
-
-  if (existingReport && typeof existingReport === "string") {
-    console.log("[analyzeTheStateOfCrypto] Using cached report");
-
-    return existingReport;
-  }
-
-  console.log("[analyzeTheStateOfCrypto] Generating new report");
-
-  const report = await __analyzeTheStateOfCrypto();
-
-  console.log("[analyzeTheStateOfCrypto] Saving report to cache");
-
-  await kv.set(CRYPTO_ANALYST_REPORT_KEY, report.text, {
-    ex: 60 * 60 * 6, // 6 hours, the target is to generate the report every 6 hours
-  });
-
-  console.log("[analyzeTheStateOfCrypto] Report saved to cache");
-
-  return report.text;
+export async function getTheStateOfCrypto(): Promise<string> {
+  const existingReport = await kv.get<string>(CRYPTO_ANALYST_REPORT_KEY);
+  return existingReport ?? "";
 }
 
-async function __analyzeTheStateOfCrypto() {
+export async function analyzeTheStateOfCrypto() {
   const openrouter = createOpenRouter({
     apiKey: env.OPENROUTER_API_KEY,
   });
@@ -56,11 +25,20 @@ async function __analyzeTheStateOfCrypto() {
   });
 
   const fetchRss = async (url: string) => {
-    return await rssParser.parseURL(url).catch((err) => {
-      console.error(`RSS parseURL error in "${url}"`);
-      console.error(err);
-      return [];
-    });
+    return await rssParser
+      .parseURL(url)
+      .then((res) => {
+        console.log(
+          `[analyzeTheStateOfCrypto] RSS (${url}):`,
+          JSON.stringify(res),
+        );
+        return res;
+      })
+      .catch((err) => {
+        console.error(`RSS parseURL error in "${url}"`);
+        console.error(err);
+        return [];
+      });
   };
 
   const [

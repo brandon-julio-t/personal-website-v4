@@ -1,8 +1,8 @@
 import { Markdown } from "@/components/markdown";
-import { analyzeTheStateOfCrypto } from "@/domains/crypto-analyst/logics";
+import { getTheStateOfCrypto } from "@/domains/crypto-analyst/logics";
 
 export const CryptoAnalystVibeReport = async () => {
-  const result = await analyzeTheStateOfCrypto();
+  const result = await getTheStateOfCrypto();
 
   return (
     <article className="text-left text-sm whitespace-pre-wrap">
