@@ -1,4 +1,6 @@
+import { getErrorMessage } from "@/lib/error";
 import { GET_SERP_API_GOOGLE_TREND_INDONESIA_MARKET_SENTIMENT } from "@/lib/server/serpapi/constants";
+import { reportErrorViaTelegram } from "@/lib/telegram";
 import { kv } from "@vercel/kv";
 import type { NextRequest } from "next/server";
 
@@ -19,7 +21,7 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  {
+  try {
     const response = await fetch(
       `https://serpapi.com/search?${new URLSearchParams({
         api_key: SERPAPI_KEY,
@@ -30,6 +32,14 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
 
     await kv.set(GET_SERP_API_GOOGLE_TREND_INDONESIA_MARKET_SENTIMENT, data);
+  } catch (error) {
+    console.error(error);
+
+    await reportErrorViaTelegram({
+      errorMessage: `[app/api/setup-data/route.ts | error]: ${getErrorMessage(error)}`,
+    });
+
+    throw error;
   }
 
   return Response.json({ success: true });
