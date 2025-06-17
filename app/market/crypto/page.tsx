@@ -32,6 +32,7 @@ const MarketCryptoPage = async () => {
 
         <DarkModeToggle />
       </header>
+
       <section>
         <Accordion type="single" collapsible defaultValue="item-1">
           <AccordionItem value="item-1">
@@ -53,7 +54,9 @@ const MarketCryptoPage = async () => {
           </AccordionItem>
         </Accordion>
       </section>
+
       <Separator />
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-4">
         <React.Suspense
           fallback={
@@ -76,25 +79,30 @@ const MarketCryptoPage = async () => {
           <UsStockFearAndGreed />
         </React.Suspense>
       </section>
+
       <section>
         <TradingViewEconomicCalendar className="h-[680px]" />
       </section>
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <TradingViewMiniSymbol symbol="FRED:UNRATE" dateRange="ALL" />
         <TradingViewMiniSymbol symbol="SPREADEX:SPX" />
         <TradingViewMiniSymbol symbol="CAPITALCOM:DXY" />
       </section>
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <TradingViewMiniSymbol symbol="BITSTAMP:BTCUSD" />
         <TradingViewMiniSymbol symbol="CRYPTOCAP:TOTAL3" />
         <TradingViewMiniSymbol symbol="BITSTAMP:ETHUSD" />
         <TradingViewMiniSymbol symbol="BINANCE:SOLUSD" />
       </section>
+
       <section>
         <React.Suspense fallback={<Skeleton className="h-96 w-full" />}>
           <BanterBubblesTreemap />
         </React.Suspense>
       </section>
+
       <section>
         <React.Suspense fallback={<Skeleton className="h-96 w-full" />}>
           <GoogleTrendCryptoMarketSentiment />
