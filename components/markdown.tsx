@@ -21,19 +21,46 @@ const Markdown = React.memo<MarkdownProps>(({ content }) => {
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ className, ...props }) => (
-          <h1 className={cn("whitespace-pre-wrap", className)} {...props} />
+          <h1
+            className={cn(
+              "text-2xl font-medium whitespace-pre-wrap",
+              className,
+            )}
+            {...props}
+          />
         ),
         h2: ({ className, ...props }) => (
-          <h2 className={cn("whitespace-pre-wrap", className)} {...props} />
+          <h2
+            className={cn("text-xl font-medium whitespace-pre-wrap", className)}
+            {...props}
+          />
         ),
         h3: ({ className, ...props }) => (
-          <h3 className={cn("whitespace-pre-wrap", className)} {...props} />
+          <h3
+            className={cn("text-lg font-medium whitespace-pre-wrap", className)}
+            {...props}
+          />
         ),
         h4: ({ className, ...props }) => (
-          <h4 className={cn("whitespace-pre-wrap", className)} {...props} />
+          <h4
+            className={cn(
+              "text-base font-medium whitespace-pre-wrap",
+              className,
+            )}
+            {...props}
+          />
         ),
         p: ({ className, ...props }) => (
-          <p className={cn("whitespace-pre-wrap", className)} {...props} />
+          <p
+            className={cn("text-sm whitespace-pre-wrap", className)}
+            {...props}
+          />
+        ),
+        small: ({ className, ...props }) => (
+          <small
+            className={cn("text-xs whitespace-pre-wrap", className)}
+            {...props}
+          />
         ),
         a: ({ className, href, ...props }) => (
           <Button
@@ -46,14 +73,11 @@ const Markdown = React.memo<MarkdownProps>(({ content }) => {
           </Button>
         ),
         ul: ({ className, ...props }) => (
-          <ul
-            className={cn("ml-4.5 list-outside list-disc", className)}
-            {...props}
-          />
+          <ul className={cn("list-inside list-disc", className)} {...props} />
         ),
         ol: ({ className, ...props }) => (
           <ol
-            className={cn("ml-4.5 list-outside list-decimal", className)}
+            className={cn("list-inside list-decimal", className)}
             {...props}
           />
         ),
