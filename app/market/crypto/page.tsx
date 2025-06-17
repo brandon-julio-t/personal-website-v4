@@ -44,9 +44,9 @@ const MarketCryptoPage = async () => {
               <React.Suspense
                 fallback={
                   <div className="flex flex-col gap-4">
-                    <Skeleton className="h-(--text-sm) w-full" />
-                    <Skeleton className="h-(--text-sm) w-full" />
-                    <Skeleton className="h-(--text-sm) w-full" />
+                    {Array.from({ length: 20 }).map((_, i) => (
+                      <Skeleton key={i} className="h-(--text-sm) w-full" />
+                    ))}
                   </div>
                 }
               >
