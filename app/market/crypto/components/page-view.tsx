@@ -1,18 +1,10 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { DarkModeToggle } from "@/components/ui/dark-mode-toggle";
 import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
 import { TypographyH4 } from "@/components/ui/typography";
-import { AccordionContent } from "@radix-ui/react-accordion";
 import { HouseIcon } from "lucide-react";
 import Link from "next/link";
-import { ComponentType, Suspense } from "react";
+import { ComponentType } from "react";
 import BanterBubblesTreemap from "./banter-bubbles-treemap";
-import { CryptoAnalystVibeReport } from "./crypto-analyst-vibe-report";
 import CryptoFearAndGreed from "./fear-and-greed/crypto";
 import UsStockFearAndGreed from "./fear-and-greed/us-stock";
 import GoogleTrendCryptoMarketSentiment from "./google-trend/crypto-market-sentiment";
@@ -33,7 +25,7 @@ const MarketCryptoPageView: ComponentType = () => {
         <DarkModeToggle />
       </header>
 
-      <section>
+      {/* <section>
         <Accordion type="single" collapsible defaultValue="item-1">
           <AccordionItem value="item-1">
             <AccordionTrigger>Crypto Analyst Vibe Report</AccordionTrigger>
@@ -53,7 +45,7 @@ const MarketCryptoPageView: ComponentType = () => {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-      </section>
+      </section> */}
 
       <Separator />
 
