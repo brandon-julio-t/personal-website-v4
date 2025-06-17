@@ -19,6 +19,8 @@ import GoogleTrendCryptoMarketSentiment from "./_components/google-trend/crypto-
 import TradingViewEconomicCalendar from "./_components/trading-view/economic-calendar";
 import TradingViewMiniSymbol from "./_components/trading-view/mini-symbol";
 
+export const dynamic = "force-dynamic";
+
 const MarketCryptoPage = async () => {
   return (
     <main className="container flex flex-col gap-6 py-6">
