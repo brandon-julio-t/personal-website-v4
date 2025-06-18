@@ -7,7 +7,7 @@ export const CryptoAnalystVibeReport = async () => {
 
   return (
     <Card>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-2">
         <Markdown content={result} />
       </CardContent>
     </Card>
