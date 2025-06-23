@@ -55,6 +55,8 @@ export async function analyzeTheStateOfCrypto() {
     fetchRss("https://feeds.bloomberg.com/crypto/news.rss"),
   ]);
 
+  console.log(`Generating report using ${model.modelId} by ${model.provider}`);
+
   return await generateText({
     model,
 
@@ -82,7 +84,7 @@ Write a professional, concise, and analytical report in the style of a hedge fun
 - Use only the provided JSON data from RSS feeds as the primary source for analysis.
 - Cite specific articles, dates, or metrics from the RSS feeds to substantiate claims (e.g., "Cointelegraph, June 10, 2025, reported...").
 - Keep the report between 1,000–1,500 words unless otherwise specified.
-- The author of the report is "${env.OPENROUTER_MODEL}". Please prettify this model ID for better readability (e.g., "anthropic/claude-3-sonnet" should be written as "Claude 3 Sonnet").
+- The author of the report is "${model.modelId}". Please prettify this model ID for better readability (e.g., "anthropic/claude-3-sonnet" should be written as "Claude 3 Sonnet").
 - Current date and time: ${new Date().toLocaleString("en-US", {
       year: "numeric",
       month: "long",
