@@ -119,7 +119,6 @@ export async function analyzeTheStateOfCrypto() {
   - Add emphasis using *italics* for important terms
   - Include a summary box at the beginning using blockquotes
   - Use code blocks for any technical data or metrics
-  - IMPORTANT: Output the entire report in raw markdown format without wrapping it in \`\`\`markdown\`\`\` code blocks
   
   # Input Data
   
@@ -159,7 +158,11 @@ export async function analyzeTheStateOfCrypto() {
 
     console.log("[analyzeTheStateOfCrypto] Saving report to cache");
 
-    await kv.set(CRYPTO_ANALYST_REPORT_KEY, report.text);
+    const normalized = report.text.startsWith("```markdown")
+      ? report.text.slice("```markdown".length, "```".length * -1).trim()
+      : report.text;
+
+    await kv.set(CRYPTO_ANALYST_REPORT_KEY, normalized);
 
     console.log("[analyzeTheStateOfCrypto] Report saved to cache");
 
