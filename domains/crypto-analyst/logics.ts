@@ -1,6 +1,6 @@
 import { env } from "@/env";
 import { getErrorMessage } from "@/lib/error";
-import { reportErrorViaTelegram } from "@/lib/telegram";
+import { sendMessageViaTelegram } from "@/lib/telegram";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { kv } from "@vercel/kv";
 import { generateText } from "ai";
@@ -64,7 +64,15 @@ export async function analyzeTheStateOfCrypto() {
 
     console.log("[analyzeTheStateOfCrypto] Generating new report");
 
-    const report = await await generateText({
+    const now = new Date().toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    const report = await generateText({
       model,
 
       prompt: `
@@ -92,13 +100,7 @@ export async function analyzeTheStateOfCrypto() {
   - Cite specific articles, dates, or metrics from the RSS feeds to substantiate claims (e.g., "Cointelegraph, June 10, 2025, reported...").
   - Keep the report between 1,000–1,500 words unless otherwise specified.
   - The author of the report is "${model.modelId}". Please prettify this model ID for better readability (e.g., "anthropic/claude-3-sonnet" should be written as "Claude 3 Sonnet").
-  - Current date and time: ${new Date().toLocaleString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  })}.
+  - Current date and time: ${now}.
   
   # Markdown Formatting Guidelines
   
@@ -166,12 +168,16 @@ export async function analyzeTheStateOfCrypto() {
 
     console.log("[analyzeTheStateOfCrypto] Report saved to cache");
 
+    await sendMessageViaTelegram({
+      message: `[analyzeTheStateOfCrypto] Report ${now} has been generated successfully. Read: https://www.brandonjuliothenaro.my.id/market/crypto`,
+    });
+
     return report.text;
   } catch (error) {
     console.error(error);
 
-    await reportErrorViaTelegram({
-      errorMessage: `[analyzeTheStateOfCrypto] Error: ${getErrorMessage(error)}`,
+    await sendMessageViaTelegram({
+      message: `[analyzeTheStateOfCrypto] Error: ${getErrorMessage(error)}`,
     });
 
     throw error;
