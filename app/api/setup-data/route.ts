@@ -1,6 +1,6 @@
 import { getErrorMessage } from "@/lib/error";
 import { GET_SERP_API_GOOGLE_TREND_INDONESIA_MARKET_SENTIMENT } from "@/lib/server/serpapi/constants";
-import { reportErrorViaTelegram } from "@/lib/telegram";
+import { sendMessageViaTelegram } from "@/lib/telegram";
 import { kv } from "@vercel/kv";
 import type { NextRequest } from "next/server";
 
@@ -35,8 +35,8 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error(error);
 
-    await reportErrorViaTelegram({
-      errorMessage: `[app/api/setup-data/route.ts | error]: ${getErrorMessage(error)}`,
+    await sendMessageViaTelegram({
+      message: `[app/api/setup-data/route.ts | error]: ${getErrorMessage(error)}`,
     });
 
     throw error;
