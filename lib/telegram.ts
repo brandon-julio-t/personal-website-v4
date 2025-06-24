@@ -14,3 +14,28 @@ export const sendMessageViaTelegram = async ({
 
   return await client.telegram.sendMessage(env.TELEGRAM_BOT_CHAT_ID, message);
 };
+
+export const reportErrorViaTelegram = async ({
+  context,
+  error,
+}: {
+  context: string;
+  error: unknown;
+}) => {
+  const client = getTelegramClient();
+
+  let message = "";
+  if (error instanceof Error) {
+    message = [
+      `Error ${error.name}: ${error.message}`,
+      `Context: ${context}`,
+      `Cause: ${error.cause}`,
+      `Stack: ${error.stack}`,
+      String(error),
+    ].join("\n");
+  } else {
+    message = [`Error: ${String(error)}`, `Context: ${context}`].join("\n");
+  }
+
+  return await client.telegram.sendMessage(env.TELEGRAM_BOT_CHAT_ID, message);
+};

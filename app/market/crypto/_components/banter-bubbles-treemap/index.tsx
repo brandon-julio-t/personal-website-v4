@@ -1,19 +1,37 @@
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { reportErrorViaTelegram } from "@/lib/telegram";
 import BanterBubblesTreemapChart, {
   BanterBubblesTreemapChartProps,
 } from "./chart";
 import { BanterBubblesDataResponse } from "./types";
 
 const BanterBubblesTreemap = async () => {
-  const data = await getBanterBubblesData();
+  try {
+    const data = await getBanterBubblesData();
 
-  return (
-    <div>
-      <BanterBubblesTreemapChart
-        title="Banter Bubbles Treemap"
-        chartData={data}
-      />
-    </div>
-  );
+    return (
+      <div>
+        <BanterBubblesTreemapChart
+          title="Banter Bubbles Treemap"
+          chartData={data}
+        />
+      </div>
+    );
+  } catch (error) {
+    console.error(error);
+
+    await reportErrorViaTelegram({
+      context: "BanterBubblesTreemap",
+      error,
+    });
+
+    return (
+      <Alert variant="destructive">
+        <AlertTitle>Failed to load Banter Bubbles Treemap data.</AlertTitle>
+        <AlertDescription>Please try again later.</AlertDescription>
+      </Alert>
+    );
+  }
 };
 
 const getBanterBubblesData = async () => {

@@ -1,6 +1,7 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { GaugeChart } from "@/components/ui/chart/gauge";
 import { LineChart } from "@/components/ui/chart/line";
+import { reportErrorViaTelegram } from "@/lib/telegram";
 import { cn } from "@/lib/utils";
 import { ComponentProps, ComponentType } from "react";
 import { CryptoFearAndGreedHistory, CryptoFngData } from "../../types";
@@ -61,20 +62,33 @@ async function fetchCryptoFngHistory(): Promise<CryptoFearAndGreedHistory | null
 const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
   className,
 }) => {
-  const [todayDataResponse, historyDataResponse] = await Promise.all([
+  const [todayDataResponse, historyDataResponse] = await Promise.allSettled([
     fetchCryptoFngData(),
     fetchCryptoFngHistory(),
   ]);
 
-  if (!todayDataResponse) {
+  if (todayDataResponse.status === "rejected") {
     console.error("Failed to fetch today's FNG data");
+
+    await reportErrorViaTelegram({
+      context: "CryptoFearAndGreed",
+      error: todayDataResponse.reason,
+    });
   }
 
-  if (!historyDataResponse) {
+  if (historyDataResponse.status === "rejected") {
     console.error("Failed to fetch FNG history");
+
+    await reportErrorViaTelegram({
+      context: "CryptoFearAndGreed",
+      error: historyDataResponse.reason,
+    });
   }
 
-  if (!todayDataResponse || !historyDataResponse) {
+  if (
+    todayDataResponse.status === "rejected" ||
+    historyDataResponse.status === "rejected"
+  ) {
     return (
       <Alert variant="destructive">
         <AlertTitle>Failed to load Crypto Fear & Greed data.</AlertTitle>
@@ -83,7 +97,7 @@ const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
     );
   }
 
-  const cryptoFngData = todayDataResponse.data.at(0);
+  const cryptoFngData = todayDataResponse.value?.data.at(0);
   const gaugeScore = Number(cryptoFngData?.value ?? 0);
   const normalizedLabel = normalizeToSnakeCase(
     cryptoFngData?.value_classification ?? "",
@@ -106,10 +120,14 @@ const CryptoFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
 
       <LineChart
         title="Crypto Market Fear & Greed Trendline"
-        chartData={historyDataResponse.data.labels.map((label, index) => ({
-          date: label,
-          value: historyDataResponse.data.datasets.at(0)?.data.at(index) ?? 0,
-        }))}
+        chartData={
+          historyDataResponse.value?.data.labels.map((label, index) => ({
+            date: label,
+            value:
+              historyDataResponse.value?.data.datasets.at(0)?.data.at(index) ??
+              0,
+          })) ?? []
+        }
         footer={
           <>
             Data by
