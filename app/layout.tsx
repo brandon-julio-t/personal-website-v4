@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { JOB_TITLE } from "@/config";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { MotionConfig } from "motion/react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
@@ -59,18 +58,16 @@ export default function RootLayout({
     >
       <body>
         <ConvexClientProvider>
-          <MotionConfig reducedMotion="user">
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
 
-              <Footer />
-            </ThemeProvider>
-          </MotionConfig>
+            <Footer />
+          </ThemeProvider>
 
           <SpeedInsights />
           <Analytics />
