@@ -1,13 +1,12 @@
-"use client";
-
 import { Markdown } from "@/components/markdown";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { preloadedQueryResult, preloadQuery } from "convex/nextjs";
 
-export const CryptoAnalystVibeReport = () => {
-  const appData = useQuery(api.functions.getAppData);
+export const CryptoAnalystVibeReport = async () => {
+  const preloaded = await preloadQuery(api.functions.getAppData);
+  const appData = preloadedQueryResult(preloaded);
 
   const result = appData?.cryptoVibeReport ?? "";
 

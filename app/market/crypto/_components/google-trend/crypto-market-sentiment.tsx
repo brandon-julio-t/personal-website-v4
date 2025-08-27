@@ -1,14 +1,13 @@
-"use client";
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { preloadedQueryResult, preloadQuery } from "convex/nextjs";
 import LineChartForGoogleTrend from "./chart";
 import { aggregateSerpApiGoogleTrendsResponseIntoChartData } from "./logics";
 
-const GoogleTrendIndonesiaMarketSentiment = () => {
-  const appData = useQuery(api.functions.getAppData);
+const GoogleTrendIndonesiaMarketSentiment = async () => {
+  const preloaded = await preloadQuery(api.functions.getAppData);
+  const appData = preloadedQueryResult(preloaded);
 
   const data = appData?.googleTrendMarketSentiment;
 

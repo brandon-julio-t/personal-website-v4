@@ -41,7 +41,17 @@ const MarketCryptoPage = async () => {
             <AccordionTrigger>Crypto Analyst Vibe Report</AccordionTrigger>
 
             <AccordionContent>
-              <CryptoAnalystVibeReport />
+              <React.Suspense
+                fallback={
+                  <div className="flex flex-col gap-4">
+                    {Array.from({ length: 20 }).map((_, i) => (
+                      <Skeleton key={i} className="h-(--text-sm) w-full" />
+                    ))}
+                  </div>
+                }
+              >
+                <CryptoAnalystVibeReport />
+              </React.Suspense>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -96,7 +106,9 @@ const MarketCryptoPage = async () => {
       </section>
 
       <section>
-        <GoogleTrendCryptoMarketSentiment />
+        <React.Suspense fallback={<Skeleton className="h-96 w-full" />}>
+          <GoogleTrendCryptoMarketSentiment />
+        </React.Suspense>
       </section>
     </main>
   );
