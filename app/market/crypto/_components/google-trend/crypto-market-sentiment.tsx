@@ -1,13 +1,22 @@
+"use client";
+
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { getSerpApiGoogleTrendIndonesiaMarketSentiment } from "@/lib/server/serpapi";
-import { reportErrorViaTelegram } from "@/lib/telegram";
+import { Skeleton } from "@/components/ui/skeleton";
+import { api } from "@/convex/_generated/api";
+import { useQuery } from "convex/react";
 import LineChartForGoogleTrend from "./chart";
 import { aggregateSerpApiGoogleTrendsResponseIntoChartData } from "./logics";
 
-const GoogleTrendIndonesiaMarketSentiment = async () => {
-  try {
-    const data = await getSerpApiGoogleTrendIndonesiaMarketSentiment();
+const GoogleTrendIndonesiaMarketSentiment = () => {
+  const appData = useQuery(api.functions.getAppData);
 
+  const data = appData?.googleTrendMarketSentiment;
+
+  if (!data) {
+    return <Skeleton className="h-96 w-full" />;
+  }
+
+  try {
     const chartData = data
       ? aggregateSerpApiGoogleTrendsResponseIntoChartData({
           serpApiGoogleTrendsResponse: data,
@@ -22,11 +31,6 @@ const GoogleTrendIndonesiaMarketSentiment = async () => {
     );
   } catch (error) {
     console.error(error);
-
-    await reportErrorViaTelegram({
-      context: "GoogleTrendIndonesiaMarketSentiment",
-      error,
-    });
 
     return (
       <Alert variant="destructive">

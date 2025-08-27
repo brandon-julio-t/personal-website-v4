@@ -10,9 +10,20 @@ import {
 import { Monitor, Moon, Sun } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "next-themes";
+import React from "react";
+import { Skeleton } from "./skeleton";
 
 export function DarkModeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
+
+  const [isMounted, setIsMounted] = React.useState(false);
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <Skeleton className="size-9" />;
+  }
 
   return (
     <DropdownMenu>

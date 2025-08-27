@@ -1,4 +1,5 @@
 import Footer from "@/components/common/footer";
+import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { JOB_TITLE } from "@/config";
 import { Analytics } from "@vercel/analytics/react";
@@ -57,21 +58,23 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <MotionConfig reducedMotion="user">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
+        <ConvexClientProvider>
+          <MotionConfig reducedMotion="user">
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
 
-            <Footer />
-          </ThemeProvider>
-        </MotionConfig>
+              <Footer />
+            </ThemeProvider>
+          </MotionConfig>
 
-        <SpeedInsights />
-        <Analytics />
+          <SpeedInsights />
+          <Analytics />
+        </ConvexClientProvider>
       </body>
     </html>
   );
