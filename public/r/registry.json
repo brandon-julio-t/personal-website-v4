@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "brandonjt",
+  "homepage": "https://brandonjuliothenaro.my.id",
+  "items": [
+    {
+      "name": "image-zoom",
+      "type": "registry:block",
+      "title": "Image Zoom",
+      "description": "An interactive image viewer for React apps. Easily zoom, drag, resize, and rotate images with smooth controls. Perfect for galleries, portfolios, or any UI where users need to explore images in detail.",
+      "files": [
+        {
+          "path": "registry/new-york/image-zoom/image-zoom.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["button", "dialog"]
+    },
+    {
+      "name": "ios-mail-tabs",
+      "type": "registry:block",
+      "title": "iOS Mail Tabs",
+      "description": "A set of animated, iOS-inspired mail tabs for React apps. Switch between tabs like Primary, Transactions, Updates, Promotions, and All Mail with smooth transitions. Great for email clients or any UI needing visually distinct, interactive tab navigation.",
+      "files": [
+        {
+          "path": "registry/new-york/ios-mail-tabs/ios-mail-tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"]
+    }
+  ]
+}
