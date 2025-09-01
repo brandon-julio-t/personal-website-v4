@@ -67,8 +67,9 @@ export default function Contacts({ delay }: { delay?: number }) {
                   href={contact.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="scale-150"
                 >
-                  <FontAwesomeIcon icon={contact.icon as IconProp} size="2x" />
+                  <FontAwesomeIcon icon={contact.icon as IconProp} size="1x" />
                 </Link>
               </Button>
             </div>
