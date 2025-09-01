@@ -1,3 +1,8 @@
+import GiveApp1 from "./images/give-app-1.webp";
+import GiveApp2 from "./images/give-app-2.webp";
+import GiveApp3 from "./images/give-app-3.webp";
+import GiveApp4 from "./images/give-app-4.webp";
+import InventoryForecast1 from "./images/inventory-forecast-1.webp";
 import Kokopilot1 from "./images/kokopilot-1.webp";
 import Kokopilot2 from "./images/kokopilot-2.webp";
 import OrderAI1 from "./images/order-ai-1.webp";
@@ -33,7 +38,7 @@ export const workExperiences = [
           </>
         ),
         images: [Kokopilot1, Kokopilot2],
-        skills: ["LLM", "AI Agent"],
+        skills: ["LLM", "AI Agent", "AI SDK by Vercel"],
       },
       {
         title: "Chat Order AI Agent",
@@ -44,7 +49,7 @@ export const workExperiences = [
           </>
         ),
         images: [OrderAI1, OrderAI2],
-        skills: ["LLM", "AI Agent", "Prompt Engineering"],
+        skills: ["LLM", "AI Agent", "AI SDK by Vercel", "Prompt Engineering"],
       },
       {
         title: "Route Optimization",
@@ -56,7 +61,38 @@ export const workExperiences = [
           </>
         ),
         images: [RouteOptimization1, RouteOptimization2, RouteOptimization3],
-        skills: ["Vehicle Routing Problem (VRP)"],
+        skills: ["Vehicle Routing Problem (VRP)", "Kanban Board"],
+      },
+      {
+        title: "Inventory Forecast",
+        description: (
+          <>
+            A dashboard to predict the order demand of a product so that the
+            logistics team can prepare accordingly to avoid under-stocking and
+            over-stocking, reducing fresh goods wastage by 20%.
+          </>
+        ),
+        images: [InventoryForecast1],
+        skills: [
+          "Data Analysis",
+          "Time Series Analysis",
+          "Python",
+          "FastAPI",
+          "Prophet by Meta",
+        ],
+      },
+
+      {
+        title: "Multi-tenant E2E Store ERP",
+        description: (
+          <>
+            A multi-tenant E2E store management ERP web-app portal with public
+            facing storefront that customer can visit, add items to cart, then
+            proceed to place the order.
+          </>
+        ),
+        images: [GiveApp1, GiveApp2, GiveApp3, GiveApp4],
+        skills: ["React (TypeScript)", "Convex", "shadcn/ui", "Tailwind CSS"],
       },
     ],
   },
