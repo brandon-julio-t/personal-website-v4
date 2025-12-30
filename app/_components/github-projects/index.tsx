@@ -77,6 +77,7 @@ async function getData() {
       method: "POST",
       headers: headers,
       body: JSON.stringify({ query: gql }),
+      next: { revalidate: 3600 },
     });
     if (!response.ok) throw new Error(response.statusText);
     const data = (await response.json()) as { data: IData };

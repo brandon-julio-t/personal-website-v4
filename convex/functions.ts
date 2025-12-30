@@ -18,7 +18,7 @@ export const updateAppData = internalMutation({
     if (!app) {
       await ctx.db.insert("app", args.data);
     } else {
-      await ctx.db.patch(app._id, args.data);
+      await ctx.db.patch("app", app._id, args.data);
     }
   },
 });

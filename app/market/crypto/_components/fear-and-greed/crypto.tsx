@@ -14,7 +14,9 @@ import { CryptoFearAndGreedHistory, CryptoFngData } from "../../types";
  * await fetchCryptoFngData();
  */
 async function fetchCryptoFngData(): Promise<CryptoFngData | null> {
-  const res = await fetch("https://api.alternative.me/fng");
+  const res = await fetch("https://api.alternative.me/fng", {
+    next: { revalidate: 3600 },
+  });
   if (!res.ok) {
     const text = await res.text();
     console.error("Failed to fetch FNG data:", res.status, text);
@@ -35,7 +37,7 @@ async function fetchCryptoFngHistory(): Promise<CryptoFearAndGreedHistory | null
     "https://alternative.me/api/crypto/fear-and-greed-index/history",
     {
       body: '{"days":365}',
-      cache: "default",
+      next: { revalidate: 3600 },
       credentials: "include",
       headers: {
         Accept: "application/json, text/plain, */*",

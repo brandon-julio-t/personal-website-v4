@@ -21,6 +21,7 @@ const UsStockFearAndGreed: ComponentType<ComponentProps<"section">> = async ({
           "Accept-Language": "en-US,en;q=0.9",
           Referer: "https://www.cnn.com/",
         },
+        next: { revalidate: 3600 },
       },
     )
       .then((res) => res.json())

@@ -35,7 +35,9 @@ const BanterBubblesTreemap = async () => {
 };
 
 const getBanterBubblesData = async () => {
-  const data = await fetch("https://data.banterbubbles.com/files/1.usd.json")
+  const data = await fetch("https://data.banterbubbles.com/files/1.usd.json", {
+    next: { revalidate: 60 },
+  })
     .then((r) => r.json())
     .then((data) => data as BanterBubblesDataResponse);
 
