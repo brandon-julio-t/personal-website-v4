@@ -39,9 +39,9 @@ const contacts = [
     title: "Linkedin",
   },
   {
-    href: "https://docs.google.com/document/d/1B9jcWOLb9CSzsQ9gxjR_l5EAzF6CssQ1T7xUM3cYs3s/edit?usp=sharing",
+    href: "https://raw.githubusercontent.com/brandon-julio-t/curriculum-vitae/refs/heads/main/dist/Brandon_Julio_Thenaro_CV.pdf",
     icon: faFileAlt,
-    title: "FileAlt",
+    title: "Curriculum Vitae",
   },
   // {
   //   href: "https://www.freecodecamp.org/brandon-julio-thenaro",
